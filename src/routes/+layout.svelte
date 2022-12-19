@@ -3,7 +3,8 @@
 	import NavigationVertical from "../lib/NavigationVertical.svelte"
 	import NavigationHorisontal from "../lib/NavigationHorisontal.svelte"
 	import Search from "../lib/Search.svelte"
-	import site from "../lib/site.json"
+	import { site } from 'C:/github/2022-016-WasaSK-sveltekit/src/lib/stores.js'
+
 	import { goto } from '$app/navigation'
 	import './styles.css'
 
@@ -12,11 +13,13 @@
 
 	const COLUMNS = 1
 
+	// $: console.log('layout',$site)
+
 	$: WIDTH = 250
 	const GAP = 1
 
 	let stack = ["Hem"]
-	let path = [site.menu]
+	let path = [$site.menu]
 
 	const round = (x,n) => Math.round(x*Math.pow(10,n))/Math.pow(10,n)
 	const spreadWidth = (share,WIDTH) => Math.floor((WIDTH-2*GAP*(1/share+1))*share) - 2
@@ -24,6 +27,7 @@
 	$: keys = _.keys(_.last(path))
 
 	function push(key) {
+		console.log('key',key)
 		const obj = _.isObject(_.last(path)[key])
 		if (obj) {
 			path.push(_.last(path)[key])
@@ -36,7 +40,9 @@
 				window.open(url,"_self")
 			} else if (_.startsWith(url,'/')) {
 				goto(url)
-			} else if (_.isNumber(url)) {
+			} else if (_.endsWith(url,'.md')) {
+				goto('/post/' + url)
+			} else if (_.endsWith(url,'.html')) {
 				goto('/post/' + url)
 			} else { // .pdf etc
 				window.open('../src/lib/files/' + url,"_self")

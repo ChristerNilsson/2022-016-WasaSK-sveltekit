@@ -1,18 +1,15 @@
 <!-- src/routes/query/+page.svelte -->
+
 <script>
 	import _ from 'lodash'
-	export let data
-	let words = []
-	for (const post of data.posts) {
-		words = words.concat(post.meta.words.split(' '))
-	}
-	words.sort()
-	words = _.uniq(words)
+	import { site } from 'C:/github/2022-016-WasaSK-sveltekit/src/lib/stores.js'
+	const md = $site.md
+	let words = _.map(_.keys(md), (key) => md[key][1].split(' '))
+	words = _.uniq(_.flatten(words).sort())
 
 </script>
 	
 	<h1>Alla ord</h1>
-	•
 	{#each words as word}
 		<a href={`/query/${word}`}>{word}</a> •&nbsp;
 	{/each}
