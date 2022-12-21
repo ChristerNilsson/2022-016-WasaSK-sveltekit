@@ -1,10 +1,9 @@
 <script>
 	import _ from "lodash"
-	import NavigationVertical from "../lib/NavigationVertical.svelte"
-	import NavigationHorisontal from "../lib/NavigationHorisontal.svelte"
-	import Search from "../lib/Search.svelte"
-	import { site } from 'C:/github/2022-016-WasaSK-sveltekit/src/lib/stores.js'
-
+	import NavigationVertical from "$lib/NavigationVertical.svelte"
+	import NavigationHorisontal from "$lib/NavigationHorisontal.svelte"
+	import Search from "$lib/Search.svelte"
+	import { site } from '$lib/stores.js'
 	import { goto } from '$app/navigation'
 	import './styles.css'
 
@@ -37,15 +36,15 @@
 		} else {
 			const url = _.last(path)[key]
 			if (_.startsWith(url,'http')) {
-				window.open(url,"_self")
+				window.open(url)
 			} else if (_.startsWith(url,'/')) {
 				goto(url)
 			} else if (_.endsWith(url,'.md')) {
 				goto('/post/' + url)
 			} else if (_.endsWith(url,'.html')) {
 				goto('/post/' + url)
-			} else { // .pdf etc
-				window.open('../src/lib/files/' + url,"_self")
+			} else { 
+				window.open('../src/lib/files/' + url)
 			}
 		}
 	}
@@ -88,7 +87,7 @@
 		padding-bottom:10px;
 	}
 	.swimlane {
-			position: absolute;
-			top: 0px;
+		position: absolute;
+		top: 0px;
 	}
 </style>

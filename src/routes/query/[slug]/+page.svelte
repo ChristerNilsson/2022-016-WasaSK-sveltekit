@@ -1,9 +1,8 @@
-<!-- src/routes/query/[slug]/+page.svelte -->
-
 <script>
+	// query 1
 	export let data
 	import _ from "lodash"
-	import { site } from 'C:/github/2022-016-WasaSK-sveltekit/src/lib/stores.js'
+	import { site } from '$lib/stores.js'
 	
 	const SPACE = ' '
 

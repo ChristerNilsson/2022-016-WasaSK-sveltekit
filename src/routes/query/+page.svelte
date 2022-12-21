@@ -1,8 +1,7 @@
-<!-- src/routes/query/+page.svelte -->
-
 <script>
+	// query *
 	import _ from 'lodash'
-	import { site } from 'C:/github/2022-016-WasaSK-sveltekit/src/lib/stores.js'
+	import { site } from '$lib/stores.js'
 	const md = $site.md
 	let words = _.map(_.keys(md), (key) => md[key][1].split(' '))
 	words = _.uniq(_.flatten(words).sort())

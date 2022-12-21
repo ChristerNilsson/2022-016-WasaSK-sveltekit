@@ -1,4 +1,4 @@
-// src/routes/query/+page.js
+// query *
 
 export const load = async ({ fetch, params }) => {
 	return {}

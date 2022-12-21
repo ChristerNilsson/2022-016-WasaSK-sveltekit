@@ -1,12 +1,10 @@
-<!-- src/routes/post/+page.svelte -->
-
 <script>
+	// post *
 	import _ from "lodash"
-	import { site } from 'C:/github/2022-016-WasaSK-sveltekit/src/lib/stores.js'
+	import { site } from '$lib/stores.js'
 	export let data
-	// $: console.log(data)
 </script>
-	
+
 	<h1>Senaste posterna</h1>
 		
 	<table>
@@ -25,4 +23,15 @@
 		</tr>
 		{/each}
 		</tbody>
+</table>
+
+<table>
+	<thead><tr><th align='left'>Statistik</th><th align='right'></th></tr></thead>
+	<tbody>
+		<tr><td>Uppdaterad</td><td>{$site.stats.updated}</td></tr>
+		<tr><td>Poster</td><td>{$site.stats.posts}</td></tr>
+		<tr><td>Filer</td><td> {$site.stats.files}</td></tr>
+		<tr><td>Menyrader</td><td> {$site.stats.items}</td></tr>
+		<tr><td>Ord</td><td><a href="/query">{$site.stats.words}</a></td></tr>
+	</tbody>
 </table>

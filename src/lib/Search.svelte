@@ -24,9 +24,9 @@
 		navigator.clipboard.writeText(location.origin + location.pathname + q + q1 + a + q2)
 	}
 
-	function help() {
-		window.open("https://github.com/ChristerNilsson/2022-015-WasaSK#readme","_self")
-	}
+	// function help() {
+	// 	window.open("https://github.com/ChristerNilsson/2022-015-WasaSK#readme") //,"_self")
+	// }
 
 	//window.onload = () => document.getElementById("search").focus()
 
@@ -47,7 +47,7 @@
 
 	<button on:click={clear} style="left:{1*WIDTH/4}px; width:{spreadWidth(1/4,WIDTH)}px">Rensa</button>
 	<button on:click={share} style="left:{2*WIDTH/4}px; width:{spreadWidth(1/4,WIDTH)}px">Dela</button>
-	<button on:click={help}  style="left:{3*WIDTH/4}px; width:{spreadWidth(1/4,WIDTH)}px">Hjälp</button>
+	<!-- <button on:click={help}  style="left:{3*WIDTH/4}px; width:{spreadWidth(1/4,WIDTH)}px">Hjälp</button> -->
 </div>
 
 <!-- {#if (sokruta.split(" ").length <= 3) && (sokruta.length > 0)}

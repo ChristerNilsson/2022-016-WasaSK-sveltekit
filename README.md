@@ -29,4 +29,23 @@ Sökningen visar en kombination av OCH samt ELLER. Poster med flera träffar kom
 ```
 
 ## md
-Innehåller .md och .html filer.
+Innehåller .md filer
+
+## html
+Kan bara nås via menyn i nuläget. Problemet är att md processas till html, men att släppa igenom html oförändrat är knepigt.  
+Att döpa om html-filerna till .md fungerar ej eftersom de inte blir godkända.
+
+## Inspiration
+
+https://joshcollinsworth.com/blog/build-static-sveltekit-markdown-blog
+
+## images
+
+Lite knepigt att hitta hur man gör.
+```
+![alt](/images/Volontär1.JPG)
+```
+
+/ pekar på static-katalogen
+
+Preview i VS Code fungerar ej. Kan ev gåatt installera en annan md-viewer.

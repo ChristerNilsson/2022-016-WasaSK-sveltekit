@@ -1,4 +1,4 @@
-// src/routes/post/+page.js
+// post *
 
 export const load = async ({ fetch }) => {
   const response = await fetch(`/api/posts`)

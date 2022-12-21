@@ -1,4 +1,4 @@
-// src/routes/query/[slug]/+page.js
+// query 1
 
 export const load = async ({ fetch, params }) => {
 	const { slug } = params	
