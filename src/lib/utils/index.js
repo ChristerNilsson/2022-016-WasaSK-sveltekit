@@ -2,13 +2,12 @@ import _ from "lodash"
 
 export const fetchMarkdownPosts = async () => {
 	console.log('fetchMarkdownPosts')
-	const allPostFiles = import.meta.glob("./../../../src/md/*.md")
+	const allPostFiles = import.meta.glob("./../../../src/md/**/*.md")
 	const iterablePostFiles = Object.entries(allPostFiles)
 	const allPosts = await Promise.all(
 		iterablePostFiles.map(async ([path, resolver]) => {
 			const { metadata } = await resolver()
 			const postPath = '/post' + path.slice(8)
-			// console.log(metadata,postPath)
 
 			return {
 				meta: metadata,

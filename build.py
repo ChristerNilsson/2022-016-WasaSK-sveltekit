@@ -5,8 +5,12 @@ from os import scandir
 from urllib.parse import unquote
 from os.path import getctime
 import dateutil.parser as parser
+import re
 
 UPDATE = True
+
+FORBIDDEN = "-0123456789"
+datum = re.compile(r'(\d\d\d\d-\d\d-\d\d)$')
 
 stats = {
 	'updated': str(datetime.datetime.now())[0:16],
@@ -55,9 +59,14 @@ def indented2object(raw):
 	return tree
 
 def getNames(path):
+	def recurse(path):
+		for name in [f for f in scandir(path)]:
+			if name.is_dir():
+				recurse(name)
+			else:
+				res.append(name.path[7:].replace("\\",'/'))
 	res = []
-	for name in [f for f in scandir(path)]:
-		res.append(name.name)
+	recurse(path)
 	res.sort()
 	res.reverse()
 	return res
@@ -74,19 +83,20 @@ def dumpjson(data,f):
 	s = s.replace('","','",\n"')
 	if UPDATE: f.write(s)
 
-def onlyLetters(word):
-	for digit in "0123456789":
-		if digit in word: return False
+def accepted(word):
+	if datum.match(word): return True
+	for ch in FORBIDDEN:
+		if ch in word: return False
 	return True
 
 def extractWords(s):
 	s = unquote(s)
-	for ch in "`'&<>()[]{}-+*/|:;!?,._#$@%=\t\n" + '"':
+	for ch in "`'&<>()[]{}+*/|:;!?,._#$@%=\t\n" + '"':
 		s = s.replace(ch,' ')
 	words = [word.lower() for word in s.split(' ')]
 	words = set(words)
 	words = [word for word in words if " " + word + " " not in STOPWORDS]
-	words = [word for word in words if onlyLetters(word)]
+	words = [word for word in words if accepted(word)]
 	words.sort()
 	stats['words'] += len(words)
 	return ' '.join(words)
@@ -94,7 +104,7 @@ def extractWords(s):
 start = time.time()
 
 files_md = getNames("src/md")
-# files_html = [] getNames("static/html")
+#files_html = getNames("src/html")
 files_files = getNames("src/lib/files")
 
 def processFiles(dir,filenames):
@@ -116,7 +126,7 @@ with open('stoppord.txt', 'r', encoding="utf-8") as f:
 
 mdData = {}
 processFiles('src/md/',files_md)
-# processFiles('static/html/',files_html)
+# processFiles('src/html/',files_html)
 
 menu = readMenuTree()
 stats['files'] = len(files_files)

@@ -10,18 +10,18 @@
 	<table>
 		<thead><tr><th align='left'>Datum</th><th align='left'>Post</th></tr></thead>
 		<tbody>
-		{#each data.posts as post}
-		<tr>
-			<td>
-				{$site.md[post.path.slice(6)][0]}
-			</td>
-			<td>
-				<a href={post.path}>
-					{post.path.slice(6).replaceAll('_',' ').replace('.md','')}
-				</a>
-			</td>
-		</tr>
-		{/each}
+			{#each data.posts as post}
+				<tr>
+					<td>
+						{$site.md[post.path.slice(6)][0]}
+					</td>
+					<td>
+						<a href={post.path}>
+							{post.path.slice(6).replaceAll('_',' ').replace('.md','')}
+						</a>
+					</td>
+				</tr>
+			{/each}
 		</tbody>
 </table>
 

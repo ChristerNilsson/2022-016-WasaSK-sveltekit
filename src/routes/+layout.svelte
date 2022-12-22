@@ -7,6 +7,8 @@
 	import { goto } from '$app/navigation'
 	import './styles.css'
 
+	export const prerender = true
+
 	let sokruta = ""
 	let selected = {} // filenames
 
@@ -68,7 +70,7 @@
 </script>
 
 <div class="menu">
-	<img class="logo" src="../src/lib/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/post")} on:keydown={noop}>
+	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/post")} on:keydown={noop}>
 	<Search bind:sokruta  {stack} {WIDTH} {GAP} {spreadWidth} {_} {pop} />
 	<NavigationHorisontal {stack} {WIDTH} />
 	<NavigationVertical {keys} {push} {WIDTH} />
