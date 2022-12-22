@@ -42,47 +42,25 @@ macron: >
 ```
 
 ## TABLE.svelte
-```
-<script>
-	import _ from 'lodash'
-	const range = _.range
-	export let header
-	export let texts
-	export let links
-	export let macron
-	function grid(s) {return _.map(s.split(" "), (row) => _.map(row.replaceAll('_',' ').split("|")))}
-	const M = grid(macron)
-	const H = grid(header)
-	const T = grid(texts)
-	for (const item of M)	{
-		links = links.replaceAll(item[0],item[1])
-	}
-	const L = grid(links)
-	const cols = header.split('|').length
-	const rows = L.length
-</script>
 
-<table>
-	<thead>
-	{#each H[0] as h}
-		<th>{h}</th>
-	{/each}
-	</thead>
-	<tbody>
-		{#each range(rows) as j}
-			<tr>
-			{#each range(cols) as i}
-				{#if L[j][i] && L[j][i] != 'x'}
-					<td><a href={L[j][i]}>{T[j][i]}</a></td>
-				{:else}
-					<td>{T[j][i]}</td>
-				{/if}
-			{/each}
-			</tr>
-		{/each}
-	</tbody>
-</table>
-```
+* Denna komponent är avsedd att underlätta skapandet av tabeller
+* Wasas tabeller kan vara breda mtp att länkar till bildbanken ska in i varje cell.
+* Vill man ha flera tabeller på samma sida kan man hantera det i metadatat.
+* Tänk på att indentera med två mellanslag. Inga tabbar.
+* parametrar
+	* header (obligatorisk)
+	* texts  (obligatorisk)
+	* align
+	* links 
+	* macros
+* header + texts motsvarar markdowns normala tabellhantering
+* links behövs om vill att cellerna ska innehålla länkar
+* mha macros kan man minska tabellens bredd så att skärmen utnyttjas bättre
+* Exempel: Lagmatcher_2022_HT_2023_VT.md
+* Rader separeras med mellanslag eller ny rad.
+* Kolumner separeras med |
+* Behöver man ett mellanslag, använd %20
+* TABLE.svelte skapar kod med `<table>`,`<thead>`,`<th>`,`<tbody>`,`<tr>`, `<td style="text-align:center">` samt `</>`
 
 ## Kommentar
 ```

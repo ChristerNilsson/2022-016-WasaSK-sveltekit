@@ -1,37 +1,34 @@
 <script>
 	import _ from 'lodash'
 	const range = _.range
-	export let header
-	export let align // optional
-	export let texts
-	export let links
-	export let macros
+	export let data
 
 	function grid(s) {return _.map(s.split(" "), (row) => _.map(row.replaceAll('_',' ').split("|")))}
 	function pretty(s) { return s.replaceAll('%20',' ').replaceAll('%5F','_') }
 
-	const M = grid(macros)
+	const M = grid(data.macros)
+
 	for (const item of M)	{
-		texts = texts.replaceAll(item[0],item[1])
-		links = links.replaceAll(item[0],item[1])
+		data.texts = data.texts.replaceAll(item[0],item[1])
+		data.links = data.links.replaceAll(item[0],item[1])
 	}
-	const H = grid(header.trim())
-	const T = grid(texts.trim())
-	const L = grid(links.trim())
+	const H = grid(data.header.trim())
+	const T = grid(data.texts.trim())
+	const L = grid(data.links.trim())
 
 	const hash = {}
 	hash.L = "text-align:left"
 	hash.C = "text-align:center"
 	hash.R = "text-align:right"
 
-	if (!align) align = "LLLLLLLLLLLLL"
-	align = align.replaceAll(' ','')
+	if (!data.align) data.align = "LLLLLLLLLLLLL"
+	data.align = data.align.replaceAll(' ','')
 	const alignments = []
-	for (const ch of align) {
+	for (const ch of data.align) {
 		alignments.push(hash[ch])
 	}
 
-	const cols = header.split('|').length
+	const cols = data.header.split('|').length
 	const rows = L.length
 </script>
 

@@ -1,8 +1,7 @@
-<script>
-	// post *
+<script> // post *
 	import _ from "lodash"
 	import { site } from '$lib/stores.js'
-	export let data
+	// export let data
 </script>
 
 	<h1>Senaste posterna</h1>
@@ -10,14 +9,15 @@
 	<table>
 		<thead><tr><th align='left'>Datum</th><th align='left'>Post</th></tr></thead>
 		<tbody>
-			{#each data.posts as post}
+			{#each _.keys($site.md) as key}
 				<tr>
 					<td>
-						{$site.md[post.path.slice(6)][0]}
+						{$site.md[key][0]}
 					</td>
 					<td>
-						<a href={post.path}>
-							{post.path.slice(6).replaceAll('_',' ').replace('.md','')}
+						<a href={'/post/' + key}>
+							{key} 
+							<!-- post.path.slice(6).replaceAll('_',' ').replace('.md','')} -->
 						</a>
 					</td>
 				</tr>

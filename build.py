@@ -51,7 +51,7 @@ def indented2object(raw):
 			pos[name] = {}
 		else:
 			key,filename = arr
-			if filename.startswith('/') or filename.startswith('http') or filename.endswith('.md') or filename.endswith('.html') and filename in files_md or filename in files_files:
+			if filename.startswith('/') or filename.startswith('http') or filename.endswith('.md') or filename.endswith('.html') and filename in files_md or '/files/'+filename in files_files:
 				pos[key] = filename
 			else:
 				print('Filen saknas:', filename)
