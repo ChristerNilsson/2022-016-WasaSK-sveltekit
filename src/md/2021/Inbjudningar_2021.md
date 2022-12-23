@@ -2,8 +2,6 @@
 W: http://wasask.se/
 ---
 
-[//]: # (This may be the most platform independent comment)
-
 Januari|Plats|Tid|Anmälan|Resultat
 -|-|-|-|-
 Tjejträffen|Katarina Södra Skola, Garbosalen|2021-01-09|<red>Inställd</red>

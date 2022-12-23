@@ -3,18 +3,26 @@
 	const range = _.range
 	export let data
 
-	function grid(s) {return _.map(s.split(" "), (row) => _.map(row.replaceAll('_',' ').split("|")))}
+	function grid(arr) {return _.map(arr, (row) => _.map(row.split("|")))}
 	function pretty(s) { return s.replaceAll('%20',' ').replaceAll('%5F','_') }
+	const clean = (mx) => _.map(mx, (row) => _.map(row, (cell) => cell.trim()))
 
-	const M = grid(data.macros)
+	const M = clean(grid(data.macros))
+	// console.log({M})
+	const H = clean(grid([data.header]))
+	// console.log({H})
+  let T = clean(grid(data.texts))
+	// console.log({T})
+	let L = clean(grid(data.links))
+	// console.log({L})
 
 	for (const item of M)	{
-		data.texts = data.texts.replaceAll(item[0],item[1])
-		data.links = data.links.replaceAll(item[0],item[1])
+		T = _.map(T, (row) => _.map(row, (cell) => cell.replaceAll(item[0],item[1])))
+		L = _.map(L, (row) => _.map(row, (cell) => cell.replaceAll(item[0],item[1])))
 	}
-	const H = grid(data.header.trim())
-	const T = grid(data.texts.trim())
-	const L = grid(data.links.trim())
+
+	console.log({T})
+	console.log({L})
 
 	const hash = {}
 	hash.L = "text-align:left"
@@ -28,7 +36,7 @@
 		alignments.push(hash[ch])
 	}
 
-	const cols = data.header.split('|').length
+	const cols = H[0].length
 	const rows = L.length
 </script>
 
