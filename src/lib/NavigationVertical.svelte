@@ -6,7 +6,7 @@
 		
 </script>
 
-<div style="width:{WIDTH}px">
+<div style="width:{WIDTH+5}px">
 
 	{#each keys as key }
 		<div>

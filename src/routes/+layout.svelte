@@ -3,7 +3,7 @@
 	import NavigationVertical from "$lib/NavigationVertical.svelte"
 	import NavigationHorisontal from "$lib/NavigationHorisontal.svelte"
 	import Search from "$lib/Search.svelte"
-	import { site } from '$lib/stores.js'
+	import { site } from '$lib/site.js'
 	import { goto } from '$app/navigation'
 	import './styles.css'
 
@@ -14,10 +14,14 @@
 
 	const COLUMNS = 1
 
-	// $: console.log('layout',$site)
-
 	$: WIDTH = 250
 	const GAP = 1
+
+	$: {
+		console.log(sokruta)
+		// location.href = '/query/' + sokruta
+		// goto('/query/' + sokruta)
+	}
 
 	let stack = ["Hem"]
 	let path = [$site.menu]
@@ -45,8 +49,8 @@
 				goto('/post/' + url)
 			} else if (_.endsWith(url,'.html')) {
 				goto('/post/' + url)
-			} else { 
-				window.open('../src/lib/files/' + url)
+			} else if (_.startsWith(url,'files')) { 
+				window.open('../src/lib/' + url)
 			}
 		}
 	}
@@ -71,7 +75,7 @@
 
 <div class="menu">
 	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/post")} on:keydown={noop}>
-	<Search bind:sokruta  {stack} {WIDTH} {GAP} {spreadWidth} {_} {pop} />
+	<Search bind:sokruta {stack} {WIDTH} {_} {pop} />
 	<NavigationHorisontal {stack} {WIDTH} />
 	<NavigationVertical {keys} {push} {WIDTH} />
 </div>

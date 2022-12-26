@@ -10,12 +10,12 @@ januari:
   header: Januari | Ort | Datum | Anmälan | Resultat
   align: LLCLL
   texts:
-    - Rilton Cup & Rilton ELO | Stockholm                        | 2022-12-27 <br> 2023-01-05 | Anmäl dig här                    | Anmälda
-    - Blixt-SM                | Scandic Continental, Stockholm   | 2022-12-27 <br> 2023-01-01 | Anmäl_dig här                    | Anmälda
-    - Rilton 1800             | Stockholm                        | 2023-01-02 <br> 2023-01-05 | Anmäl dig här                    | Anmälda
+    - Rilton Cup & Rilton ELO | Stockholm                        |   2022-12-27<br>2023-01-05 | Anmäl dig här                    | Anmälda
+    - Blixt-SM                | Scandic Continental, Stockholm   |<b>2022-12-27<br>2023-01-01</b>| Anmäl_dig här                    | Anmälda
+    - Rilton 1800             | Stockholm                        |<b>2023-01-02<br>2023-01-05</b>| Anmäl dig här                    | Anmälda
     - Tjejträffen             | Garbosalen, Katarina Södra Skola | 2023-01-07                 | Anmäl dig här                    |
     - Flick-SM                | Göteborg                         | 2023-01-27 <br> 2023-01-29 | Anmäl dig här                    | Anmälda
-    - Juniorlag-DM, Elitserien| Salongerna, Stockholm            | 2023-01-28 <br> 2023-01-29 |                                  |
+    - Juniorlag-DM, Elitserien| Salongerna, Stockholm            | 2023-01-28 <br> 2023-01-29                                  ||
   links:
     - $W/Inbjudan_Rilton_Cup_svenska_2022_2023.pdf|              |                          |$C/Anmeldung.aspx?lan=6&tnr=661619| $C/tnr661619.aspx?lan=6
     - $W/INBJUDAN-Blixt-SM-2023.pdf|                             |                          |$A/3336/anmalan                   | $T=10838
@@ -28,10 +28,10 @@ februari:
   align: LLCLL
   texts:
     - Elite Hotels Open - GP   |Växjö                 |2023-02-10 <br> 2023-02-12       |Anmäl dig här|Anmälda
-    - Juniorlag-DM, Superettan |Salongerna, Stockholm |<b>2023-02-18 <br> 2023-02-19</b>|             |
+    - Juniorlag-DM, Superettan |Salongerna, Stockholm |<b>2023-02-18 <br> 2023-02-19</b>||
     - Västgöta Open            |Stadshotellet Skara   |2023-02-18 <br> 2023-02-19       |             |Anmälda
-    - Trojanska Hästens Vår-JGP|Vallatorpsskolan, Täby|<b>2023-02-25</b>                |             |
-    - Sportlovsturneringen     |Salongerna, Stockholm |<b>2023-02-27</b>                |             |
+    - Trojanska Hästens Vår-JGP|Vallatorpsskolan, Täby|<b>2023-02-25</b>||
+    - Sportlovsturneringen     |Salongerna, Stockholm |<b>2023-02-27</b>||
   links:
     - x|||$A/3070/anmalan|$T=10378
     - x

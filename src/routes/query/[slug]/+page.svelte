@@ -1,8 +1,10 @@
 <script>
 	// query 1
-	export let data
+	// export let data
 	import _ from "lodash"
-	import { site } from '$lib/stores.js'
+	import { site } from '$lib/site.js'
+	import { query } from '$lib/query.js'
+	import {timeSince} from '$lib/utils/utils.js'
 	
 	const SPACE = ' '
 
@@ -20,35 +22,70 @@
 		}
 	}
 
-	let words = data.slug.toLowerCase().split(' ')
-	const posts = []
-	const md = $site.md
-	for (const key of _.keys(md)) {
-		console.log(key)
-		const letters = []
-		const hitWords = []
-		for (const i of _.range(words.length)) {
-			const word = words[i]
-			if ($site.md[key][1].includes(SPACE + word)) {
-				letters.push("ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i])
-				hitWords.push(word)
-			}
-		}
-		if (letters.length > 0) posts.push([letters.length,letters.join(""), key, hitWords])
-	}
+	$: querystring  = $query
+	
+	$: posts = search(querystring)
 
-	posts.sort((a,b) =>  multiSort(a,b,[-1,2]))
+	function search(querystring) {
+		console.log('searchA', querystring)
+		let words = querystring.toLowerCase().split(' ')
+		const posts = []
+		const md = $site.md
+		for (const key of _.keys(md)) {
+			console.log('searchB', key)
+			const letters = []
+			const hitWords = []
+			for (const i of _.range(words.length)) {
+				const word = words[i]
+				if ($site.md[key][1].includes(SPACE + word)) {
+					letters.push("ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i])
+					hitWords.push(word)
+				}
+			}
+			let subdir
+			let katalog
+			let filnamn
+			const arr = key.split('/')
+			if (arr.length==3) {
+				[katalog,subdir,filnamn] = arr
+				subdir += '/'
+			} else if (arr.length==2){
+				[katalog,filnamn] = arr
+				subdir = ""
+			} else {
+				console.log('problem')
+			}
+			console.log(arr.length, {key,arr,katalog,subdir,filnamn})
+			let href
+			if (katalog == 'legacy') {
+				href = "https://wasask.se/" + subdir + filnamn
+			} else {
+				href = "/post/" + key
+			}
+			const datum = $site.md[key][0].slice(0,10)
+			if (letters.length > 0) posts.push([letters.length,letters.join(""), href, katalog, filnamn, hitWords,datum])
+		}
+		posts.sort((a,b) =>  multiSort(a,b,[-1,2]))
+		return posts
+	}
 
 </script>
 
 <h1>Sökresultat</h1>
 
 <table>
-	<thead><tr><th align='left'>Post</th><th>Sökord</th></tr></thead>
+	<thead>
+		<th>Post</th>
+		<th>Ålder</th>
+		<th>Katalog</th>
+		<th>Sökord</th>
+	</thead>
 	<tbody>
-		{#each posts as [count,letters,key,hitWords]}
+		{#each posts as [count,letters,href,katalog,filnamn,hitWords,datum]}
 			<tr>
-				<td><a href= /post/{key}>{key.replaceAll('_',' ').replace('.md','')}</a></td>
+				<td><a {href} > {filnamn.replaceAll('_',' ').replace('.md','')} </a></td>
+				<td>{timeSince(new Date(datum))}</td>
+				<td>{katalog}</td>
 				<td>{hitWords.join(' ')}</td>
 			</tr>
 		{/each}
