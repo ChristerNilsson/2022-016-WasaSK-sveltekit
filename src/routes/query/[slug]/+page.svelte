@@ -27,17 +27,17 @@
 	$: posts = search(querystring)
 
 	function search(querystring) {
-		console.log('searchA', querystring)
+		// console.log('searchA', querystring)
 		let words = querystring.toLowerCase().split(' ')
 		const posts = []
-		const md = $site.md
+		const md = $site.posts
 		for (const key of _.keys(md)) {
-			console.log('searchB', key)
+			// console.log('searchB', key)
 			const letters = []
 			const hitWords = []
 			for (const i of _.range(words.length)) {
 				const word = words[i]
-				if ($site.md[key][1].includes(SPACE + word)) {
+				if ($site.posts[key][1].includes(SPACE + word)) {
 					letters.push("ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i])
 					hitWords.push(word)
 				}
@@ -53,16 +53,16 @@
 				[katalog,filnamn] = arr
 				subdir = ""
 			} else {
-				console.log('problem')
+				// console.log('problem')
 			}
-			console.log(arr.length, {key,arr,katalog,subdir,filnamn})
+			// console.log(arr.length, {key,arr,katalog,subdir,filnamn})
 			let href
-			if (katalog == 'legacy') {
+			if (katalog == 'php') {
 				href = "https://wasask.se/" + subdir + filnamn
 			} else {
 				href = "/post/" + key
 			}
-			const datum = $site.md[key][0].slice(0,10)
+			const datum = $site.posts[key][0].slice(0,10)
 			if (letters.length > 0) posts.push([letters.length,letters.join(""), href, katalog, filnamn, hitWords,datum])
 		}
 		posts.sort((a,b) =>  multiSort(a,b,[-1,2]))
@@ -83,7 +83,7 @@
 	<tbody>
 		{#each posts as [count,letters,href,katalog,filnamn,hitWords,datum]}
 			<tr>
-				<td><a {href} > {filnamn.replaceAll('_',' ').replace('.md','')} </a></td>
+				<td><a {href} > {filnamn.replaceAll('_',' ').replace('.md','').replace('.php','')} </a></td>
 				<td>{timeSince(new Date(datum))}</td>
 				<td>{katalog}</td>
 				<td>{hitWords.join(' ')}</td>

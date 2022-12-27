@@ -3,7 +3,7 @@
 	import { site } from '$lib/site.js'
 	import {timeSince} from '$lib/utils/utils.js'
 
-	const posts = _.map(_.keys($site.md), (key) => {
+	const posts = _.map(_.keys($site.posts), (key) => {
 		const arr = key.split('/')
 		let katalog
 		let subdir=''
@@ -19,9 +19,9 @@
 		} else {
 			console.log('problem',arr.length)
 		}
-		if (katalog=='legacy') href='https://wasask.se/' + filename
+		if (katalog=='php') href='https://wasask.se/' + filename
 		else href = 'post/' + katalog + "/" + filename
-		if (katalog == "legacy") {
+		if (katalog == "php") {
 			return [key,href,katalog,filename]
 		} else {
 			return [key,href,katalog,filename]
@@ -47,7 +47,7 @@
 						</a>
 					</td>
 					<td>
-						{timeSince($site.md[key][0])} 
+						{timeSince($site.posts[key][0])} 
 					</td>
 					<td>
 						{katalog}
@@ -60,11 +60,13 @@
 <table>
 	<thead><tr><th align='left'>Statistik</th><th align='right'></th></tr></thead>
 	<tbody>
-		<tr><td>Uppdaterad</td><td>{timeSince($site.stats.updated)}</td></tr>
-		<tr><td>Poster</td><td>{$site.stats.posts}</td></tr>
-		<tr><td>Filer</td><td> {$site.stats.files}</td></tr>
-		<tr><td>Legacy</td><td> {$site.stats.legacy}</td></tr>
-		<tr><td>Menyrader</td><td> {$site.stats.items}</td></tr>
-		<tr><td>Ord</td><td><a href="/query">{$site.stats.words}</a></td></tr>
+		<tr><td>Updated</td><td align='right'>{timeSince($site.stats.updated)}</td></tr>
+		<tr><td>mdPosts</td><td align='right'>{$site.stats.mdPosts}</td></tr>
+		<tr><td>mdBytes</td><td align='right'>{$site.stats.mdBytes}</td></tr>
+		<tr><td>phpPosts</td><td align='right'> {$site.stats.phpPosts}</td></tr>
+		<tr><td>phpBytes</td><td align='right'> {$site.stats.phpBytes}</td></tr>
+		<tr><td>menuItems</td><td align='right'> {$site.stats.menuItems}</td></tr>
+		<tr><td>uniqWords</td><td align='right'><a href="/query">{$site.stats.uniqWords}</a></td></tr>
+		<tr><td>Files</td><td align='right'> {$site.stats.files}</td></tr>
 	</tbody>
 </table>

@@ -15,14 +15,18 @@ datum = re.compile(r'(\d\d\d\d-\d\d-\d\d)$')
 
 allWords = set()
 
+freq = {}
+
 stats = {
 	'updated': str(datetime.datetime.now())[0:16],
-	'items':0,
-	'files':0,
-	'legacy':0,
-	'legacyBytes':0,
-	'words':0,
-	'posts':0
+	'menuItems':0,
+	'mdPosts':0,
+	'mdBytes': 0,
+	'phpPosts':0,
+	'phpBytes':0,
+	'uniqWords':0,
+	'wordBytes':0,
+	'files': 0,
 }
 
 def pr(s): return s.replace("_"," ")
@@ -41,7 +45,7 @@ def indented2object(raw):
 	def pop(n):
 		for i in range(n): stack.pop()
 	lst = raw.split('\n')
-	stats['items'] = len(lst)
+	stats['menuItems'] = len(lst)
 	levels = [level(item) for item in lst]
 	tree = {}
 	stack = []
@@ -106,26 +110,59 @@ def extraWord(word):
 	else:
 		return word.split('-')
 
+# Behåller ordningen, men tar bort senare förekomster.
+# Tillåter inte siffror, förutom i datum
 def extractWords(s):
 	global allWords
-	s = unquote(s)
+	s = unquote(s).lower()
+	# res = []
+	# for ch in s:
+	# 	res.append(ch if ch in "abcdefghijklmnopqrstuvwxyzåäöéü0123456789-" else " ")
+
 	for ch in "`'&<>()[]{}+*/|:;!?,._#$@%=\t\n\r" + '"' :
 		s = s.replace(ch,' ')
 	s = s.replace ("\\n"," ")
 	s = s.replace ("\\t"," ")
-	words = [word.lower() for word in s.split(' ')]
+
+	res = s.lower().split(' ')
+	words = " ".join(res).split(' ')
+
+	# words = [word.lower() for word in res] #.split(' ')]
 	temp = []
 	for word in words:
 		temp += extraWord(word)
 	words = temp
 
-	words = set(words)
-	words = [word for word in words if " " + word + " " not in STOPWORDS]
+#	words = [word for word in words if word!='']
+	#words = set(words)
+	words = [word for word in words if word!='' and " " + word + " " not in STOPWORDS]
+
 	words = [word for word in words if accepted(word)]
+
 	allWords = allWords.union(words)
-	words.sort()
-	stats['words'] += len(words)
-	return ' '.join(words)
+	#words.sort()
+	stats['uniqWords'] += len(words)
+	#words = '_'.join(words)
+	#words = ' '.join(words.split(' '))
+
+	# Skippa ord andra gången de förekommer
+	hash = {}
+	next = []
+	for word in words:
+		if word not in hash:
+			next.append(word)
+			hash[word] = 1
+	words = next
+
+	for word in words:
+		if word not in freq: freq[word] = 0
+		freq[word] += 1
+
+	words = ' '.join(words)
+
+	words = words.replace('type text css ','').replace('link rel stylesheet ','').replace('strong ','')
+	stats['wordBytes'] += len(words)
+	return words
 
 
 def processFiles(dir,filenames,prefix=""):
@@ -140,26 +177,28 @@ def processFiles(dir,filenames,prefix=""):
 			stamp = stamp.isoformat().replace('T',' ')
 			words = extractWords(filename + ' ' + s)
 			mdData.append([stamp, prefix + filename, words])
+			stats['mdPosts'] += 1
+			stats['mdBytes'] += len(s)
 
-def processLegacyFiles():
-	with open('legacy.txt', 'r', encoding="utf-8") as f:
+def processPhpFiles():
+	with open('php.txt', 'r', encoding="utf-8") as f:
 		s = f.read()
 		arr = s.split("\n")
 		for filename in arr:
 			if len(filename) == 0: continue
 			if "#" in filename: continue
 			[stamp,filename] = filename.split(' ')
-			path = 'legacy/' + filename
+			path = 'php/' + filename
 			with open(path, 'r', encoding='utf-8') as g:
 				s = g.read()
 				words = extractWords(filename + ' ' + stamp + ' ' + s)
 				mdData.append([stamp, path, words])
-				stats['legacy'] += 1
-				stats['legacyBytes'] += len(s)
+				stats['phpPosts'] += 1
+				stats['phpBytes'] += len(s)
 
 
-def readLegacyFiles():
-	with open('legacy.txt', 'r', encoding="utf-8") as f:
+def readPhpFiles():
+	with open('php.txt', 'r', encoding="utf-8") as f:
 		s = f.read()
 		arr = s.split("\n")
 		for filename in arr:
@@ -177,7 +216,7 @@ def readLegacyFiles():
 			else:
 				t = s.decode("utf-8","backslashreplace")
 
-			with open('legacy/' + filename, 'w', encoding='utf-8') as g:
+			with open('php/' + filename, 'w', encoding='utf-8') as g:
 				g.write(t)
 
 with open('stoppord.txt', 'r', encoding="utf-8") as f:
@@ -187,19 +226,19 @@ start = time.time()
 
 mdData = []
 
-##### readLegacyFiles() # OBS! Kör över manuella ändringar!
+#readPhpFiles() # OBS! Kör över manuella ändringar!
 
 files_md = getNames("src/md")
 files_files = getNames("src/lib/files")
 
 processFiles('src/md/',files_md)
-processLegacyFiles()
+processPhpFiles()
 
 menu = readMenuTree()
 
 stats['files'] = len(files_files)
-stats['posts'] = len(files_md)
-stats['words'] = len(allWords)
+#stats['mdPosts'] = len(files_md)
+stats['uniqWords'] = len(allWords)
 
 mdData.sort()
 mdData.reverse()
@@ -208,10 +247,16 @@ hash = {}
 for [datum,key,words] in mdData:
 	hash[key] = [datum,words]
 
-total = {'menu':menu, 'md':hash, 'stats':stats}
+total = {'menu':menu, 'posts':hash, 'stats':stats}
 
 with open("src/lib/site.json", "w", encoding="utf8") as f:
 	if UPDATE: dumpjson(total,f)
 
 print('Körtid:',round(time.time()-start,3),'s')
 print(stats)
+
+# arr = []
+# for word in freq:
+# 	arr.append([freq[word],word])
+# arr.sort()
+# print(arr)

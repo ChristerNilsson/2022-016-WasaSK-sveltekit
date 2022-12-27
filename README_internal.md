@@ -115,3 +115,16 @@ Till exempel används aldrig `<thead>`,`<tbody>` eller `</tr>`
 4. VT / HT (tyvärr sorteras HT före VT)
 
 Exempel: `Program_Junior_2011_HT.md`
+
+### Blandade koder på wasask.se
+
+Vissa filer innehåller både utf-8 OCH cp1252.  
+Saknar kodinformation: `<meta charset="utf-8">` eller `<meta charset="cp1252">`  
+De flesta filer har bara ett enda felaktigt tecken. Dessa läses med `s.decode("utf-8","backslashreplace")` i Python.  
+Sedan får man manuellt redigera skräptecknet.
+Legacy hanteras genom en fil som innehåller önskade filer: `legacy.txt`
+Dessa filer hämtas med pythonprogrammet och lagras under `legacy`, där man kan redigera.
+Efter manuell rättning kan orden sökas fram.
+Pga att sveltekit klagar på html-syntax, pekas man till wasask.se när man vill en sida.
+Då dyker felet upp igen. Det måste alltså rättas på wasask.se.
+

@@ -16,20 +16,18 @@ _av Christer Nilsson_
 
 * Enklare redigering mha [MarkDown](https://mdsvex.com/playground)
 	* Man kan fortfarande skriva `HTML` för delar av poster, även hela poster
-* Förkortningar kan definieras, per post. T ex:
-	* `B = https://storage.googleapis.com/bildbanken2/index.html`
-	* `T = https://member.schack.se/ShowTournamentServlet`
+* Förkortningar kan definieras, per post. Två varianter existerar:
+	* `$T|https://member.schack.se/ShowTournamentServlet?id`
+		* `$T=12345`
+	* `T : https://member.schack.se/ShowTournamentServlet?id`
+		* `{T}=12345`
 * Man kan påverka utseendet mha `<style>`
 * Postens skapande används som publiceringstidpunkt
-* Vill du stå som författare skriver du in detta själv enligt nedan
 
 ## Markdown
 
 ```c
 ---                                                          Inleder Metadata. Måste stå först i .md-filen
-title:  Lathund till Markdown                                (default: filens namn minus extension)
-date:   2022-12-24 15:00                                     (default: filens skapandedatum)
-author: Christer Nilsson                                     (default: författare okänd)
 T:      https://member.schack.se/ShowTournamentServlet?id=   Förkortning
 ---                                                          Avslutar Metadata. Metadata-sektionen visas inte.
 
@@ -60,3 +58,34 @@ T:      https://member.schack.se/ShowTournamentServlet?id=   Förkortning
 |Hikaru Nakamura|1470k|           Mellanslag kan utelämnas
 Anna Cramling   | 221k            Yttre lodstreck (|) kan utelämnas
 ```
+
+## TABLE
+
+```
+---
+macros:
+  - $W | http://wasask.se
+  - $A | https://member.schack.se/turnering
+  - $T | https://member.schack.se/ShowTournamentServlet?id
+  - $C | https://chess-results.com
+
+januari:
+  header: Januari | Ort | Datum | Anmälan | Resultat
+  align: LLCLL
+  texts:
+    - Rilton Cup & Rilton ELO | Stockholm                        |   2022-12-27<br>2023-01-05    | Anmäl dig här                    | Anmälda
+    - Blixt-SM                | Scandic Continental, Stockholm   |<b>2022-12-27<br>2023-01-01</b>| Anmäl_dig här                    | Anmälda
+  links:
+    - $W/Inbjudan_Rilton_Cup_svenska_2022_2023.pdf|              |                               |$C/Anmeldung.aspx?lan=6&tnr=661619| $C/tnr661619.aspx?lan=6
+    - $W/INBJUDAN-Blixt-SM-2023.pdf|                             |                               |$A/3336/anmalan                   | $T=10838
+---
+
+<TABLE data={januari} {macros} ></TABLE>
+<TABLE data={februari} {macros} ></TABLE>
+
+<script>
+  import TABLE from "$lib/TABLE.svelte"
+</script>
+```
+
+[Resultatet](/post/2023/Inbjudningar_2023_VT.md)
