@@ -30,7 +30,7 @@
 
 </script>
 
-	<h1>Senaste posterna</h1>
+	<h1>🏠 Hem</h1>
 		
 	<table>
 		<thead>
@@ -57,16 +57,3 @@
 		</tbody>
 </table>
 
-<table>
-	<thead><tr><th align='left'>Statistik</th><th align='right'></th></tr></thead>
-	<tbody>
-		<tr><td>Updated</td><td align='right'>{timeSince($site.stats.updated)}</td></tr>
-		<tr><td>mdPosts</td><td align='right'>{$site.stats.mdPosts}</td></tr>
-		<tr><td>mdBytes</td><td align='right'>{$site.stats.mdBytes}</td></tr>
-		<tr><td>phpPosts</td><td align='right'> {$site.stats.phpPosts}</td></tr>
-		<tr><td>phpBytes</td><td align='right'> {$site.stats.phpBytes}</td></tr>
-		<tr><td>menuItems</td><td align='right'> {$site.stats.menuItems}</td></tr>
-		<tr><td>uniqWords</td><td align='right'><a href="/query">{$site.stats.uniqWords}</a></td></tr>
-		<tr><td>Files</td><td align='right'> {$site.stats.files}</td></tr>
-	</tbody>
-</table>

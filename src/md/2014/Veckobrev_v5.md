@@ -1,7 +1,3 @@
-## Veckobrev VT 2014
-
-## Wasa Veckobrev V 5
-
 # Ralph Halleröd klubbmästare i snabbschack
 
 Ralph visade att gammal är äldst och krossade allt motstånd när KM i snabb avgjordes

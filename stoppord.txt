@@ -26,6 +26,7 @@ frame
 frameborder
 frameset
 framespacing
+from
 googleapis
 head
 height
@@ -42,7 +43,9 @@ jpg
 keywords
 language
 link
+links
 loose
+macros
 marginheight
 marginwidth
 margin
@@ -69,6 +72,7 @@ rel
 resize
 right
 rows
+script
 scrolling
 self
 showclubseriesregistrationsservlet
@@ -79,6 +83,7 @@ showtournamentservlet
 size
 src
 storage
+svelte
 style
 stylesheet
 table
@@ -86,6 +91,7 @@ target
 tbody
 td
 text
+texts
 th
 thead
 title

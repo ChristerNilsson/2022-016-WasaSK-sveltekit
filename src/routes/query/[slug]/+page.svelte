@@ -1,12 +1,23 @@
-<script>
-	// query 1
-	// export let data
+<script> // query 1
+
+	export let data
 	import _ from "lodash"
 	import { site } from '$lib/site.js'
 	import { query } from '$lib/query.js'
+	import Search from "$lib/Search.svelte"
 	import {timeSince} from '$lib/utils/utils.js'
+	import { page } from "$app/stores"
+
+	import { browser } from "$app/environment"
+	import { goto } from "$app/navigation"
 	
 	const SPACE = ' '
+	let sokruta = data.slug //$query
+	const WIDTH = 500
+	
+	$: query.set(sokruta)
+	$: posts = search($query)
+	$: if (browser) goto('/query/' + $query)
 
 	function spaceShip (a,b) {
 		if (a < b) return -1
@@ -22,17 +33,11 @@
 		}
 	}
 
-	$: querystring  = $query
-	
-	$: posts = search(querystring)
-
-	function search(querystring) {
-		// console.log('searchA', querystring)
-		let words = querystring.toLowerCase().split(' ')
+	function search(query) {
+		let words = query.toLowerCase().split(' ')
 		const posts = []
 		const md = $site.posts
 		for (const key of _.keys(md)) {
-			// console.log('searchB', key)
 			const letters = []
 			const hitWords = []
 			for (const i of _.range(words.length)) {
@@ -53,9 +58,7 @@
 				[katalog,filnamn] = arr
 				subdir = ""
 			} else {
-				// console.log('problem')
 			}
-			// console.log(arr.length, {key,arr,katalog,subdir,filnamn})
 			let href
 			if (katalog == 'php') {
 				href = "https://wasask.se/" + subdir + filnamn
@@ -71,7 +74,11 @@
 
 </script>
 
-<h1>Sökresultat</h1>
+<h1>🏠 Hem</h1>
+
+<p>
+	<Search bind:sokruta {WIDTH} {_}  />
+</p>
 
 <table>
 	<thead>

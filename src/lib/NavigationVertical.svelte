@@ -8,6 +8,9 @@
 
 <div style="width:{WIDTH+5}px">
 
+	<!-- <button class="row" value="Home"   on:click = {() => push("Home")}>🏠 Hem</button> -->
+	<!-- <button class="row" value="Search" on:click = {() => push("Sök")}>🔍 Sök</button> -->
+	
 	{#each keys as key }
 		<div>
 			<span>

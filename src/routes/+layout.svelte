@@ -1,27 +1,20 @@
 <script>
 	import _ from "lodash"
 	import NavigationVertical from "$lib/NavigationVertical.svelte"
-	import NavigationHorisontal from "$lib/NavigationHorisontal.svelte"
-	import Search from "$lib/Search.svelte"
+	import { browser } from "$app/environment"
 	import { site } from '$lib/site.js'
 	import { goto } from '$app/navigation'
 	import './styles.css'
 
 	export const prerender = true
 
-	let sokruta = ""
-	let selected = {} // filenames
-
+	let WIDTH = 250
 	const COLUMNS = 1
 
-	$: WIDTH = 250
-	const GAP = 1
+	let innerWidth = 0
+	let innerHeight = 0
 
-	$: {
-		console.log(sokruta)
-		// location.href = '/query/' + sokruta
-		// goto('/query/' + sokruta)
-	}
+	const GAP = 1
 
 	let stack = ["Hem"]
 	let path = [$site.menu]
@@ -32,7 +25,14 @@
 	$: keys = _.keys(_.last(path))
 
 	function push(key) {
-		console.log('key',key)
+		// console.log('key',key)
+
+		// if (key=="Home") {
+		// 	while (stack.length > 1) pop()
+		// 	goto('/query')
+		// 	return
+		// }
+
 		const obj = _.isObject(_.last(path)[key])
 		if (obj) {
 			path.push(_.last(path)[key])
@@ -64,23 +64,16 @@
 
 	function noop() {}
 
-	const innerWidth = 1920
-
-	$: w = [innerWidth-WIDTH-10,(innerWidth-WIDTH-20)/2,(innerWidth-WIDTH-30)/3]
-	$: p = (COLUMNS==1) ?  [WIDTH] :
-				 ((COLUMNS==2) ? [WIDTH,WIDTH+w[1]+10] :
-												 [WIDTH,WIDTH+w[2]+10,WIDTH+w[2]+w[2]+20])
-	
 </script>
 
+<svelte:window bind:innerWidth bind:innerHeight />
+
 <div class="menu">
-	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/post")} on:keydown={noop}>
-	<Search bind:sokruta {stack} {WIDTH} {_} {pop} />
-	<NavigationHorisontal {stack} {WIDTH} />
+	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/query")} on:keydown={noop}>
 	<NavigationVertical {keys} {push} {WIDTH} />
 </div>
 
-<div class="swimlane" style={"left:260px; width:"+w[0]+"px"}>
+<div class="swimlane" style={"left:255px; width:750px"}>
 	<slot />
 </div>
 

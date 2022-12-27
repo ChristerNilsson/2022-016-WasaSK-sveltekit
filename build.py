@@ -16,6 +16,7 @@ datum = re.compile(r'(\d\d\d\d-\d\d-\d\d)$')
 allWords = set()
 
 freq = {}
+letters = {}
 
 stats = {
 	'updated': str(datetime.datetime.now())[0:16],
@@ -66,7 +67,7 @@ def indented2object(raw):
 			pos[name] = {}
 		else:
 			key,filename = arr
-			if check(filename):
+			if filename[0] == '$' or check(filename):
 				pos[key] = filename
 			else:
 				print('Filen', filename, 'i menu.tree saknas i katalogen')
@@ -115,11 +116,8 @@ def extraWord(word):
 def extractWords(s):
 	global allWords
 	s = unquote(s).lower()
-	# res = []
-	# for ch in s:
-	# 	res.append(ch if ch in "abcdefghijklmnopqrstuvwxyzåäöéü0123456789-" else " ")
 
-	for ch in "`'&<>()[]{}+*/|:;!?,._#$@%=\t\n\r" + '"' :
+	for ch in "`'&<>()[]{}+*/|:;!?,._#$@%=\t\n\r" + '"”½’…´·‘“—šó¨' :
 		s = s.replace(ch,' ')
 	s = s.replace ("\\n"," ")
 	s = s.replace ("\\t"," ")
@@ -127,23 +125,16 @@ def extractWords(s):
 	res = s.lower().split(' ')
 	words = " ".join(res).split(' ')
 
-	# words = [word.lower() for word in res] #.split(' ')]
 	temp = []
 	for word in words:
 		temp += extraWord(word)
 	words = temp
 
-#	words = [word for word in words if word!='']
-	#words = set(words)
 	words = [word for word in words if word!='' and " " + word + " " not in STOPWORDS]
-
 	words = [word for word in words if accepted(word)]
 
 	allWords = allWords.union(words)
-	#words.sort()
 	stats['uniqWords'] += len(words)
-	#words = '_'.join(words)
-	#words = ' '.join(words.split(' '))
 
 	# Skippa ord andra gången de förekommer
 	hash = {}
@@ -162,6 +153,8 @@ def extractWords(s):
 
 	words = words.replace('type text css ','').replace('link rel stylesheet ','').replace('strong ','')
 	stats['wordBytes'] += len(words)
+	for ch in words:
+		letters[ch] = 1
 	return words
 
 
@@ -254,6 +247,7 @@ with open("src/lib/site.json", "w", encoding="utf8") as f:
 
 print('Körtid:',round(time.time()-start,3),'s')
 print(stats)
+# print(letters)
 
 # arr = []
 # for word in freq:

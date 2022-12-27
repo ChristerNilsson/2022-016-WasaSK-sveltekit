@@ -1,14 +1,79 @@
-<script>
-	// query *
-	import _ from 'lodash'
+<script> // post *
+	import _ from "lodash"
 	import { site } from '$lib/site.js'
-	const md = $site.posts
-	let words = _.map(_.keys(md), (key) => md[key][1].split(' '))
-	words = _.uniq(_.flatten(words).sort())
+	import {timeSince} from '$lib/utils/utils.js'
+
+	import { query } from '$lib/query.js'
+	import Search from "$lib/Search.svelte"
+
+	import { browser } from "$app/environment"
+	import { goto } from "$app/navigation"
+
+	let sokruta = $query
+	let WIDTH = 750
+	// if (browser) WIDTH = innerWidth-1000
+	
+	$: if (browser) {
+		query.set(sokruta)
+		goto('/query/' + sokruta)
+	}
+
+	const posts = _.map(_.keys($site.posts), (key) => {
+		const arr = key.split('/')
+		let katalog
+		let subdir=''
+		let filename
+		let href
+		if (arr.length == 1) {
+			console.log(key,arr)
+		} else if (arr.length == 2) {
+			[katalog,filename] = arr
+		} else if(arr.length == 3) {
+			[katalog,subdir,filename] = arr
+			filename = subdir + '/' + filename
+		} else {
+			console.log('problem',arr.length)
+		}
+		if (katalog=='php') href='https://wasask.se/' + filename
+		else href = 'post/' + katalog + "/" + filename
+		if (katalog == "php") {
+			return [key,href,katalog,filename]
+		} else {
+			return [key,href,katalog,filename]
+		}
+	})
 
 </script>
-	
-	<h1>Alla ord</h1>
-	{#each words as word}
-		<a href={`/query/${word}`}>{word}</a> •&nbsp;
-	{/each}
+
+	<h1>🏠 Hem</h1>
+
+	<p>
+		<Search bind:sokruta {WIDTH} />
+	</p>
+		
+	<table>
+		<thead>
+			<th>Post</th>
+			<th>Ålder</th>
+			<th>Katalog</th>
+		</thead>
+		<tbody>
+			{#each posts as [key, href, katalog, filnamn]}
+				<tr>
+					<td>
+						<a {href}>
+							{filnamn.replaceAll("_"," ").replace(".md","").replace(".php","")} 
+						</a>
+					</td>
+					<td>
+						{timeSince($site.posts[key][0])} 
+					</td>
+					<td>
+						{katalog}
+					</td>
+				</tr>
+			{/each}
+		</tbody>
+</table>
+
+
