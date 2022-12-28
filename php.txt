@@ -1,453 +1,450 @@
 
 2010 #
 
-2010-12-31 km2010.php
-2010-12-31 kmblixt2010.php
+2010-12-31 SR1KLM km2010.php
+2010-12-31 SR1KBM kmblixt2010.php
 
 2011 #
 
-2011-07-01 Prog.juniorer.ht2011.php
-2011-07-01 Prog.seniorer.php
-2011-07-01 lag_notiser_ht2011.php
-2011-07-01 lag_speldatum_v2012.php
-2011-07-01 problemtevlingen_juniorer.php
-2011-09-08 wasajun_8sept.php
-2011-09-15 tematurneringen.resultat.php
-2011-09-15 wasajun_15sept.php
-2011-09-22 wasajun_22sept.php
-2011-09-29 wasajun_29sept.php
-2011-10-06 wasajun_3okt.php
-2011-10-13 wasajun_13okt.php
-2011-10-20 wasajun_20okt.php
-2011-10-27 wasajun_27okt.php
-2011-11-10 wasajun_10nov.php
-2011-11-17 wasajun_17nov.php
-2011-11-24 wasajun_24nov.php
-2011-12-01 KM2011.rond7.php
-2011-12-01 wasajun_1dec.php
-2011-12-08 nyborjare_seniorer1208.php
-2011-12-08 wasajun_8dec.php
-2011-12-27 Rilton_Cup.php
-2011-12-31 KM2011.partier.php
-2011-12-31 aret.2011.php
+2011-07-01 JP_K_M Prog.juniorer.ht2011.php
+2011-07-01 SP_KLM Prog.seniorer.php
+2011-07-01 SR4DLM lag_notiser_ht2011.php
+2011-07-01 SP4DLM lag_speldatum_v2012.php
+2011-07-01 JD_K_M problemtevlingen_juniorer.php
+2011-09-08 JT_K_M wasajun_8sept.php
+2011-09-15 SR1KSM tematurneringen.resultat.php
+2011-09-15 JT_K_M wasajun_15sept.php
+2011-09-22 JT_K_M wasajun_22sept.php
+2011-09-29 JT_K_M wasajun_29sept.php
+2011-10-06 JT_K_M wasajun_3okt.php
+2011-10-13 JT_K_M wasajun_13okt.php
+2011-10-20 JT_K_M wasajun_20okt.php
+2011-10-27 JT_K_M wasajun_27okt.php
+2011-11-10 JT_K_M wasajun_10nov.php
+2011-11-17 JT_K_M wasajun_17nov.php
+2011-11-24 JT_K_M wasajun_24nov.php
+2011-12-01 SR1KLM KM2011.rond7.php
+2011-12-01 JT_K_M wasajun_1dec.php
+2011-12-08 ST_K_M nyborjare_seniorer1208.php
+2011-12-08 JT_K_M wasajun_8dec.php
+2011-12-27 SR1SLM Rilton_Cup.php
+2011-12-31 SG_KLM KM2011.partier.php
+2011-12-31 _D_K_M aret.2011.php
 
 2012 #
 
-2012-01-01 Prog.juniorer.v2012.php
-2012-07-01 lag_speldatum_ht2012.ulenkar.php
-2012-01-01 programv2012.php
-2012-01-01 wasa_juniorerna.v2012.php
-2012-01-19 wasajun_0119.php
-2012-01-26 wasajun_0126.php
-2012-02-02 wasajun_0203.php
-2012-02-09 wasajun_0209.php
-2012-02-16 wasajun_0216.php
-2012-02-18 Jdmlag0218.php
-2012-02-23 wasajun_0223.php
-2012-03-08 wasajun_0308.php
-2012-03-15 wasajun_0315.php
-2012-03-20 schack562012.php
-2012-03-20 schackfyran2012.php
-2012-03-22 wasajun_0322.php
-2012-03-29 wasajun_0329.php
-2012-04-19 Varturnering.rond5.php
-2012-04-19 temablixt.resultat120419.php
-2012-04-19 wasajun_0419.php
-2012-04-26 pgn/wasauniv_120426.php
-2012-04-26 wasajun_0426.php
-2012-05-03 SKJ0503.php
-2012-05-03 wasajun_0503.php
-2012-05-05 GP0503.php
-2012-05-10 wasajun_0510.php
-2012-05-12 WasaVTavslut2012.php
-2012-05-24 WK0524.php
-2012-06-29 wasa_ansageschach_ht2012.php
-2012-07-01 Prog.juniorer.ht2012.php
-2012-07-01 programh2012.php
-2012-07-01 wasa_juniorerna.ht2012.php
-2012-09-06 wasa_ansageschach_ht2012.php
-2012-09-06 wasajun_120906.php
-2012-09-13 wasajun_120913.php
-2012-09-20 wasajun_120920.php
-2012-09-23 lagdmblixt120923.php
-2012-09-27 wasajun_120927.php
-2012-10-04 fischer_random.php
-2012-10-04 wasajun_121004.php
-2012-10-06 wasajun_121006.mariehamn.php
-2012-10-11 wasajun_121011.php
-2012-10-18 wasajun_121018.php
-2012-10-25 blixt.resultat121025.php
-2012-10-25 wasajun_121025.php
-2012-10-27 pgn/Wasa_partier.php
-2012-11-08 wasajun_121108.php
-2012-11-18 rockadejuniorenHT2012.php
-2012-11-22 wasajun_121122.php
-2012-11-25 wasajun_121115.php
-2012-11-29 pgn/wasauniv_121129.php
-2012-11-29 wasajun_121129.php
-2012-12-06 KM2012.rond7.php
-2012-12-06 wasajun_121206.php
-2012-12-13 km_blixt_ht2012.php
-2012-12-13 wasajun_121213.php
-2012-12-20 wasajun_121220.php
-2012-12-26 individuella_resultat.seniorer.ht2012.php
-2012-12-31 individuella_resultat.seniorer.vt2012.php
-2012-12-31 individuella_resultat.juniorer.ht2012.php
+2012-01-01 JP_K_M Prog.juniorer.v2012.php
+2012-07-01 SP4DLM lag_speldatum_ht2012.ulenkar.php
+2012-01-01 SP_K_M programv2012.php
+2012-01-01 JM_K_M wasa_juniorerna.v2012.php
+2012-01-19 JT_K_M wasajun_0119.php
+2012-01-26 JT_K_M wasajun_0126.php
+2012-02-02 JT_K_M wasajun_0203.php
+2012-02-09 JT_K_M wasajun_0209.php
+2012-02-16 JT_K_M wasajun_0216.php
+2012-02-18 JR4DLM Jdmlag0218.php
+2012-02-23 JT_K_M wasajun_0223.php
+2012-03-08 JT_K_M wasajun_0308.php
+2012-03-15 JT_K_M wasajun_0315.php
+2012-03-20 JRKDSM schack562012.php
+2012-03-20 JRKDSM schackfyran2012.php
+2012-03-22 JT_K_M wasajun_0322.php
+2012-03-29 JT_K_M wasajun_0329.php
+2012-04-19 SR1KLM Varturnering.rond5.php
+2012-04-19 SR1KBM temablixt.resultat120419.php
+2012-04-19 JT_K_M wasajun_0419.php
+2012-04-26 ST_K_M pgn/wasauniv_120426.php
+2012-04-26 JT_K_M wasajun_0426.php
+2012-05-03 SR7ESM SKJ0503.php
+2012-05-03 JT_K_M wasajun_0503.php
+2012-05-05 SR1KSM GP0503.php
+2012-05-10 JT_K_M wasajun_0510.php
+2012-05-12 SR2KBM WasaVTavslut2012.php
+2012-05-24 SRLDLM WK0524.php
+2012-06-29 SR2KBM wasa_ansageschach_ht2012.php
+2012-07-01 JP_K_M Prog.juniorer.ht2012.php
+2012-07-01 SP_K_M programh2012.php
+2012-07-01 JT_K_M wasa_juniorerna.ht2012.php
+2012-09-06 SR2KBM wasa_ansageschach_ht2012.php
+2012-09-06 JT_K_M wasajun_120906.php
+2012-09-13 JT_K_M wasajun_120913.php
+2012-09-20 JT_K_M wasajun_120920.php
+2012-09-23 SR6DBM lagdmblixt120923.php
+2012-09-27 JT_K_M wasajun_120927.php
+2012-10-04 SR1KSM fischer_random.php
+2012-10-04 JT_K_M wasajun_121004.php
+2012-10-06 JD_K_M wasajun_121006.mariehamn.php
+2012-10-11 JT_K_M wasajun_121011.php
+2012-10-18 JT_K_M wasajun_121018.php
+2012-10-25 SR1KBM blixt.resultat121025.php
+2012-10-25 JT_K_M wasajun_121025.php
+2012-10-27 SG_KLM pgn/Wasa_partier.php
+2012-11-08 JT_K_M wasajun_121108.php
+2012-11-18 JR4DSM rockadejuniorenHT2012.php
+2012-11-22 JT_K_M wasajun_121122.php
+2012-11-25 JT_K_M wasajun_121115.php
+2012-11-29 ST_K_M pgn/wasauniv_121129.php
+2012-11-29 JT_K_M wasajun_121129.php
+2012-12-06 SR1KLM KM2012.rond7.php
+2012-12-06 JT_K_M wasajun_121206.php
+2012-12-13 SR1KBM km_blixt_ht2012.php
+2012-12-13 JT_K_M wasajun_121213.php
+2012-12-20 JT_K_M wasajun_121220.php
+2012-12-26 SR___M individuella_resultat.seniorer.ht2012.php
+2012-12-31 SR___M individuella_resultat.seniorer.vt2012.php
+2012-12-31 SR___M individuella_resultat.juniorer.ht2012.php
 
 2013 #
 
-2013-01-01 lag_speldatum_ht2013.ulenkar.php
-2013-01-17 pgn/wasauniv_130117.php
-2013-01-24 wasajun_130124.php
-2013-01-31 wasajun_130131.php
-2013-02-07 wasajun_130207.php
-2013-02-14 wasajun_130214.php
-2013-02-21 wasajun_130221.php
-2013-03-07 wasajun_130307.php
-2013-03-14 wasajun_130314.php
-2013-03-21 wasajun_130321.php
-2013-04-11 wasajun_130411.php
-2013-04-18 wasajun_130418.php
-2013-04-25 wasajun_130425.php
-2013-05-16 wasajun_130516.php
-2013-05-23 wasajun_130523.php
-2013-08-26 Veckobrev_v35.php
-2013-09-02 Veckobrev_v36.php
-2013-09-05 wasajun_130905.php
-2013-09-09 Veckobrev_v37.php
-2013-09-12 wasajun_130912.php
-2013-09-16 Veckobrev_v38.php
-2013-09-19 wasajun_130919.php
-2013-09-23 Veckobrev_v39.php
-2013-09-26 wasajun_130926.php
-2013-09-30 Veckobrev_v40.php
-2013-10-03 wasajun_131003.php
-2013-10-10 wasajun_131010.php
-2013-10-14 Veckobrev_v42.php
-2013-10-17 wasajun_131017.php
-2013-10-21 Veckobrev_v43.php
-2013-10-24 wasajun_131024.php
-2013-10-28 Veckobrev_v44.php
-2013-11-07 wasajun_131107.php
-2013-11-11 Veckobrev_v46.php
-2013-11-14 wasajun_131114.php
-2013-11-18 Veckobrev_v47.php
-2013-11-21 wasajun_131121.php
-2013-11-25 Veckobrev_v48.php
-2013-11-28 wasajun_131128.php
-2013-12-05 wasajun_131205.php
-2013-12-09 Veckobrev_v50.php
-2013-12-12 wasajun_131212.php
+2013-01-01 SP4DLM lag_speldatum_ht2013.ulenkar.php
+2013-01-17 ST_K_M pgn/wasauniv_130117.php
+2013-01-24 JT_K_M wasajun_130124.php
+2013-01-31 JT_K_M wasajun_130131.php
+2013-02-07 JT_K_M wasajun_130207.php
+2013-02-14 JT_K_M wasajun_130214.php
+2013-02-21 JT_K_M wasajun_130221.php
+2013-03-07 JT_K_M wasajun_130307.php
+2013-03-14 JT_K_M wasajun_130314.php
+2013-03-21 JT_K_M wasajun_130321.php
+2013-04-11 JT_K_M wasajun_130411.php
+2013-04-18 JT_K_M wasajun_130418.php
+2013-04-25 JT_K_M wasajun_130425.php
+2013-05-16 JT_K_M wasajun_130516.php
+2013-05-23 JT_K_M wasajun_130523.php
+2013-08-26 _D_K_M Veckobrev_v35.php
+2013-09-02 _D_K_M Veckobrev_v36.php
+2013-09-05 JT_K_M wasajun_130905.php
+2013-09-09 _D_K_M Veckobrev_v37.php
+2013-09-12 JT_K_M wasajun_130912.php
+2013-09-16 JT_K_M Veckobrev_v38.php
+2013-09-19 JT_K_M wasajun_130919.php
+2013-09-23 _D_K_M Veckobrev_v39.php
+2013-09-26 JT_K_M wasajun_130926.php
+2013-09-30 _D_K_M Veckobrev_v40.php
+2013-10-03 JT_K_M wasajun_131003.php
+2013-10-10 JT_K_M wasajun_131010.php
+2013-10-14 _D_K_M Veckobrev_v42.php
+2013-10-17 JT_K_M wasajun_131017.php
+2013-10-21 _D_K_M Veckobrev_v43.php
+2013-10-24 JT_K_M wasajun_131024.php
+2013-10-28 _D_K_M Veckobrev_v44.php
+2013-11-07 JT_K_M wasajun_131107.php
+2013-11-11 _D_K_M Veckobrev_v46.php
+2013-11-14 JT_K_M wasajun_131114.php
+2013-11-18 _D_K_M Veckobrev_v47.php
+2013-11-21 JT_K_M wasajun_131121.php
+2013-11-25 _D_K_M Veckobrev_v48.php
+2013-11-28 JT_K_M wasajun_131128.php
+2013-12-05 JT_K_M wasajun_131205.php
+2013-12-09 _D_K_M Veckobrev_v50.php
+2013-12-12 JT_K_M wasajun_131212.php
 
 2014 #
 
-2014-01-01 Treningsgrupper.VT2014.php
-2014-01-01 lag_speldatum_ht2014.ulenkar.php
-2014-01-01 wasa_juniorerna.vt2014.php
-2014-01-13 Veckobrev_v3.php
-2014-01-16 wasajun_140116.php
-2014-01-20 Veckobrev_v4.php
-2014-01-23 wasajun_140123.php
-2014-01-27 Veckobrev_v5.php
-2014-01-30 wasajun_140130.php
-2014-02-03 Veckobrev_v6.php
-2014-02-06 wasajun_140206.php
-2014-02-13 wasajun_140213.php
-2014-02-15 Jdmlag_140215.php
-2014-02-20 cafewasa_140220.php
-2014-02-20 wasajun_140220.php
-2014-03-03 Veckobrev_v10.php
-2014-03-06 wasajun_140306.php
-2014-03-08 SalongernaJGP.VT2014.php
-2014-03-10 Veckobrev_v11.php
-2014-03-13 wasajun_140313.php
-2014-03-20 wasajun_140320.php
-2014-03-22 Talangjakten.VT2014.php
-2014-03-27 wasajun_140327.php
-2014-04-03 wasajun_140403.php
-2014-04-04 TyresoJGP.VT2014.php
-2014-04-10 wasajun_140410.php
-2014-04-12 JDMklassDE.php
-2014-04-24 wasajun_140424.php
-2014-04-26 JDMklassABC.php
-2014-05-08 wasajun_140508.php
-2014-05-11 JGP_Taby140511.php
-2014-05-15 WK140515.php
-2014-05-22 wasajun_140522.php
-2014-06-12 sommarschackleger_2014.php
-2014-07-01 Prog.juniorer.ht2014.php
-2014-07-01 Treningsgrupper.VT2014.php
-2014-07-07 Kronis_0707.php
-2014-07-01 Prog.juniorer.ht2014.php
-2014-09-04 wasajun_140904.php
-2014-09-11 wasajun_140911.php
-2014-09-14 JDM_blixt_140914.php
-2014-09-18 wasajun_140918.php
-2014-09-25 wasajun_140925.php
-2014-10-02 wasajun_141002.php
-2014-10-02 Traningslager141002.php
-2014-10-09 wasajun_141009.php
-2014-10-13 Skol_sm_2014.php
-2014-10-16 wasajun_141016.php
-2014-10-18 Schacklordag141018.php
-2014-10-23 wasajun_141023.php
-2014-10-25 Norrorts_JGP_141025.php
-2014-11-06 wasajun_141106.php
-2014-11-13 wasajun_141113.php
-2014-11-19 rockadenjuniorenHT2014.php
-2014-11-20 wasajun_141120.php
-2014-11-27 wasajun_141127.php
-2014-11-29 MiniorserienHT2014.php
-2014-11-30 KnatteserienHT2014.php
-2014-12-04 wasajun_141204.php
-2014-12-11 wasajun_141211.php
-2014-12-18 wasajun_141218.php
-2014-12-23 JGP_final_141213.php
-2014-12-27 Rilton_Cup_2015.php
+2014-01-01 JT_K_M Treningsgrupper.VT2014.php
+2014-01-01 SP4DLM lag_speldatum_ht2014.ulenkar.php
+2014-01-01 JM_K_M wasa_juniorerna.vt2014.php
+2014-01-13 _D_K_M Veckobrev_v3.php
+2014-01-16 JT_K_M wasajun_140116.php
+2014-01-20 _D_K_M Veckobrev_v4.php
+2014-01-23 JT_K_M wasajun_140123.php
+2014-01-27 _D_K_M Veckobrev_v5.php
+2014-01-30 JT_K_M wasajun_140130.php
+2014-02-03 _D_K_M Veckobrev_v6.php
+2014-02-06 JT_K_M wasajun_140206.php
+2014-02-13 JT_K_M wasajun_140213.php
+2014-02-15 JR4DLM Jdmlag_140215.php
+2014-02-20 _D_K_M cafewasa_140220.php
+2014-02-20 JT_K_M wasajun_140220.php
+2014-03-03 _D_K_M Veckobrev_v10.php
+2014-03-06 JT_K_M wasajun_140306.php
+2014-03-08 JR1DSM SalongernaJGP.VT2014.php
+2014-03-10 _D_K_M Veckobrev_v11.php
+2014-03-13 JT_K_M wasajun_140313.php
+2014-03-20 JT_K_M wasajun_140320.php
+2014-03-22 JR1SSM Talangjakten.VT2014.php
+2014-03-27 JT_K_M wasajun_140327.php
+2014-04-03 JT_K_M wasajun_140403.php
+2014-04-04 JR1DSM TyresoJGP.VT2014.php
+2014-04-10 JT_K_M wasajun_140410.php
+2014-04-12 JR1DSM JDMklassDE.php
+2014-04-24 JT_K_M wasajun_140424.php
+2014-04-26 JR1DSM JDMklassABC.php
+2014-05-08 JT_K_M wasajun_140508.php
+2014-05-11 JR1DSM JGP_Taby140511.php
+2014-05-15 SRLDLM WK140515.php
+2014-05-22 JT_K_M wasajun_140522.php
+2014-06-12 JT_K_M sommarschackleger_2014.php
+2014-07-01 JP_K_M Prog.juniorer.ht2014.php
+2014-07-01 JT_K_M Treningsgrupper.VT2014.php
+2014-07-07 JT_K_M Kronis_0707.php
+2014-07-01 JP_K_M Prog.juniorer.ht2014.php
+2014-09-04 JT_K_M wasajun_140904.php
+2014-09-11 JT_K_M wasajun_140911.php
+2014-09-14 JI1DBM JDM_blixt_140914.php
+2014-09-18 JT_K_M wasajun_140918.php
+2014-09-25 JT_K_M wasajun_140925.php
+2014-10-02 JT_K_M wasajun_141002.php
+2014-10-02 JT_KSM Traningslager141002.php
+2014-10-09 JT_K_M wasajun_141009.php
+2014-10-13 JR1SSM Skol_sm_2014.php
+2014-10-16 JT_K_M wasajun_141016.php
+2014-10-18 JT_K_M Schacklordag141018.php
+2014-10-23 JT_K_M wasajun_141023.php
+2014-10-25 JR1DSM Norrorts_JGP_141025.php
+2014-11-06 JT_K_M wasajun_141106.php
+2014-11-13 JT_K_M wasajun_141113.php
+2014-11-19 JR4DSM rockadenjuniorenHT2014.php
+2014-11-20 JT_K_M wasajun_141120.php
+2014-11-27 JT_K_M wasajun_141127.php
+2014-11-29 MR4DSM MiniorserienHT2014.php
+2014-11-30 KR4DSM KnatteserienHT2014.php
+2014-12-04 JT_K_M wasajun_141204.php
+2014-12-11 JT_K_M wasajun_141211.php
+2014-12-18 JT_K_M wasajun_141218.php
+2014-12-23 JR1DSM JGP_final_141213.php
+2014-12-27 SR1SLM Rilton_Cup_2015.php
 
 2015 #
 
-2015-01-01 wasa_juniorerna.vt2015.php
-2015-01-01 Flick_SM_2015.php
-2015-01-01 JDMklassDE_2015.php
-2015-01-01 Treningsgrupper.VT2015.php
-2015-01-01 Prog.juniorer.vt2015.php
-2015-01-15 wasajun_150115.php
-2015-01-22 wasajun_150122.php
-2015-01-29 wasajun_150129.php
-2015-02-05 wasajun_150205.php
-2015-02-07 Skargardsaventyr_150207.php
-2015-02-12 wasajun_150212.php
-2015-02-19 wasajun_150219.php
-2015-03-05 wasajun_150305.php
-2015-03-12 wasajun_150312.php
-2015-03-19 wasajun_150319.php
-2015-03-26 wasajun_150326.php
-2015-04-03 TyresoJGP.VT2015.php
-2015-04-09 wasajun_150409.php
-2015-04-12 wasajgp_VT2015.php
-2015-04-16 wasajun_150416.php
-2015-04-19 Jdmlag_150419.php
-2015-04-23 wasajun_150423.php
-2015-05-01 lag_speldatum_ht2015.ulenkar.php
-2015-05-07 wasajun_150507.php
-2015-05-10 Kadettkval_150510.php
-2015-05-12 Trojanska_JGP.VT2015.php
-2015-05-28 wasajun_150528.php
-2015-05-30 wasajun_150530.mariehamn.tor.php
-2015-06-11 sommarschackleger_2015.php
+2015-01-01 JM_K_M wasa_juniorerna.vt2015.php
+2015-01-01 JR1SSF Flick_SM_2015.php
+2015-01-01 JR1DSM JDMklassDE_2015.php
+2015-01-01 JM_K_M Treningsgrupper.VT2015.php
+2015-01-01 JP_K_M Prog.juniorer.vt2015.php
+2015-01-15 JT_K_M wasajun_150115.php
+2015-01-22 JT_K_M wasajun_150122.php
+2015-01-29 JT_K_M wasajun_150129.php
+2015-02-05 JT_K_M wasajun_150205.php
+2015-02-07 JT_K_M Skargardsaventyr_150207.php
+2015-02-12 JT_K_M wasajun_150212.php
+2015-02-19 JT_K_M wasajun_150219.php
+2015-03-05 JT_K_M wasajun_150305.php
+2015-03-12 JT_K_M wasajun_150312.php
+2015-03-19 JT_K_M wasajun_150319.php
+2015-03-26 JT_K_M wasajun_150326.php
+2015-04-03 JR1DSM TyresoJGP.VT2015.php
+2015-04-09 JT_K_M wasajun_150409.php
+2015-04-12 JR1DSM wasajgp_VT2015.php
+2015-04-16 JT_K_M wasajun_150416.php
+2015-04-19 JR4DLM Jdmlag_150419.php
+2015-04-23 JT_K_M wasajun_150423.php
+2015-05-01 SP4DLM lag_speldatum_ht2015.ulenkar.php
+2015-05-07 JT_K_M wasajun_150507.php
+2015-05-10 JR6SHM Kadettkval_150510.php
+2015-05-12 JR1DSM Trojanska_JGP.VT2015.php
+2015-05-28 JT_K_M wasajun_150528.php
+2015-05-30 JD_K_M wasajun_150530.mariehamn.tor.php
+2015-06-11 JR1DSM sommarschackleger_2015.php
 
-2015-07-01 lag_speldatum_ht2015.ulenkar.php
-2015-07-01 Prog.juniorer.ht2015.php
-2015-09-03 wasajun_150903.php
-2015-09-03 wasauniv_150903.php
-2015-09-10 wasajun_150910.php
-2015-09-17 wasajun_150917.php
-2015-09-24 wasajun_150924.php
-2015-10-01 wasajun_151001.php
-2015-10-01 wasauniv_151001.php
-2015-10-08 wasajun_151008.php
-2015-10-15 wasajun_151015.php
-2015-10-22 wasajun_151022.php
-2015-10-22 wasauniv_151022.php
-2015-11-05 wasajun_151105.php
-2015-11-12 wasajun_151112.php
-2015-11-19 wasajun_151119.php
-2015-11-26 wasajun_151126.php
-2015-12-03 wasajun_151203.php
-2015-12-10 wasajun_151210.php
-2015-12-10 wasauniv_151210.php
-2015-12-17 wasajun_151217.php
-2015-12-27 Rilton_Cup_2016.php
+2015-07-01 SP4DLM lag_speldatum_ht2015.ulenkar.php
+2015-07-01 JP_K_M Prog.juniorer.ht2015.php
+2015-09-03 JT_K_M wasajun_150903.php
+2015-09-03 ST_K_M wasauniv_150903.php
+2015-09-10 JT_K_M wasajun_150910.php
+2015-09-17 JT_K_M wasajun_150917.php
+2015-09-24 JT_K_M wasajun_150924.php
+2015-10-01 JT_K_M wasajun_151001.php
+2015-10-01 ST_K_M wasauniv_151001.php
+2015-10-08 JT_K_M wasajun_151008.php
+2015-10-15 JT_K_M wasajun_151015.php
+2015-10-22 JT_K_M wasajun_151022.php
+2015-10-22 ST_K_M wasauniv_151022.php
+2015-11-05 JT_K_M wasajun_151105.php
+2015-11-12 JT_K_M wasajun_151112.php
+2015-11-19 JT_K_M wasajun_151119.php
+2015-11-26 JT_K_M wasajun_151126.php
+2015-12-03 JT_K_M wasajun_151203.php
+2015-12-10 JT_K_M wasajun_151210.php
+2015-12-10 ST_K_M wasauniv_151210.php
+2015-12-17 JT_K_M wasajun_151217.php
+2015-12-27 SR1SLM Rilton_Cup_2016.php
 
 2016 #
 
-2016-01-01 lag_speldatum_ht2016.ulenkar.php
-2016-01-14 km_snabbschack_20160114.php
-2016-01-14 wasajun_160114.php
-2016-01-21 km_snabbschack_20160121.php
-2016-01-21 wasajun_160121.php
-2016-01-28 wasajun_160128.php
-2016-01-28 wasauniv_160128.php
-2016-02-04 wasajun_160204.php
-2016-02-04 ELO2016rond1.php
-2016-02-06 Jdmlag_160206.php
-2016-02-11 wasajun_160211.php
-2016-02-11 ELO2016rond2.php
-2016-02-18 wasajun_160218.php
-2016-02-18 ELO2016rond3.php
-2016-02-20 Jdmlag_160220.php
-2016-02-25 wasajun_160225.php
-2016-03-07 km_blixtschack_20160317.php
-2016-03-10 wasajun_160310.php
-2016-03-10 wasauniv_160310.php
-2016-03-17 km_blixtschack_20160317.php
-2016-03-17 wasajun_160317.php
-2016-03-19 TyresoJGP.VT2016.php
-2016-04-03 WasaJGP.VT2016.php
-2016-04-07 wasajun_160407.php
-2016-04-07 ELO2016rond4.php
-2016-04-10 Super_Fun_Girlz_Cup.php
-2016-04-14 wasajun_160414.php
-2016-04-14 ELO2016rond5.php
-2016-04-21 wasajun_160421.php
-2016-04-21 ELO2016rond6.php
-2016-04-24 TrojanskaJGP.VT2016.php
-2016-04-28 wasajun_160428.php
-2016-04-28 ELO2016rond7.php
-2016-05-12 wasajun_160512.php
-2016-05-12 wasauniv_160512.php
-2016-05-15 Kadettkval_160515.php
-2016-05-19 WK160519.php
-2016-05-21 JDMsnabb_klassDE_2016.php
-2016-05-26 wasajun_160526.php
-2016-08-01 sm_result_2016.php
-2016-07-01 lag_speldatum_ht2016.ulenkar.php
-2016-09-01 wasajun_160901.php
-2016-09-08 wasajun_160908.php
-2016-09-08 GPrond1_HT2016.php
-2016-09-15 wasajun_160915.php
-2016-09-15 GPrond2_HT2016.php
-2016-09-22 wasajun_160922.php
-2016-09-22 wasauniv_160922.php
-2016-09-29 wasajun_160929.php
-2016-09-29 KM2016rond1.php
-2016-10-06 wasajun_161006.php
-2016-10-06 KM2016rond2.php
-2016-10-13 wasajun_161013.php
-2016-10-13 wasauniv_161013.php
-2016-10-20 wasajun_161020.php
-2016-10-20 KM2016rond3.php
-2016-10-27 wasajun_161027.php
-2016-10-27 KM2016rond4.php
-2016-11-03 wasauniv_161103.php
-2016-11-10 wasajun_161110.php
-2016-11-10 KM2016rond5.php
-2016-11-17 wasajun_161117.php
-2016-11-17 KM2016rond6.php
-2016-11-24 wasajun_161124.php
-2016-11-24 wasauniv_161124.php
-2016-12-01 wasajun_161201.php
-2016-12-01 GPrond3_HT2016.php
-2016-12-08 wasajun_161208.php
-2016-12-08 KM2016rond7.php
-2016-12-15 wasajun_161215.php
+2016-01-01 SP4DLM lag_speldatum_ht2016.ulenkar.php
+2016-01-14 SR1KSM km_snabbschack_20160114.php
+2016-01-14 JT_K_M wasajun_160114.php
+2016-01-21 SR1KSM km_snabbschack_20160121.php
+2016-01-21 JT_K_M wasajun_160121.php
+2016-01-28 JT_K_M wasajun_160128.php
+2016-01-28 ST_K_M wasauniv_160128.php
+2016-02-04 JT_K_M wasajun_160204.php
+2016-02-04 SR1KLM ELO2016rond1.php
+2016-02-06 JR4DLM Jdmlag_160206.php
+2016-02-11 JT_K_M wasajun_160211.php
+2016-02-11 SR1KLM ELO2016rond2.php
+2016-02-18 JT_K_M wasajun_160218.php
+2016-02-18 SR1KLM ELO2016rond3.php
+2016-02-20 JR4DLM Jdmlag_160220.php
+2016-02-25 JT_K_M wasajun_160225.php
+2016-03-10 JT_K_M wasajun_160310.php
+2016-03-10 ST_K_M wasauniv_160310.php
+2016-03-17 SR1KBM km_blixtschack_20160317.php
+2016-03-17 JT_K_M wasajun_160317.php
+2016-03-19 JR1DSM TyresoJGP.VT2016.php
+2016-04-03 JR1DSM WasaJGP.VT2016.php
+2016-04-07 JT_K_M wasajun_160407.php
+2016-04-07 SR1KLM ELO2016rond4.php
+2016-04-10 JR1DSF Super_Fun_Girlz_Cup.php
+2016-04-14 JT_K_M wasajun_160414.php
+2016-04-14 SR1KLM ELO2016rond5.php
+2016-04-21 JT_K_M wasajun_160421.php
+2016-04-21 SR1KLM ELO2016rond6.php
+2016-04-24 JR1DSM TrojanskaJGP.VT2016.php
+2016-04-28 JT_K_M wasajun_160428.php
+2016-04-28 SR1KLM ELO2016rond7.php
+2016-05-12 JT_K_M wasajun_160512.php
+2016-05-12 ST_K_M wasauniv_160512.php
+2016-05-15 JR6SHM Kadettkval_160515.php
+2016-05-19 SRLDLM WK160519.php
+2016-05-21 JR1DSM JDMsnabb_klassDE_2016.php
+2016-05-26 JT_K_M wasajun_160526.php
+2016-08-01 _R1S_M sm_result_2016.php
+2016-07-01 SP4DLM lag_speldatum_ht2016.ulenkar.php
+2016-09-01 JT_K_M wasajun_160901.php
+2016-09-08 JT_K_M wasajun_160908.php
+2016-09-08 SR1KSM GPrond1_HT2016.php
+2016-09-15 JT_K_M wasajun_160915.php
+2016-09-15 SR1KSM GPrond2_HT2016.php
+2016-09-22 JT_K_M wasajun_160922.php
+2016-09-22 ST_K_M wasauniv_160922.php
+2016-09-29 JT_K_M wasajun_160929.php
+2016-09-29 SR1KLM KM2016rond1.php
+2016-10-06 JT_K_M wasajun_161006.php
+2016-10-06 SR1KLM KM2016rond2.php
+2016-10-13 JT_K_M wasajun_161013.php
+2016-10-13 ST_K_M wasauniv_161013.php
+2016-10-20 JT_K_M wasajun_161020.php
+2016-10-20 SR1KLM KM2016rond3.php
+2016-10-27 JT_K_M wasajun_161027.php
+2016-10-27 SR1KLM KM2016rond4.php
+2016-11-03 JT_K_M wasauniv_161103.php
+2016-11-10 JT_K_M wasajun_161110.php
+2016-11-10 SR1KLM KM2016rond5.php
+2016-11-17 JT_K_M wasajun_161117.php
+2016-11-17 SR1KLM KM2016rond6.php
+2016-11-24 JT_K_M wasajun_161124.php
+2016-11-24 ST_K_M wasauniv_161124.php
+2016-12-01 JT_K_M wasajun_161201.php
+2016-12-01 SR1KSM GPrond3_HT2016.php
+2016-12-08 JT_K_M wasajun_161208.php
+2016-12-08 SR1KLM KM2016rond7.php
+2016-12-15 JT_K_M wasajun_161215.php
 
 2017 #
 
-2017-07-01 lag_speldatum_ht2017.ulenkar.php
-
-2017-01-12 km_snabbschack_20170112.php
-2017-01-19 km_snabbschack_20170119.php
-2017-01-26 wasauniv_170126.php
-2017-02-02 Wasa_masters_170202.php
-2017-02-09 Wasa_masters_170209.php
-2017-02-23 Wasa_masters_170223.php
-2017-03-02 Wasa_masters_170302.php
-2017-03-09 wasauniv_170309.php
-2017-03-16 Wasa_masters_170316.php
-2017-03-23 Wasa_masters_170323.php
-2017-04-06 Wasa_masters_170406.php
-2017-04-20 wasauniv_170420.php
-2017-04-27 Wasa_masters_170427.php
-2017-05-04 wasauniv_170504.php
-2017-05-18 WK170518.php
-2017-08-31 wasajun_170831.php
-2017-09-07 wasajun_170907.php
-2017-09-14 wasajun_170914.php
-2017-09-21 wasajun_170921.php
-2017-09-28 wasajun_170928.php
-2017-10-05 wasajun_171005.php
-2017-10-12 wasajun_171012.php
-2017-10-12 wasauniv_171012.php
-2017-10-19 wasajun_171019.php
-2017-10-26 wasajun_171026.php
-2017-11-02 wasauniv_171102.php
-2017-11-23 wasauniv_171123.php
-2017-12-01 GPrond1_HT2017.php
-2017-12-01 GPrond2_HT2017.php
-2017-12-01 GPrond3_HT2017.php
-2017-12-01 KM2017rond1.php
-2017-12-01 KM2017rond2.php
-2017-12-01 KM2017rond3.php
-2017-12-01 KM2017rond4.php
-2017-12-01 KM2017rond5.php
-2017-12-01 KM2017rond6.php
-2017-12-01 KM2017rond7.php
-2017-12-01 KM2017rond8.php
-2017-12-01 km_blixtschack_2017.php
-2017-12-01 lag_speldatum_ht2017.ulenkar.php
+2017-07-01 SP4DLM lag_speldatum_ht2017.ulenkar.php
+2017-01-12 SR1KSM km_snabbschack_20170112.php
+2017-01-19 SR1KSM km_snabbschack_20170119.php
+2017-01-26 ST_K_M wasauniv_170126.php
+2017-02-02 SR1DLM Wasa_masters_170202.php
+2017-02-09 SR1DLM Wasa_masters_170209.php
+2017-02-23 SR1DLM Wasa_masters_170223.php
+2017-03-02 SR1DLM Wasa_masters_170302.php
+2017-03-09 ST_K_M wasauniv_170309.php
+2017-03-16 SR1DLM Wasa_masters_170316.php
+2017-03-23 SR1DLM Wasa_masters_170323.php
+2017-04-06 SR1DLM Wasa_masters_170406.php
+2017-04-20 ST_K_M wasauniv_170420.php
+2017-04-27 SR1DLM Wasa_masters_170427.php
+2017-05-04 ST_K_M wasauniv_170504.php
+2017-05-18 SRLDLM WK170518.php
+2017-08-31 JT_K_M wasajun_170831.php
+2017-09-07 JT_K_M wasajun_170907.php
+2017-09-14 JT_K_M wasajun_170914.php
+2017-09-21 JT_K_M wasajun_170921.php
+2017-09-28 JT_K_M wasajun_170928.php
+2017-10-05 JT_K_M wasajun_171005.php
+2017-10-12 JT_K_M wasajun_171012.php
+2017-10-12 ST_K_M wasauniv_171012.php
+2017-10-19 JT_K_M wasajun_171019.php
+2017-10-26 JT_K_M wasajun_171026.php
+2017-11-02 ST_K_M wasauniv_171102.php
+2017-11-23 ST_K_M wasauniv_171123.php
+2017-12-01 SR1KSM GPrond1_HT2017.php
+2017-12-01 SR1KSM GPrond2_HT2017.php
+2017-12-01 SR1KSM GPrond3_HT2017.php
+2017-12-01 SR1KLM KM2017rond1.php
+2017-12-01 SR1KLM KM2017rond2.php
+2017-12-01 SR1KLM KM2017rond3.php
+2017-12-01 SR1KLM KM2017rond4.php
+2017-12-01 SR1KLM KM2017rond5.php
+2017-12-01 SR1KLM KM2017rond6.php
+2017-12-01 SR1KLM KM2017rond7.php
+2017-12-01 SR1KLM KM2017rond8.php
+2017-12-01 SR1KBM km_blixtschack_2017.php
+2017-12-01 SP4DLM lag_speldatum_ht2017.ulenkar.php
 
 2018 #
 
-2018-01-11 km_snabbschack_20180111.php
-2018-01-18 km_snabbschack_20180118.php
-2018-01-25 Wasa_masters_180125.php
-2018-02-01 wasauniv_180201.php
-2018-02-08 Wasa_masters_180208.php
-2018-02-15 Wasa_masters_180215.php
-2018-03-01 Wasa_masters_180301.php
-2018-03-08 Wasa_masters_180308.php
-2018-03-15 wasauniv_180315.php
-2018-03-22 Wasa_masters_180322.php
-2018-04-05 Wasa_masters_180405.php
-2018-04-12 wasauniv_180412.php
-2018-04-19 Wasa_masters_180419.php
-2018-12-01 km_blixtschack_2018.php
-2018-12-01 lag_speldatum_ht2018.ulenkar.php
-2018-12-27 Rilton_Cup_2019.php
+2018-01-11 SR1KSM km_snabbschack_20180111.php
+2018-01-18 SR1KSM km_snabbschack_20180118.php
+2018-01-25 SR1DLM Wasa_masters_180125.php
+2018-02-01 ST_K_M wasauniv_180201.php
+2018-02-08 SR1DLM Wasa_masters_180208.php
+2018-02-15 SR1DLM Wasa_masters_180215.php
+2018-03-01 SR1DLM Wasa_masters_180301.php
+2018-03-08 SR1DLM Wasa_masters_180308.php
+2018-03-15 ST_K_M wasauniv_180315.php
+2018-03-22 SR1DLM Wasa_masters_180322.php
+2018-04-05 SR1DLM Wasa_masters_180405.php
+2018-04-12 ST_K_M wasauniv_180412.php
+2018-04-19 SR1DLM Wasa_masters_180419.php
+2018-12-01 SR1KBM km_blixtschack_2018.php
+2018-12-01 SP4DLM lag_speldatum_ht2018.ulenkar.php
+2018-12-27 SR1SLM Rilton_Cup_2019.php
 
 2019 #
 
-2019-01-01 Treningsgrupper.VT2019.php
-2019-01-01 Prog.juniorer.vt2019.php
-2019-01-12 Tjejtreffen_2019.php
-2019-01-18 Flick-SM_2019.php
-2019-01-27 Jdmlag_elitserien_190127.php
-2019-03-16 Snabb-SM_knatte_miniorer_2019.php
-2019-04-06 WasaJGP.VT2019.php
-2019-04-13 Super_Fun_Girlz_Cup_2019.php
-2019-04-27 TrojanskaJGP.VT2019.php
-2019-05-18 JDMsnabb_klassDE_2019.php
-2019-07-01 Prog.juniorer.ht2019.php
-2019-12-01 lag_speldatum_ht2019-vt2020.ulenkar.php
+2019-01-01 JM_K_M Treningsgrupper.VT2019.php
+2019-01-01 JP_K_M Prog.juniorer.vt2019.php
+2019-01-12 JR1DSF Tjejtreffen_2019.php
+2019-01-18 JR1SSF Flick-SM_2019.php
+2019-01-27 JR4DLM Jdmlag_elitserien_190127.php
+2019-03-16 MR1SSM Snabb-SM_knatte_miniorer_2019.php
+2019-04-06 JR1DSM WasaJGP.VT2019.php
+2019-04-13 JR1DSF Super_Fun_Girlz_Cup_2019.php
+2019-04-27 JR1DSM TrojanskaJGP.VT2019.php
+2019-05-18 JR1DSM JDMsnabb_klassDE_2019.php
+2019-07-01 JP_K_M Prog.juniorer.ht2019.php
+2019-12-01 SP4DLM lag_speldatum_ht2019-vt2020.ulenkar.php
 
 2020 #
 
 2021 #
 
-2021-01-01 2021_inbjudningar.php
-2021-07-01 lag_speldatum_ht2021-vt2022.ulenkar.php
+2021-01-01 _I___M 2021_inbjudningar.php
+2021-07-01 SP4DLM lag_speldatum_ht2021-vt2022.ulenkar.php
 
 2022 #
 
-2022-01-01 VT-2022_inbjudningar.php
-2022-01-01 Prog.seniorer.vt2022.php
-2022-03-10 SnabbschacksGP_VT2022.php
-2022-03-25 Compo_Cup_2022.php
-2022-04-15 Paskturneringen_2022.php
-2022-05-26 Stockholms-DM_2022.php
-2022-05-28 DeltaLift_Open_2022.php
-2022-05-31 Juniturneringen_2022.php
-
-2022-07-01 Lag-DM_special.php
-2022-07-01 HT-2022_inbjudningar.php
-2022-07-01 Prog.juniorer.ht2022.php
-2022-07-01 Prog.seniorer.ht2022.php
-2022-07-01 wasasen_frames_HT2022.html
-2022-07-02 sm_result_2022.php
-2022-08-05 Uppsala_Chess_Festival_2022.php
-2022-09-17 KristallensJGP_HT2022.php
-2022-10-01 Minior-Lag-DM_HT2022.php
-2022-10-07 Skol_sm_2022.php
-2022-10-15 RockadenjuniorenHT2022.php
-2022-11-12 TrojanskaJGP.HT2022.php
-2022-11-20 JDM_blixt_2022.php
-2022-12-01 Start.php
-2022-12-01 VT-2023_inbjudningar.php
-2022-12-01 lag_speldatum_ht2022-vt2023.ulenkar.php
-2022-12-01 Medlemskap.ver2.php
-2022-12-01 Prog.juniorer.vt2023.php
-2022-12-10 JGP_finaler_2022.php
+2022-01-01 _I___M VT-2022_inbjudningar.php
+2022-01-01 SP_KLM Prog.seniorer.vt2022.php
+2022-03-10 SR1DSM SnabbschacksGP_VT2022.php
+2022-03-25 SR1SLM Compo_Cup_2022.php
+2022-04-15 SR1SLM Paskturneringen_2022.php
+2022-05-26 SR1DLM Stockholms-DM_2022.php
+2022-05-28 SR1SLM DeltaLift_Open_2022.php
+2022-05-31 SR1DLM Juniturneringen_2022.php
+2022-07-01 SP4DLM Lag-DM_special.php
+2022-07-01 _I___M HT-2022_inbjudningar.php
+2022-07-01 JP_K_M Prog.juniorer.ht2022.php
+2022-07-01 SP_KLM Prog.seniorer.ht2022.php
+2022-07-01 SP1KLM wasasen_frames_HT2022.html
+2022-07-02 _R1SLM sm_result_2022.php
+2022-08-05 _I1D_M Uppsala_Chess_Festival_2022.php
+2022-09-17 JR1DSM KristallensJGP_HT2022.php
+2022-10-01 JR4DSM Minior-Lag-DM_HT2022.php
+2022-10-07 JR1SSM Skol_sm_2022.php
+2022-10-15 JR4DSM RockadenjuniorenHT2022.php
+2022-11-12 JR1DSM TrojanskaJGP.HT2022.php
+2022-11-20 JI1DBM JDM_blixt_2022.php
+2022-12-01 _M_K_M Start.php
+2022-12-01 _I___M VT-2023_inbjudningar.php
+2022-12-01 SP4DLM lag_speldatum_ht2022-vt2023.ulenkar.php
+2022-12-01 _M_K_M Medlemskap.ver2.php
+2022-12-01 JP_K_M Prog.juniorer.vt2023.php
+2022-12-10 JR1DSM JGP_finaler_2022.php
 
 2023 #

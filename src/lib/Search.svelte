@@ -1,15 +1,13 @@
 <script>
 	export let sokruta
-	export let WIDTH
 
-	// import { goto } from '$app/navigation'
-	import { query } from '$lib/query.js'
+	import { query,innerwidth } from '$lib/query.js'
 
 	$: query.set(sokruta)	
 
 </script>
 
-<input autofocus autocomplete="off" id="search" bind:value={sokruta} placeholder='Sök' style="width:{WIDTH-8}px">
+<input autofocus autocomplete="off" id="search" bind:value={sokruta} placeholder='Sök' style="width:{$innerwidth-8}px">
 
 <style>
 	input {

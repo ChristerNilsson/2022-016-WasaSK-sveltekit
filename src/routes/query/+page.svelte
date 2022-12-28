@@ -9,8 +9,11 @@
 	import { browser } from "$app/environment"
 	import { goto } from "$app/navigation"
 
+	import { innerwidth } from '$lib/query.js'
+
+
 	let sokruta = $query
-	let WIDTH = 750
+	// $: WIDTH = innerwidth
 	// if (browser) WIDTH = innerWidth-1000
 	
 	$: if (browser) {
@@ -48,10 +51,10 @@
 	<h1>🏠 Hem</h1>
 
 	<p>
-		<Search bind:sokruta {WIDTH} />
+		<Search bind:sokruta />
 	</p>
 		
-	<table>
+	<table style="width:{$innerwidth}px">
 		<thead>
 			<th>Post</th>
 			<th>Ålder</th>
@@ -66,7 +69,7 @@
 						</a>
 					</td>
 					<td>
-						{timeSince($site.posts[key][0])} 
+						{timeSince($site.posts[key][0].slice(0,10))} 
 					</td>
 					<td>
 						{katalog}

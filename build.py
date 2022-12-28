@@ -39,6 +39,9 @@ def level(s): return s.count('\t')
 def check(filename):
 	if filename.startswith('/'): return True
 	if filename.startswith('http'): return True
+	if filename.startswith('common'):return 'src/' + filename in files_common
+	if filename.startswith('files'):
+		return 'src/lib/' + filename in files_files
 	if filename.endswith('.md'): return filename in files_md
 	return '/' + filename in files_files
 
@@ -67,7 +70,7 @@ def indented2object(raw):
 			pos[name] = {}
 		else:
 			key,filename = arr
-			if filename[0] == '$' or check(filename):
+			if check(filename):
 				pos[key] = filename
 			else:
 				print('Filen', filename, 'i menu.tree saknas i katalogen')
@@ -75,14 +78,9 @@ def indented2object(raw):
 	return tree
 
 def getNames(path):
-	def recurse(path):
-		for name in [f for f in scandir(path)]:
-			if name.is_dir():
-				recurse(name)
-			else:
-				res.append(name.path[7:].replace("\\",'/'))
 	res = []
-	recurse(path)
+	for name in [f for f in scandir(path)]:
+		res.append(name.path.replace("\\", '/'))
 	res.sort()
 	res.reverse()
 	return res
@@ -157,47 +155,91 @@ def extractWords(s):
 		letters[ch] = 1
 	return words
 
+# def processCommon(dir,filenames):
+# 	for filename in filenames:
+# 		path = dir + filename
+# 		with open(path, 'r', encoding='utf-8') as f:
+# 			s = f.read()
+# 			ti_c = getctime(path)
+# 			c_ti = time.ctime(ti_c)
+# 			stamp = parser.parse(c_ti)
+# 			stamp = stamp.isoformat().replace('T',' ')
+# 			words = extractWords(filename + ' ' + s)
+# 			posts.append([stamp, filename, words])
+# 			stats['mdPosts'] += 1
+# 			stats['mdBytes'] += len(s)
 
-def processFiles(dir,filenames,prefix=""):
+def processMD(dir, filenames):
 	for filename in filenames:
-		if filename.endswith('.JPG'): continue
-		path = dir + filename
+		path = filename
 		with open(path, 'r', encoding='utf-8') as f:
+			attributes = filename[7:24]
 			s = f.read()
-			ti_c = getctime(path)
-			c_ti = time.ctime(ti_c)
-			stamp = parser.parse(c_ti)
-			stamp = stamp.isoformat().replace('T',' ')
 			words = extractWords(filename + ' ' + s)
-			mdData.append([stamp, prefix + filename, words])
+			posts.append([attributes, filename.replace('src/',''), words])
 			stats['mdPosts'] += 1
 			stats['mdBytes'] += len(s)
 
-def processPhpFiles():
+def processPHP():
+
+	def fetch(key): return list(map(lambda word: word[0], dimensions[key].split(' ')))
+
+	letters = {}
+	letters["age"]   = fetch('age')
+	letters["typ"]   = fetch('typ')
+	letters["team"]  = fetch('team')
+	letters["level"] = fetch('level')
+	letters["time"]  = fetch('time')
+	letters["sex"]   = fetch('sex')
+
+	attrComb = {}
 	with open('php.txt', 'r', encoding="utf-8") as f:
-		s = f.read()
-		arr = s.split("\n")
-		for filename in arr:
-			if len(filename) == 0: continue
-			if "#" in filename: continue
-			[stamp,filename] = filename.split(' ')
+		for row in f.read().split("\n"):
+
+			if len(row) == 0: continue
+			if "#" in row: continue
+			row = row.split(' ')
+			date = row[0]
+			filename = row[2]
+
+			[age,typ,team,level,time,sex] = row[1]
+
+			key = row[1]
+			if key not in attrComb: attrComb[key] = []
+			attrComb[key].append(filename)
+
+			if len(date) != 10: print('date har wrong length',filename)
+			if date[0:4] not in dimensions['year']: print('missing year',date[0:4],filename)
+			if age != '_' and age not in letters['age']: print('missing age',age,filename)
+			if typ != '_' and typ not in letters['typ']: print('missing typ',typ,filename)
+			if team != '_' and team not in letters['team']: print('missing team',team,filename)
+			if level != '_' and level not in letters['level']: print('missing level',level,filename)
+			if time != '_' and time not in letters['time']: print('missing time',time,filename)
+			if sex != '_' and sex not in letters['sex']: print('missing sex',sex,filename)
+
 			path = 'php/' + filename
 			with open(path, 'r', encoding='utf-8') as g:
 				s = g.read()
-				words = extractWords(filename + ' ' + stamp + ' ' + s)
-				mdData.append([stamp, path, words])
+				words = extractWords(filename + ' ' + date+ ' ' + s)
+				posts.append([row[0]+' '+row[1], path, words])
 				stats['phpPosts'] += 1
 				stats['phpBytes'] += len(s)
 
+		#print('Sällsynta attribut-kombinationer:')
+		#for key in attrComb:
+			#if len(attrComb[key]) <= 10:
+				#print(key,attrComb[key])
+		#print('')
 
 def readPhpFiles():
 	with open('php.txt', 'r', encoding="utf-8") as f:
 		s = f.read()
 		arr = s.split("\n")
-		for filename in arr:
-			if len(filename) == 0: continue
-			if "#" in filename: continue
-			[stamp,filename] = filename.split(' ')
+		for row in arr:
+			if len(row) == 0: continue
+			if "#" in row: continue
+
+			[stamp,age,typ,team,level,sex,filename] = row.split(' ')
 
 			with request.urlopen('http://wasask.se/' + filename) as f:
 				s = f.read()
@@ -212,20 +254,28 @@ def readPhpFiles():
 			with open('php/' + filename, 'w', encoding='utf-8') as g:
 				g.write(t)
 
+def readDimensions():
+	with open('src/lib/dimensions.json', 'r', encoding="utf-8") as f:
+		return json.load(f)
+
+dimensions = readDimensions()
+
 with open('stoppord.txt', 'r', encoding="utf-8") as f:
 	STOPWORDS = ' '+ f.read().replace("\n"," ")
 
 start = time.time()
 
-mdData = []
+posts = []
 
 #readPhpFiles() # OBS! Kör över manuella ändringar!
 
+files_common = getNames("src/common")
 files_md = getNames("src/md")
 files_files = getNames("src/lib/files")
 
-processFiles('src/md/',files_md)
-processPhpFiles()
+# processCommon(files_common)
+processMD('md/',files_md)
+processPHP()
 
 menu = readMenuTree()
 
@@ -233,11 +283,11 @@ stats['files'] = len(files_files)
 #stats['mdPosts'] = len(files_md)
 stats['uniqWords'] = len(allWords)
 
-mdData.sort()
-mdData.reverse()
+posts.sort()
+posts.reverse()
 
 hash = {}
-for [datum,key,words] in mdData:
+for [datum,key,words] in posts:
 	hash[key] = [datum,words]
 
 total = {'menu':menu, 'posts':hash, 'stats':stats}

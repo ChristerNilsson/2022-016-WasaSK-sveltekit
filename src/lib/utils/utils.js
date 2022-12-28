@@ -13,6 +13,7 @@ export const timeSince = (date1) => {
 	date1 = new Date(date1)
 	const date2 = new Date()
 	const ms = Math.floor(date2 - date1)
+	if (ms < 0) return ""
 	for (const [count,text] of arr) {
 		let interval = Math.floor(ms / count)
 		if (interval > 1) return interval + text

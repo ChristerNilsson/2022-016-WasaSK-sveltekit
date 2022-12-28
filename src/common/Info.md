@@ -12,4 +12,4 @@ _av Christer Nilsson_
 * Menyn fungerar som en katalogstruktur
 	* `Upp` innebär att man går upp till en högre nivå
 
-<a href="/post/Common/Redigeringsinfo.md">Redigeringsinfo</a>
+<a href="/post/common/Redigeringsinfo.md">Redigeringsinfo</a>

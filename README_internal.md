@@ -128,3 +128,18 @@ Efter manuell rättning kan orden sökas fram.
 Pga att sveltekit klagar på html-syntax, pekas man till wasask.se när man vill en sida.
 Då dyker felet upp igen. Det måste alltså rättas på wasask.se.
 
+### Seven Dimensions
+
+* date: yyyy-mm-dd
+* age: Knatte Minior Junior Senior Veteran
+* typ: Resultat Inbjudan Program Meddelande Utbildning Game Diverse
+* team: 1 2 3 4 5 6 7 8 X=10 L=50 Klass
+* level: KM DM SM NM EM WM
+* time: Blixt=5 Snabb=10-20 Half=45 Lång=90-120
+* sex: Female Male Other
+
+Dessa kodas t ex som  
+2022-12-10 J R 1 D S _ JGP_finaler_2022.php  
+_ anger att dimensionen ej är tillämplig.
+
+(Jag har kodat sex som _ och F. M är ju öppen för alla, vilket F ej är. Ska man göra samma sak med Junior och Senior?)

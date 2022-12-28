@@ -3,12 +3,14 @@
 	import NavigationVertical from "$lib/NavigationVertical.svelte"
 	import { browser } from "$app/environment"
 	import { site } from '$lib/site.js'
+	import { query,innerwidth } from '$lib/query.js'
 	import { goto } from '$app/navigation'
 	import './styles.css'
 
 	export const prerender = true
 
 	let WIDTH = 250
+	let INNERWIDTH = 750
 	const COLUMNS = 1
 
 	let innerWidth = 0
@@ -25,13 +27,6 @@
 	$: keys = _.keys(_.last(path))
 
 	function push(key) {
-		// console.log('key',key)
-
-		// if (key=="Home") {
-		// 	while (stack.length > 1) pop()
-		// 	goto('/query')
-		// 	return
-		// }
 
 		const obj = _.isObject(_.last(path)[key])
 		if (obj) {
@@ -68,16 +63,29 @@
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
+<!-- <label>
+	<input type=range bind:value={WIDTH} min=150 max=1000>
+</label> -->
+
+<label>
+	<input type=range bind:value={$innerwidth} min=250 max=1600 style="width:500px">
+</label>
+
+{$innerwidth}
+
 <div class="menu">
 	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/query")} on:keydown={noop}>
 	<NavigationVertical {keys} {push} {WIDTH} />
 </div>
 
-<div class="swimlane" style={"left:255px; width:750px"}>
+<div class="swimlane" style="left:255px; width:{$innerwidth}px">
 	<slot />
 </div>
 
 <style>
+
+	/* input { width:500px } */
+
 	.logo {
 		width:100px;
 		height:auto;
