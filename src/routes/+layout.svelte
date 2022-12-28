@@ -1,4 +1,5 @@
 <script>
+	import Selector from '$lib/SELECTOR.svelte'
 	import _ from "lodash"
 	import NavigationVertical from "$lib/NavigationVertical.svelte"
 	import { browser } from "$app/environment"
@@ -9,7 +10,7 @@
 
 	export const prerender = true
 
-	let WIDTH = 250
+	let WIDTH = 400
 	let INNERWIDTH = 750
 	const COLUMNS = 1
 
@@ -75,10 +76,18 @@
 
 <div class="menu">
 	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/query")} on:keydown={noop}>
+	<Selector label='år'      value='____'     values={'2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024'} />
+	<!-- <Selector label='month'     value='__'       values={'01 02 03 04 05 06 07 08 09 10 11 12'} /> -->
+	<Selector label='ålder'       value='_'        values={'Knatte Minior Junior Senior Veteran'} />
+	<Selector label='typ'       value='_'        values={'Meddelande Inbjudan Träning Program Resultat Game Diverse'} />
+	<Selector label='lag'      value='_'        values={'Individ Lag'} />
+	<Selector label='nivå'     value='_'        values={'KM DM SM NM EM WM'} />
+	<Selector label='tid'      value='_'        values={'Blixt Snabb Halv Lång'} />
+	<Selector label='kön'       value='_'        values={'Kvinna Man'} />
 	<NavigationVertical {keys} {push} {WIDTH} />
 </div>
 
-<div class="swimlane" style="left:255px; width:{$innerwidth}px">
+<div class="swimlane" style="left:405px; width:{$innerwidth}px">
 	<slot />
 </div>
 
