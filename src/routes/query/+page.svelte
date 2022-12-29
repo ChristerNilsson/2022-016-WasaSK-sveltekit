@@ -67,7 +67,7 @@
 
 	{posts2.length}
 		
-	<!-- <table style="width:{$innerwidth}px">
+	<table style="width:{$innerwidth}px">
 		<thead>
 			<th>Post</th>
 			<th>Ålder</th>
@@ -90,6 +90,6 @@
 				</tr>
 			{/each}
 		</tbody>
-</table> -->
+</table>
 
 

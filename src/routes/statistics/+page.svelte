@@ -1,6 +1,9 @@
 <script>
+	import _ from 'lodash'
 	import {site} from '$lib/site.js'
 	import {timeSince} from '$lib/utils/utils.js'
+	import Stat from '$lib/Stat.svelte'
+
 	const stats = $site.stats
 </script>
 
@@ -24,3 +27,11 @@
 
 <a href="/words">{stats.uniqWords} unika ord</a>
 
+<Stat title="År"    data={stats.år} />
+<Stat title="Månad" data={stats.månad} />
+<Stat title="Ålder" data={stats.ålder} />
+<Stat title="Typ"   data={stats.typ} />
+<Stat title="Lag"   data={stats.lag} />
+<Stat title="Nivå"  data={stats.nivå} />
+<Stat title="Tid"   data={stats.tid} />
+<Stat title="Kön"   data={stats.kön} />

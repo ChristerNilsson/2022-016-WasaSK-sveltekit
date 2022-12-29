@@ -3,14 +3,11 @@ import time
 import datetime
 from os import scandir
 from urllib.parse import unquote
-# from os.path import getctime
-# import dateutil.parser as parser
 import re
 from urllib import request
 
 UPDATE = True
 
-FORBIDDEN = "-0123456789"
 datum = re.compile(r'(\d\d\d\d-\d\d-\d\d)$')
 
 allWords = set()
@@ -28,6 +25,16 @@ stats = {
 	'uniqWords':0,
 	'wordBytes':0,
 	'files': 0,
+
+	'ålder':{'Knatte':0,'Minior':0,'Junior':0,'Senior':0,'Veteran':0,'_':0,},
+	'typ': {'Träning':0,'Resultat':0,'Inbjudan':0,'Program':0,'Meddelande':0,'Game':0,'Diverse':0,'_':0},
+	'lag': {'Individ':0,'Lag':0,'_':0},
+	'nivå': {'KM':0,'DM':0,'SM':0,'NM':0,'EM':0,'WM':0,'_':0},
+	'tid': {'Blixt':0,'Snabb':0,'Halv':0,'Lång':0,'_':0},
+	'kön': {'Man':0,'Kvinna':0,'_':0},
+	'år': {},
+	'månad': {"Jan":0,"Feb":0,"Mar":0,"Apr":0,"Maj":0,"Jun":0,"Jul":0,"Aug":0,"Sep":0,"Okt":0,"Nov":0,"Dec":0},
+
 }
 
 def pr(s): return s.replace("_"," ")
@@ -169,14 +176,47 @@ def extractWords(s):
 # 			stats['mdPosts'] += 1
 # 			stats['mdBytes'] += len(s)
 
+def handle(attr,value):
+	if value not in stats[attr]: stats[attr][value] = 0
+	stats[attr][value] += 1
+
+MONTH = {'01':'Jan','02':'Feb','03':'Mar','04':'Apr','05':'Maj','06':'Jun','07':'Jul','08':'Aug','09':'Sep','10':'Okt','11':'Nov','12':'Dec'}
+AGE   = {'S':'Senior','J':'Junior','M':'Minior','K':'Knatte','_':'_'}
+TYP   = {'T':'Träning','D':'Diverse','R':'Resultat','I':'Inbjudan','M':'Meddelande','P':'Program','G':'Game','_':'_'}
+TEAM  = {'L':'Lag','I':'Individ','_':'_'}
+LEVEL = {'K':'KM','D':'DM','S':'SM','N':'NM','E':'EM','W':'WM','_':'_'}
+TIME  =  {'B':'Blixt','S':'Snabb','H':'Halv','L':'Lång','_':'_'}
+SEX   =  {'K':'Kvinna','M':'Man','_':'_'}
+
+def makeStats(year,month,age,typ,team,level,time,sex):
+	handle('år',year)
+	handle('månad',MONTH[month])
+	handle('ålder',AGE[age])
+	handle('typ',TYP[typ])
+	handle('lag',TEAM[team])
+	handle('nivå',LEVEL[level])
+	handle('tid',TIME[time])
+	handle('kön',SEX[sex])
+
 def processMD(dir, filenames):
 	for filename in filenames:
 		path = filename
 		with open(path, 'r', encoding='utf-8') as f:
-			attributes = filename[7:24]
+			attr = filename[7:24]
+
+			year = attr[0:4]
+			month = attr[5:7]
+			age = attr[11]
+			typ = attr[12]
+			team = attr[13]
+			level = attr[14]
+			time = attr[15]
+			sex = attr[16]
+			makeStats(year,month,age,typ,team,level,time,sex)
+
 			s = f.read()
 			words = extractWords(filename + ' ' + s)
-			posts.append([attributes, filename.replace('src/',''), words])
+			posts.append([attr, filename.replace('src/',''), words])
 			stats['mdPosts'] += 1
 			stats['mdBytes'] += len(s)
 
@@ -203,6 +243,9 @@ def processPHP():
 			filename = row[2]
 
 			[age,typ,team,level,time,sex] = row[1]
+			year = row[0][0:4]
+			month = row[0][5:7]
+			makeStats(year,month,age,typ,team,level,time,sex)
 
 			key = row[1]
 			if key not in attrComb: attrComb[key] = []
