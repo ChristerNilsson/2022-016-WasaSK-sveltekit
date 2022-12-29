@@ -4,7 +4,7 @@
 	import NavigationVertical from "$lib/NavigationVertical.svelte"
 	import { browser } from "$app/environment"
 	import { site } from '$lib/site.js'
-	import { query,innerwidth } from '$lib/query.js'
+	import { query,innerwidth,multiselect } from '$lib/query.js'
 	import { goto } from '$app/navigation'
 	import './styles.css'
 
@@ -74,16 +74,18 @@
 
 {$innerwidth}
 
+
 <div class="menu">
 	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/query")} on:keydown={noop}>
-	<Selector label='år'      value='____'     values={'2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024'} />
-	<!-- <Selector label='month'     value='__'       values={'01 02 03 04 05 06 07 08 09 10 11 12'} /> -->
-	<Selector label='ålder'       value='_'        values={'Knatte Minior Junior Senior Veteran'} />
-	<Selector label='typ'       value='_'        values={'Meddelande Inbjudan Träning Program Resultat Game Diverse'} />
-	<Selector label='lag'      value='_'        values={'Individ Lag'} />
-	<Selector label='nivå'     value='_'        values={'KM DM SM NM EM WM'} />
-	<Selector label='tid'      value='_'        values={'Blixt Snabb Halv Lång'} />
-	<Selector label='kön'       value='_'        values={'Kvinna Man'} />
+
+	<Selector label='ålder' chars=1 bind:result={$multiselect[0]} values={'Knatte Minior Junior Senior Veteran'} />
+	<Selector label='typ'   chars=1 bind:result={$multiselect[1]} values={'Meddelande Inbjudan Träning Program Resultat Game Diverse'} />
+	<Selector label='lag'   chars=1 bind:result={$multiselect[2]} values={'Individ Lag'} />
+	<Selector label='nivå'  chars=1 bind:result={$multiselect[3]} values={'KM DM SM NM EM WM'} />
+	<Selector label='tid'   chars=1 bind:result={$multiselect[4]} values={'Blixt Snabb Halv Lång'} />
+	<Selector label='kön'   chars=1 bind:result={$multiselect[5]} values={'Kvinna Man'} />
+	<Selector label='år'    chars=4 bind:result={$multiselect[6]} values={'2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024'} />
+
 	<NavigationVertical {keys} {push} {WIDTH} />
 </div>
 

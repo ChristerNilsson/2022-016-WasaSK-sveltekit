@@ -3,14 +3,13 @@
 	import { site } from '$lib/site.js'
 	import {timeSince} from '$lib/utils/utils.js'
 
-	import { query } from '$lib/query.js'
+	// import { query } from '$lib/query.js'
 	import Search from "$lib/Search.svelte"
 
 	import { browser } from "$app/environment"
 	import { goto } from "$app/navigation"
 
-	import { innerwidth } from '$lib/query.js'
-
+	import { query,innerwidth,multiselect } from '$lib/query.js'
 
 	let sokruta = $query
 	// $: WIDTH = innerwidth
@@ -21,7 +20,7 @@
 		goto('/query/' + sokruta)
 	}
 
-	const posts = _.map(_.keys($site.posts), (key) => {
+	$: posts = _.map(_.keys($site.posts), (key) => {
 		const arr = key.split('/')
 		let katalog
 		let subdir=''
@@ -39,13 +38,25 @@
 		}
 		if (katalog=='php') href='https://wasask.se/' + filename
 		else href = 'post/' + katalog + "/" + filename
-		if (katalog == "php") {
-			return [key,href,katalog,filename]
-		} else {
-			return [key,href,katalog,filename]
-		}
+		return [key,href,katalog,filename]
 	})
 
+	$: posts2 = _.filter(posts,([key,href,katalog,filename]) => selected(key,$multiselect,$site))
+
+	function selected(key,multiselect,site) {
+		const attributes = site.posts[key][0].slice(11,18)
+		let result = true
+
+		// year
+		const year = site.posts[key][0].slice(0,4)
+		if (year != '____' && multiselect[6] != '____' && year != multiselect[6]) result = false
+
+		for (const i in _.range(6)) {
+			if (attributes[i] != '_' && multiselect[i] != '_' && attributes[i] != multiselect[i]) result = false
+		}
+		return result
+	}
+	
 </script>
 
 	<h1>🏠 Hem</h1>
@@ -53,15 +64,17 @@
 	<p>
 		<Search bind:sokruta />
 	</p>
+
+	{posts2.length}
 		
-	<table style="width:{$innerwidth}px">
+	<!-- <table style="width:{$innerwidth}px">
 		<thead>
 			<th>Post</th>
 			<th>Ålder</th>
 			<th>Katalog</th>
 		</thead>
 		<tbody>
-			{#each posts as [key, href, katalog, filnamn]}
+			{#each posts2 as [key, href, katalog, filnamn]}
 				<tr>
 					<td>
 						<a {href}>
@@ -77,6 +90,6 @@
 				</tr>
 			{/each}
 		</tbody>
-</table>
+</table> -->
 
 

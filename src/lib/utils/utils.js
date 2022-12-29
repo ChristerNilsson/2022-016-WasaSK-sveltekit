@@ -20,22 +20,6 @@ export const timeSince = (date1) => {
 	}
 }
 
-// export const timeSince = (date1) => {
-// 	const DAY = 86400 // seconds
-// 	date1 = new Date(date1)
-// 	const date2 = new Date()
-// 	const seconds = Math.floor((date2 - date1) / 1000)
-// 	let interval = Math.floor(seconds / (365*DAY))
-// 	if (interval > 1) return interval + " år"
-// 	interval = Math.floor(seconds / (30*DAY))
-// 	if (interval > 1) return interval + " månader"
-// 	interval = Math.floor(seconds / (7*DAY))
-// 	if (interval > 1) return interval + " veckor"
-// 	interval = Math.floor(seconds / DAY)
-// 	if (interval > 1) return interval + " dagar"
-// 	interval = Math.floor(seconds / 3600)
-// 	if (interval > 1) return interval + " timmar"
-// 	interval = Math.floor(seconds / 60)
-// 	if (interval > 1) return interval + " minuter"
-// 	return Math.floor(seconds) + " sekunder"
-// }
+function selector() {
+
+}

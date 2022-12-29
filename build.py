@@ -3,8 +3,8 @@ import time
 import datetime
 from os import scandir
 from urllib.parse import unquote
-from os.path import getctime
-import dateutil.parser as parser
+# from os.path import getctime
+# import dateutil.parser as parser
 import re
 from urllib import request
 
@@ -185,12 +185,12 @@ def processPHP():
 	def fetch(key): return list(map(lambda word: word[0], dimensions[key].split(' ')))
 
 	letters = {}
-	letters["age"]   = fetch('age')
+	letters["ålder"] = fetch('ålder')
 	letters["typ"]   = fetch('typ')
-	letters["team"]  = fetch('team')
-	letters["level"] = fetch('level')
-	letters["time"]  = fetch('time')
-	letters["sex"]   = fetch('sex')
+	letters["lag"]   = fetch('lag')
+	letters["nivå"]  = fetch('nivå')
+	letters["tid"]   = fetch('tid')
+	letters["kön"]   = fetch('kön')
 
 	attrComb = {}
 	with open('php.txt', 'r', encoding="utf-8") as f:
@@ -209,13 +209,13 @@ def processPHP():
 			attrComb[key].append(filename)
 
 			if len(date) != 10: print('date har wrong length',filename)
-			if date[0:4] not in dimensions['year']: print('missing year',date[0:4],filename)
-			if age != '_' and age not in letters['age']: print('missing age',age,filename)
-			if typ != '_' and typ not in letters['typ']: print('missing typ',typ,filename)
-			if team != '_' and team not in letters['team']: print('missing team',team,filename)
-			if level != '_' and level not in letters['level']: print('missing level',level,filename)
-			if time != '_' and time not in letters['time']: print('missing time',time,filename)
-			if sex != '_' and sex not in letters['sex']: print('missing sex',sex,filename)
+			if date[0:4] not in dimensions['år']: print('missing year',date[0:4],filename)
+			if age != '_'   and age   not in letters['ålder']: print('missing age',age,filename)
+			if typ != '_'   and typ   not in letters['typ']:   print('missing typ',typ,filename)
+			if team != '_'  and team  not in letters['lag']:   print('missing team',team,filename)
+			if level != '_' and level not in letters['nivå']:  print('missing level',level,filename)
+			if time != '_'  and time  not in letters['tid']:   print('missing time',time,filename)
+			if sex != '_'   and sex   not in letters['kön']:   print('missing sex',sex,filename)
 
 			path = 'php/' + filename
 			with open(path, 'r', encoding='utf-8') as g:

@@ -1,18 +1,22 @@
 <script>
 	import _ from 'lodash'
 	export let label
-	export let value // ' ' = no selection
+  export let chars  // number of characters returned
 	export let values // list of strings
+	export let result
+
+	let value = '____'.slice(0,chars)
+
 	const STATES = {on:'off',off:'on'}
-	$: n = value.length
-	$: empty = '____'.slice(0,n)
+
+	$: empty = '____'.slice(0,chars)
 	$: values = values.split(' ')
 	$: newvalues = [`${label}:`].concat(values).concat(`:${label}`)
-	$: i = _.findIndex(newvalues, (v) => v.slice(0,n) == value)
+	$: i = _.findIndex(newvalues, (v) => v.slice(0,chars) == value)
 	$: if (i==-1) i=1
 	
-	let state = value==empty ? 'off' : 'on'
-	// $: result = state=='on' ? values[i].slice(0,n) : empty
+	let state = 'off'
+	$: result = state=='on' ? values[i-1].slice(0,chars) : empty
 	const toggle = () => state = STATES[state]
 	const prev = () => {if (i > 1) i -= 1}
 	const next = () => {if (i < newvalues.length-2) i += 1}
