@@ -5,30 +5,28 @@
 	export let labels
 	export let data
 	let chartCanvas
-	let ctx
 	
 	onMount(async (promise) => {
-		ctx = chartCanvas.getContext('2d')
-		var chart = new chartjs(ctx, {
+		const ctx = chartCanvas.getContext('2d')
+		const chart = new chartjs(ctx, {
+			options : {
+				animation: false,
+				scales: {
+            yAxes: [{ticks: {fontSize: 15}}],
+            xAxes: [{ticks: {fontSize: 15}}],
+        },
+				legend: {display: false	}}, 
 			type: 'bar',
 			data: {
-					labels: labels,
-					datasets: [{
-						label:title, 
-						data:data,
-						borderColor: '#880',
-	      		backgroundColor: '#660',
-						color : '#440',
-					}]
+				labels,
+				datasets: [{data,backgroundColor: '#888'}]
 			}
 		})
-		// chart.defaults.backgroundColor = '#9BD0F5';
-		// chart.defaults.borderColor = '#36A2EB';
-		// chart.defaults.color = '#888';
 	})
 </script>
 
+<div style='background:white; margin-bottom:20px; width:500px'>
+	<h2 style="text-align:center">{title}</h2>
+	<canvas bind:this={chartCanvas}></canvas>
+</div>
 
-
-
-<canvas bind:this={chartCanvas}></canvas>

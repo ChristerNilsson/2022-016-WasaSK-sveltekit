@@ -78,13 +78,13 @@
 <div class="menu">
 	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/query")} on:keydown={noop}>
 
-	<Selector label='ålder' chars=1 bind:result={$multiselect[0]} values={'Knatte Minior Junior Senior Veteran'} />
-	<Selector label='typ'   chars=1 bind:result={$multiselect[1]} values={'Meddelande Inbjudan Träning Program Resultat Game Diverse'} />
-	<Selector label='lag'   chars=1 bind:result={$multiselect[2]} values={'Individ Lag'} />
-	<Selector label='nivå'  chars=1 bind:result={$multiselect[3]} values={'KM DM SM NM EM WM'} />
-	<Selector label='tid'   chars=1 bind:result={$multiselect[4]} values={'Blixt Snabb Halv Lång'} />
-	<Selector label='kön'   chars=1 bind:result={$multiselect[5]} values={'Kvinna Man'} />
-	<Selector label='år'    chars=4 bind:result={$multiselect[6]} values={'2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024'} />
+	<Selector label='ålder' chars=1 bind:result={$multiselect[0]} values={'Knatte Minior Junior Senior _'} />
+	<Selector label='typ'   chars=1 bind:result={$multiselect[1]} values={'Meddelande Inbjudan Träning Program Resultat Game Diverse _'} />
+	<Selector label='lag'   chars=1 bind:result={$multiselect[2]} values={'Individ Lag _'} />
+	<Selector label='nivå'  chars=1 bind:result={$multiselect[3]} values={'KM DM SM NM EM WM _'} />
+	<Selector label='tid'   chars=1 bind:result={$multiselect[4]} values={'Blixt Snabb Halv Lång _'} />
+	<Selector label='kön'   chars=1 bind:result={$multiselect[5]} values={'Kvinna Man _'} />
+	<Selector label='år'    chars=4 bind:result={$multiselect[6]} values={'2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 ____'} />
 
 	<NavigationVertical {keys} {push} {WIDTH} />
 </div>

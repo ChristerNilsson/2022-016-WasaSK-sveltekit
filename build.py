@@ -27,7 +27,7 @@ stats = {
 	'files': 0,
 
 	'ålder':{'Knatte':0,'Minior':0,'Junior':0,'Senior':0,'Veteran':0,'_':0,},
-	'typ': {'Träning':0,'Resultat':0,'Inbjudan':0,'Program':0,'Meddelande':0,'Game':0,'Diverse':0,'_':0},
+	'typ': {'Träning':0,'Resultat':0,'Program':0,'Inbjudan':0,'Meddelande':0,'Game':0,'Diverse':0,'_':0},
 	'lag': {'Individ':0,'Lag':0,'_':0},
 	'nivå': {'KM':0,'DM':0,'SM':0,'NM':0,'EM':0,'WM':0,'_':0},
 	'tid': {'Blixt':0,'Snabb':0,'Halv':0,'Lång':0,'_':0},
@@ -181,8 +181,8 @@ def handle(attr,value):
 	stats[attr][value] += 1
 
 MONTH = {'01':'Jan','02':'Feb','03':'Mar','04':'Apr','05':'Maj','06':'Jun','07':'Jul','08':'Aug','09':'Sep','10':'Okt','11':'Nov','12':'Dec'}
-AGE   = {'S':'Senior','J':'Junior','M':'Minior','K':'Knatte','_':'_'}
-TYP   = {'T':'Träning','D':'Diverse','R':'Resultat','I':'Inbjudan','M':'Meddelande','P':'Program','G':'Game','_':'_'}
+AGE   = {'K':'Knatte','M':'Minior','J':'Junior','S':'Senior','_':'_'}
+TYP   = {'T':'Träning','D':'Diverse','R':'Resultat','P':'Program','I':'Inbjudan','M':'Meddelande','G':'Game','_':'_'}
 TEAM  = {'L':'Lag','I':'Individ','_':'_'}
 LEVEL = {'K':'KM','D':'DM','S':'SM','N':'NM','E':'EM','W':'WM','_':'_'}
 TIME  =  {'B':'Blixt','S':'Snabb','H':'Halv','L':'Lång','_':'_'}

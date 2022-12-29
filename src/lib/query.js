@@ -5,6 +5,6 @@ function start (set) {return stop}
 
 export const query = writable("", start)
 export const innerwidth = writable(1000, start)
-export const multiselect = writable('_ _ _ _ _ _ ____'.split(' '),start)
+export const multiselect = writable('nix nix nix nix nix nix nix nix'.split(' '),start)
 
 console.log('store:writable loaded')

@@ -16,7 +16,7 @@
 	$: if (i==-1) i=1
 	
 	let state = 'off'
-	$: result = state=='on' ? values[i-1].slice(0,chars) : empty
+	$: result = state=='off' ? "nix" : values[i-1].slice(0,chars)
 	const toggle = () => state = STATES[state]
 	const prev = () => {if (i > 1) i -= 1}
 	const next = () => {if (i < newvalues.length-2) i += 1}

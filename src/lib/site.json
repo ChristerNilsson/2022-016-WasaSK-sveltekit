@@ -107,6 +107,8 @@
 "md 2022-07-01 sp k program senior ht klubbmästerskapet wasas klubbmästerskap spelas över ronder är elo registrerat dragserien minuter med tidstillägget sekunder per drag lottningsprogram swiss manager turneringsledare huvuddomare niclas hedin ronderna startar kl lottning resultat chess results lan turdet yes för tävlingen datum lokal aktivitet tid kommentar sep time hotel blixtturnering säsongstart km rond wasauniversitetet gm pia cramling föredrag tema os okt nov höstlov ingen klubben vecka i blixt im thomas engqvist se länk schack nyhet sverige intervju jag vill skriva om schackets hemligheter dec skinkblixt säsongsavslutning alt wasask bild hotell"],
 "php/Prog.seniorer.ht2022.php":["2022-07-01 SP_KLM",
 "seniorer php 2022-07-01 program ht div brown för hösten b klubbmästerskapet wasas klubbmästerskap spelas över ronder är elo registrerat dragserien minuter med tidstillägget sekunder per drag lottningsprogram swiss manager turneringsledare huvuddomare niclas hedin ronderna startar kl a chess results lan turdet yes lottning resultat tävlingen datum lokal aktivitet från till övrigt kommentar sep time hotel säsongstart blixtturnering km rond wasauniversitetet gm pia cramling föredrag tema os okt nov center höstlov ingen klubben vecka i blixt im thomas engqvist se länk schack nyhet sverige intervju jag vill skriva om schackets hemligheter dec säsongsavslutning skinkblixt bild hotell vanadisvägen foto lars oa hedlund norra real roslagsgatan wasa ingang min hspace"],
+"md/2022-07-01 SPLDL_ Lagmatcher_2022_HT_2023_VT.md":["2022-07-01 SPLDL_",
+"md 2022-07-01 spldl lagmatcher ht vt w wasask se t schack e bildbanken vy lag dm elitserien x division y div s stockholmsserien lagdm header serie lagledare telefon llcccccll wasa i b sep okt nov dec jan birger wentzel ii feb karl gustav sjölund iii iv v vi 2022-09-19 2022-10-17 2022-11-14 2022-12-12 2022-09-26 2022-10-24 2022-11-21 2022-12-19 2022-10-03 2022-10-31 2022-11-28 2022-10-10 2022-11-07 2022-12-05 mar allsvenskan wenzel niclas hedin majkel kokocinski xii 2022-10-23 2022-11-13 2022-12-04 2023-01-15 2023-02-05 2023-03-05 2023-03-19 xiii frirond david douhan data inbjudan tävlingsbestämmelser tavlingsbestammelser import lib"],
 "php/Lag-DM_special.php":["2022-07-01 SPLDLM",
 "lag dm special php 2022-07-01 b brown i stockholm obs datum för spelade matcher har alltid fet stil a wasask se inbjudan till tavlingsbestammelser tävlingsbestämmelser big schack elitserien bildbanken 2022-09-19 2022-10-17 2022-11-14 division 2022-09-26 2022-10-24 2022-12-19 vy 2022-10-03 2022-10-31 2022-11-28 2022-10-10 2022-11-07 2022-12-05 ringvågen igång salongerna foto lars oa hedlund div"],
 "php/wasasen_frames_HT2022.html":["2022-07-01 SPIKLM",
@@ -117,8 +119,6 @@
 "md 2022-07-01 jp k program junior ht datum aktivitet plats to sep öppet för alla som vill pröva salongerna spel träning ti topp gruppen via zoom okt"],
 "php/Prog.juniorer.ht2022.php":["2022-07-01 JP_K_M",
 "juniorer php 2022-07-01 program ht div brown b tävlingar wasa juniorerna träningstider d tjej gruppen måndagar salongerna a bild inbjudan piacramlings tjejträning wasask se satsningsgruppen tisdagar time hotel norra real sk torsdagar grupper tränare undervisning tom wedberg hampus sörensen schema toppgruppen studiematerial mellangruppen david douhan träningsupplägg nybörjargruppen simon marder nybörjare datum aktivitet lokal zoom augusti to aug öppet för alla som vill pröva september green ti träning sep spel oktober okt jelena andric center höstlov vecka november nov december dec julavslutning vårterminens första dag januari sportlov februari mars påsklov april lov vid kristi himmelsfärds maj läsårets sista juni skolornas lag dm stockholm utskick skollag information från ungdomsutskottet stockholms schackförbund spelprogram hosten juniorernas även inbjudningar matcher hemsida dagens kombination klicka pjäsen dra den till det fält du flytta får besked under diagrammet om har gjort fel drag wrong answer try again eller funnit korrekta lösningen correct problem solved finns tre svårighetsgrader raden nederst vit är draget åttonde svart hint betyder ledtråd iframe shredderchess online playshredder gdailytactics mylang en mysize"],
-"md/2022-07-01 JPLDL_ Lagmatcher_2022_HT_2023_VT.md":["2022-07-01 JPLDL_",
-"md 2022-07-01 jpldl lagmatcher ht vt w wasask se t schack e bildbanken vy lag dm elitserien x division y div s stockholmsserien lagdm header serie lagledare telefon llcccccll wasa i b sep okt nov dec jan birger wentzel ii feb karl gustav sjölund iii iv v vi 2022-09-19 2022-10-17 2022-11-14 2022-12-12 2022-09-26 2022-10-24 2022-11-21 2022-12-19 2022-10-03 2022-10-31 2022-11-28 2022-10-10 2022-11-07 2022-12-05 mar allsvenskan wenzel niclas hedin majkel kokocinski xii 2022-10-23 2022-11-13 2022-12-04 2023-01-15 2023-02-05 2023-03-05 2023-03-19 xiii frirond david douhan data inbjudan tävlingsbestämmelser tavlingsbestammelser import lib"],
 "php/Juniturneringen_2022.php":["2022-05-31 SRIDLM",
 "juniturneringen php 2022-05-31 div b brown se a wasask inbjudan tävlingen spelades salongerna i stockholm hade samlat deltagare man spelade tre grupper c wasa deltog med spelare grupp left klass emanuel rosenthal hans rånby slutresultat schack fler bilder från finns bildbanken här vy rond x mikael helin melvin ral lustig foto lars oa hedlund 2022-06-07"],
 "php/DeltaLift_Open_2022.php":["2022-05-28 SRISLM",
@@ -902,19 +902,19 @@
 "php/kmblixt2010.php":["2010-12-31 SRIKBM",
 "php 2010-12-31 generator microsoft visual studio p km blixt i wasas nya lokaler vanadisvägen drabbade femton wasaiter br samman en av de starkaste klubbtävlingarna mycket länge klubbens högst rankade spelare tom wedberg lyckades hemföra mästartiteln men förlusten mot altmeistern flerfaldige sverigemästaren ralph halleröd sista ronden är påminnelse om att ingen oslagbar felix nordström berättade för sina yngre kollegor före tävlingen hur sämre man blir schack med åren detta syntes ingenting vid brädet när van hand bärgade silvret teodor hellborg eric marchand delade tredjeplatsen efter båda tappat fart andra halvan ett lyckat deltagarna uppskattat evenemang resultat bengt wahlund peter collett ingvar gundersen"]},
 "stats":
-{"updated":"2022-12-29 12:06",
-"menuItems":54,"mdPosts":21,"mdBytes":55037,"phpPosts":409,"phpBytes":2088263,"uniqWords":7251,"wordBytes":373129,"files":6,"ålder":
-{"_":39,"Junior":251,"Minior":3,"Senior":136,"Knatte":1},
+{"updated":"2022-12-29 17:08",
+"menuItems":54,"mdPosts":21,"mdBytes":55037,"phpPosts":409,"phpBytes":2088263,"uniqWords":7250,"wordBytes":373129,"files":6,"ålder":
+{"Knatte":1,"Minior":3,"Junior":250,"Senior":137,"Veteran":0,"_":39},
 "typ":
-{"Inbjudan":11,"Resultat":143,"Program":37,"Diverse":28,"Träning":202,"Game":2,"Meddelande":7},
+{"Träning":202,"Resultat":143,"Program":37,"Inbjudan":11,"Meddelande":7,"Game":2,"Diverse":28,"_":0},
 "lag":
-{"_":268,"Individ":117,"Lag":45},
+{"Individ":117,"Lag":45,"_":268},
 "nivå":
-{"_":10,"DM":90,"SM":19,"KM":310,"EM":1},
+{"KM":310,"DM":90,"SM":19,"NM":0,"EM":1,"WM":0,"_":10},
 "tid":
-{"_":266,"Blixt":14,"Snabb":62,"Lång":86,"Halv":2},
+{"Blixt":14,"Snabb":62,"Halv":2,"Lång":86,"_":266},
 "kön":
-{"_":20,"Man":405,"Kvinna":5},
+{"Man":405,"Kvinna":5,"_":20},
 "år":
 {"2023":1,"2022":40,"2021":3,"2014":65,"2013":45,"2012":61,"2010":2,"2011":24,"2015":51,"2016":69,"2017":41,"2018":16,"2019":12},
 "månad":

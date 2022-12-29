@@ -1,9 +1,9 @@
 { 
-	"ålder" : "Knatte Minior Junior Senior Veteran",
-	"typ"   : "Meddelande Inbjudan Träning Program Resultat Game Diverse",
-	"lag"   : "Individ Lag",
-	"nivå"  : "KM DM SM NM EM WM",
-	"tid"   : "Blixt Snabb Halv Lång",
-	"kön"   : "Kvinna Man",
-	"år"    : "2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023"
+	"ålder" : "Knatte Minior Junior Senior _",
+	"typ"   : "Meddelande Inbjudan Träning Program Resultat Game Diverse _",
+	"lag"   : "Individ Lag _",
+	"nivå"  : "KM DM SM NM EM WM _",
+	"tid"   : "Blixt Snabb Halv Lång _",
+	"kön"   : "Kvinna Man _",
+	"år"    : "2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 ____"
 }
