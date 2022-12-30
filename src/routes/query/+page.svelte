@@ -8,14 +8,8 @@
 	import { query, a,b,c,d,e,f,g} from '$lib/query.js'
 	import QUERY from '$lib/QUERY.svelte'
 
-	let sokruta = $query
-	
-	$: if (browser) {
-		query.set(sokruta)
-		goto('/query/' + sokruta)
-	}
-
-	$: console.log({$a,$b,$c,$d,$e,$f,$g})
+	$: sokruta = $query	
+	$: if (browser) {goto('/query/' + sokruta)}	// query.set(sokruta)
 
 </script>
 

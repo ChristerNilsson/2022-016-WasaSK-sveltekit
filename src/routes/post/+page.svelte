@@ -10,14 +10,12 @@
 		let filename
 		let href
 		if (arr.length == 1) {
-			console.log(key,arr)
 		} else if (arr.length == 2) {
 			[katalog,filename] = arr
 		} else if(arr.length == 3) {
 			[katalog,subdir,filename] = arr
 			filename = subdir + '/' + filename
 		} else {
-			console.log('problem',arr.length)
 		}
 		if (katalog=='php') href='https://wasask.se/' + filename
 		else href = 'post/' + katalog + "/" + filename
@@ -56,4 +54,3 @@
 			{/each}
 		</tbody>
 </table>
-

@@ -8,9 +8,6 @@
 
 <div style="width:{WIDTH+5}px">
 
-	<!-- <button class="row" value="Home"   on:click = {() => push("Home")}>🏠 Hem</button> -->
-	<!-- <button class="row" value="Search" on:click = {() => push("Sök")}>🔍 Sök</button> -->
-	
 	{#each keys as key }
 		<div>
 			<span>
@@ -29,10 +26,6 @@
 	div {
 		margin:0px
 	}
-	/* .header {
-		margin:0.5px;
-		height:30px;
-	} */
 	.row {
 		margin:0px;
 		height:30px;
