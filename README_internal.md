@@ -128,18 +128,50 @@ Efter manuell rättning kan orden sökas fram.
 Pga att sveltekit klagar på html-syntax, pekas man till wasask.se när man vill en sida.
 Då dyker felet upp igen. Det måste alltså rättas på wasask.se.
 
-### Seven Dimensions
-
-* date: yyyy-mm-dd
-* age: Knatte Minior Junior Senior Veteran
-* typ: Resultat Inbjudan Program Meddelande Utbildning Game Diverse
-* team: 1 2 3 4 5 6 7 8 X=10 L=50 Klass
-* level: KM DM SM NM EM WM
-* time: Blixt=5 Snabb=10-20 Half=45 Lång=90-120
-* sex: Female Male Other
-
-Dessa kodas t ex som  
-2022-12-10 J R 1 D S _ JGP_finaler_2022.php  
+### Six Dimensions
+```
+ålder: _ Junior Senior
+typ:   _ Träning Resultat Inbjudan Program Meddelande Utbildning Game Diverse
+lag:   _ Individ Lag
+nivå:  _ KM DM SM NM EM WM
+tid:   _ Blixt Snabb Lång
+kön:   _ Kvinna
+```
 _ anger att dimensionen ej är tillämplig.
 
-(Jag har kodat sex som _ och F. M är ju öppen för alla, vilket F ej är. Ska man göra samma sak med Junior och Senior?)
+### Konsistent namngivning
+
+För att få med rätt attribut, krävs lite disciplin.
+
+Attributen kan skrivas in i .md-filerna på två olika sätt:
+```
+---
+meta : SRIKL_
+---
+```
+eller
+```
+---
+ålder : Senior
+typ :   Resultat
+lag :   Individ
+nivå :  KM
+tid :   Lång
+kön :   _
+---
+```
+
+Som synes överensstämmer tecknena i meta med första bokstaven i attributen.
+Saknas dessa attribut ersätts de med _, vilket innebär att de dyker upp i alla sökningsresultat.
+
+Anges inte Senior, så markeras posten som både Junior och Senior, vilket avses ibland.
+Vill man kunna söka på Individ, måste ordet Individ användas. Utelämnas Lag och Individ tolkas det som att både Lagmatch och individuella partier pågår.
+
+x = träff  
+o = bom
+
+ålder|Senior|Junior|_
+:-:|:-:|:-:|:-:
+Senior|x|o|x|
+Junior|o|x|x|
+_|x|x|x|

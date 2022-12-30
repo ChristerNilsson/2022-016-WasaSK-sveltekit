@@ -4,7 +4,7 @@
 	import NavigationVertical from "$lib/NavigationVertical.svelte"
 	import { browser } from "$app/environment"
 	import { site } from '$lib/site.js'
-	import { query,innerwidth,multiselect } from '$lib/query.js'
+	import { query,innerwidth,a,b,c,d,e,f,g } from '$lib/query.js' // multiselect
 	import { goto } from '$app/navigation'
 	import './styles.css'
 
@@ -64,27 +64,20 @@
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-<!-- <label>
-	<input type=range bind:value={WIDTH} min=150 max=1000>
-</label> -->
-
-<label>
-	<input type=range bind:value={$innerwidth} min=250 max=1600 style="width:500px">
-</label>
+<label><input type=range bind:value={$innerwidth} min=250 max=1600 style="width:500px"></label>
 
 {$innerwidth}
-
 
 <div class="menu">
 	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/query")} on:keydown={noop}>
 
-	<Selector label='ålder' chars=1 bind:result={$multiselect[0]} values={'Knatte Minior Junior Senior _'} />
-	<Selector label='typ'   chars=1 bind:result={$multiselect[1]} values={'Meddelande Inbjudan Träning Program Resultat Game Diverse _'} />
-	<Selector label='lag'   chars=1 bind:result={$multiselect[2]} values={'Individ Lag _'} />
-	<Selector label='nivå'  chars=1 bind:result={$multiselect[3]} values={'KM DM SM NM EM WM _'} />
-	<Selector label='tid'   chars=1 bind:result={$multiselect[4]} values={'Blixt Snabb Halv Lång _'} />
-	<Selector label='kön'   chars=1 bind:result={$multiselect[5]} values={'Kvinna Man _'} />
-	<Selector label='år'    chars=4 bind:result={$multiselect[6]} values={'2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 ____'} />
+	<Selector label='ålder' chars=1 bind:result={$a} values={'Junior Senior _'} />
+	<Selector label='typ'   chars=1 bind:result={$b} values={'Meddelande Inbjudan Träning Program Resultat Game Diverse _'} />
+	<Selector label='lag'   chars=1 bind:result={$c} values={'Individ Lag _'} />
+	<Selector label='nivå'  chars=1 bind:result={$d} values={'KM DM SM NM EM WM _'} />
+	<Selector label='tid'   chars=1 bind:result={$e} values={'Blixt Snabb Lång _'} />
+	<Selector label='kön'   chars=1 bind:result={$f} values={'Kvinna Man _'} />
+	<Selector label='år'    chars=4 bind:result={$g} values={'2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 ____'} />
 
 	<NavigationVertical {keys} {push} {WIDTH} />
 </div>

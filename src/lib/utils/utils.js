@@ -20,6 +20,3 @@ export const timeSince = (date1) => {
 	}
 }
 
-function selector() {
-
-}

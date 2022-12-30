@@ -26,13 +26,13 @@ stats = {
 	'wordBytes':0,
 	'files': 0,
 
-	'ålder':{'Knatte':0,'Minior':0,'Junior':0,'Senior':0,'Veteran':0,'_':0,},
-	'typ': {'Träning':0,'Resultat':0,'Program':0,'Inbjudan':0,'Meddelande':0,'Game':0,'Diverse':0,'_':0},
-	'lag': {'Individ':0,'Lag':0,'_':0},
-	'nivå': {'KM':0,'DM':0,'SM':0,'NM':0,'EM':0,'WM':0,'_':0},
-	'tid': {'Blixt':0,'Snabb':0,'Halv':0,'Lång':0,'_':0},
-	'kön': {'Man':0,'Kvinna':0,'_':0},
-	'år': {},
+	'ålder': {'Junior':0,'Senior':0,'_':0,},
+	'typ'  : {'Träning':0,'Resultat':0,'Program':0,'Inbjudan':0,'Meddelande':0,'Game':0,'Diverse':0,'_':0},
+	'lag'  : {'Individ':0,'Lag':0,'_':0},
+	'nivå' : {'KM':0,'DM':0,'SM':0,'NM':0,'EM':0,'WM':0,'_':0},
+	'tid'  : {'Blixt':0,'Snabb':0,'Lång':0,'_':0},
+	'kön'  : {'Man':0,'Kvinna':0,'_':0},
+	'år'   : {},
 	'månad': {"Jan":0,"Feb":0,"Mar":0,"Apr":0,"Maj":0,"Jun":0,"Jul":0,"Aug":0,"Sep":0,"Okt":0,"Nov":0,"Dec":0},
 
 }
@@ -100,8 +100,8 @@ def dumpjson(data,f):
 	s = json.dumps(data, ensure_ascii=False, separators=(",", ":"), sort_keys=False)
 	s = s.replace("],","],\n")
 	s = s.replace(":{",":\n{")
-	s = s.replace('},"','},\n"')
-	s = s.replace('","','",\n"')
+	# s = s.replace('},"','},\n"')
+	# s = s.replace('","','",\n"')
 	if UPDATE: f.write(s)
 
 def accepted(word):
@@ -198,31 +198,38 @@ def makeStats(year,month,age,typ,team,level,time,sex):
 	handle('tid',TIME[time])
 	handle('kön',SEX[sex])
 
-def processMD(dir, filenames):
+def getAttr(s):
+	arr = s.split('\n')
+	for row in arr:
+		if row.startswith('meta'):
+			pair = row.split(':')
+			return pair[1].strip()
+	return "______"
+
+def processMD(filenames):
 	for filename in filenames:
 		path = filename
 		with open(path, 'r', encoding='utf-8') as f:
-			attr = filename[7:24]
-
-			year = attr[0:4]
-			month = attr[5:7]
-			age = attr[11]
-			typ = attr[12]
-			team = attr[13]
-			level = attr[14]
-			time = attr[15]
-			sex = attr[16]
-			makeStats(year,month,age,typ,team,level,time,sex)
-
 			s = f.read()
+			attr = getAttr(s)
+			date = filename[7:17]
+			year = date[0:4]
+			month = date[5:7]
+			age = attr[0]
+			typ = attr[1]
+			team = attr[2]
+			level = attr[3]
+			time = attr[4]
+			sex = attr[5]
+			makeStats(year,month,age,typ,team,level,time,sex)
 			words = extractWords(filename + ' ' + s)
-			posts.append([attr, filename.replace('src/',''), words])
+			posts.append([{'date':date,'attr':attr,'size':len(s)}, filename.replace('src/',''), words])
 			stats['mdPosts'] += 1
 			stats['mdBytes'] += len(s)
 
-def processPHP():
+def fetch(key): return list(map(lambda word: word[0], dimensions[key].split(' ')))
 
-	def fetch(key): return list(map(lambda word: word[0], dimensions[key].split(' ')))
+def processPHP():
 
 	letters = {}
 	letters["ålder"] = fetch('ålder')
@@ -233,25 +240,37 @@ def processPHP():
 	letters["kön"]   = fetch('kön')
 
 	attrComb = {}
+	# nr = 0
 	with open('php.txt', 'r', encoding="utf-8") as f:
 		for row in f.read().split("\n"):
+			# nr += 1
+
+			# if nr==200: break
 
 			if len(row) == 0: continue
 			if "#" in row: continue
 			row = row.split(' ')
 			date = row[0]
+			attr = row[1]
 			filename = row[2]
 
-			[age,typ,team,level,time,sex] = row[1]
-			year = row[0][0:4]
-			month = row[0][5:7]
+			# auto = autoClassify(filename)
+			# if auto[0] != attr[0]:
+			# 	print(nr,'Assert failed for',filename)
+			# 	print('   Är:',auto)
+			# 	print('  Bör:',attr)
+			# 	print("")
+
+			[age,typ,team,level,time,sex] = attr
+			year = date[0:4]
+			month = date[5:7]
 			makeStats(year,month,age,typ,team,level,time,sex)
 
 			key = row[1]
 			if key not in attrComb: attrComb[key] = []
 			attrComb[key].append(filename)
 
-			if len(date) != 10: print('date har wrong length',filename)
+			if len(date) != 10: print('date has wrong length',filename)
 			if date[0:4] not in dimensions['år']: print('missing year',date[0:4],filename)
 			if age != '_'   and age   not in letters['ålder']: print('missing age',age,filename)
 			if typ != '_'   and typ   not in letters['typ']:   print('missing typ',typ,filename)
@@ -264,7 +283,7 @@ def processPHP():
 			with open(path, 'r', encoding='utf-8') as g:
 				s = g.read()
 				words = extractWords(filename + ' ' + date+ ' ' + s)
-				posts.append([row[0]+' '+row[1], path, words])
+				posts.append([{'date':date,'attr':attr,'size':len(s)}, path, words])
 				stats['phpPosts'] += 1
 				stats['phpBytes'] += len(s)
 
@@ -297,11 +316,21 @@ def readPhpFiles():
 			with open('php/' + filename, 'w', encoding='utf-8') as g:
 				g.write(t)
 
+
 def readDimensions():
 	with open('src/lib/dimensions.json', 'r', encoding="utf-8") as f:
 		return json.load(f)
 
+
+# def invertDimensions(dimensions):
+# 	res = {}
+# 	for key in dimensions:
+# 		for key2 in dimensions[key].split(' '):
+# 			res[key2] = key
+# 	return res
+
 dimensions = readDimensions()
+# invDim = invertDimensions(dimensions)
 
 with open('stoppord.txt', 'r', encoding="utf-8") as f:
 	STOPWORDS = ' '+ f.read().replace("\n"," ")
@@ -317,7 +346,7 @@ files_md = getNames("src/md")
 files_files = getNames("src/lib/files")
 
 # processCommon(files_common)
-processMD('md/',files_md)
+processMD(files_md)
 processPHP()
 
 menu = readMenuTree()
@@ -326,14 +355,14 @@ stats['files'] = len(files_files)
 #stats['mdPosts'] = len(files_md)
 stats['uniqWords'] = len(allWords)
 
-posts.sort()
+posts = sorted(posts, key=lambda item: item[0]['date'])
 posts.reverse()
 
 hash = {}
 for [datum,key,words] in posts:
 	hash[key] = [datum,words]
 
-total = {'menu':menu, 'posts':hash, 'stats':stats}
+total = {'posts':hash, 'stats':stats, 'menu':menu}
 
 with open("src/lib/site.json", "w", encoding="utf8") as f:
 	if UPDATE: dumpjson(total,f)

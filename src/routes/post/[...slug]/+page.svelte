@@ -6,7 +6,7 @@
 	console.log('data.slug',data.slug)
 	$: [directory,filename] = data.slug.split('/') //.replaceAll('_',' ').replace('.md','').split('/')
 	$: words = data.slug.includes('common') ? [] : $site.posts[data.slug][1].split(' ')
-	$: published = data.slug.includes('common') ? "" : `Publicerad för ${timeSince($site.posts[data.slug][0].slice(0,10))} sedan i ${directory}`
+	$: published = data.slug.includes('common') ? "" : `Publicerad för ${timeSince($site.posts[data.slug][0].date)} sedan i ${directory}`
 </script>
 
 <h1>{filename}</h1>
