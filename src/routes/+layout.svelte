@@ -59,6 +59,11 @@
 
 	function noop() {}
 
+	function home() {
+		query.set("")
+		goto("/query")
+	}
+
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
@@ -68,7 +73,7 @@
 {$innerwidth}
 
 <div class="menu">
-	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/query")} on:keydown={noop}>
+	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={home} on:keydown={noop}>
 	<!-- '_ Junior Senior' -->
 	<Selector label='ålder' chars=1 bind:result={$a} values={$dimensions.ålder} />
 	<Selector label='typ'   chars=1 bind:result={$b} values={$dimensions.typ} />
