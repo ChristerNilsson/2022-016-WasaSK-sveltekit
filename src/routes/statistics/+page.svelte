@@ -2,7 +2,7 @@
 	import _ from 'lodash'
 	import {site} from '$lib/stores.js'
 	import {timeSince} from '$lib/utils.js'
-	import Stat from '$lib/Stat.svelte'
+	import Stat from '$lib/components/Stat.svelte'
 
 	const stats = $site.stats
 </script>

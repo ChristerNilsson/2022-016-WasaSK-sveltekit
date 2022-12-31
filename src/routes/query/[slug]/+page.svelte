@@ -4,8 +4,8 @@
 	import {goto}    from "$app/navigation"
 
 	import {query}   from '$lib/stores.js'
-	import Search    from "$lib/Search.svelte"
-	import QUERY     from '$lib/QUERY.svelte'
+	import Search    from "$lib/components/Search.svelte"
+	import QUERY     from '$lib/components/QUERY.svelte'
 
 	export let data
 	let sokruta = data.slug 

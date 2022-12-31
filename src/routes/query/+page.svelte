@@ -3,9 +3,10 @@
 	import { browser } from "$app/environment"
 	import { goto } from "$app/navigation"
 
-	import Search from "$lib/Search.svelte"
 	import { query} from '$lib/stores.js'
-	import QUERY from '$lib/QUERY.svelte'
+
+	import Search from "$lib/components/Search.svelte"
+	import QUERY from '$lib/components/QUERY.svelte'
 
 	let sokruta = $query
 	$: if (browser) {
