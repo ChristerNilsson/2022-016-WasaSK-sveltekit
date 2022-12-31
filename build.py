@@ -216,12 +216,12 @@ def processMD(filenames):
 		path = filename
 		with open(path, 'r', encoding='utf-8') as f:
 			s = f.read()
-		hash = getAttr('date meta',s)
+		hash = getAttr('date attr',s)
 		if len(hash) != 2:
-			print('missing meta data in',filename)
+			print('missing date or attr in meta data for',filename)
 			continue
 		date = hash['date']
-		attr = hash['meta']
+		attr = hash['attr']
 		year = date[0:4]
 		month = date[5:7]
 		age = attr[0]
@@ -249,7 +249,6 @@ def processPHP():
 	letters["kön"]   = fetch('kön')
 
 	attrComb = {}
-	# nr = 0
 	with open('php.txt', 'r', encoding="utf-8") as f:
 		for row in f.read().split("\n"):
 			if len(row) == 0: continue
@@ -262,7 +261,7 @@ def processPHP():
 			[age,typ,team,level,time,sex] = attr
 			year = date[0:4]
 			month = date[5:7]
-			print(filename)
+			# print(filename)
 			makeStats(year,month,age,typ,team,level,time,sex)
 
 			key = row[1]
