@@ -1,6 +1,6 @@
 <script>
 	import _ from 'lodash'
-	const range = _.range
+	import {range} from '$lib/utils.js'
 	export let data
 	export let macros
 

@@ -1,5 +1,3 @@
-// post 1
-
 import _ from "lodash"
 
 export const prerender = true

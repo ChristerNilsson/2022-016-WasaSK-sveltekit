@@ -1,8 +1,10 @@
 <script>
-	export let title
-	export let data
 	import _ from 'lodash'
 	import Chart from './Chart.svelte'
+
+	export let title
+	export let data
+
 	const values = _.values(data) 
 	const labels = _.keys(data)
 </script>

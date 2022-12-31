@@ -1,7 +1,7 @@
 <script>
-	// query *
 	import _ from 'lodash'
-	import { site } from '$lib/site.js'
+	import { site } from '$lib/stores.js'
+
 	const md = $site.posts
 	let words = _.map(_.keys(md), (key) => md[key][1].split(' '))
 	words = _.uniq(_.flatten(words).sort())

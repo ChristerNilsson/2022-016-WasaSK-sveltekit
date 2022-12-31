@@ -1,10 +1,9 @@
 <script>
-	import Selector from '$lib/SELECTOR.svelte'
 	import _ from "lodash"
+	import Selector from '$lib/SELECTOR.svelte'
 	import NavigationVertical from "$lib/NavigationVertical.svelte"
 	import { browser } from "$app/environment"
-	import { site } from '$lib/site.js'
-	import { query,innerwidth,a,b,c,d,e,f,g } from '$lib/query.js'
+	import { site,query,innerwidth,a,b,c,d,e,f,g } from '$lib/stores.js'
 	import { goto } from '$app/navigation'
 	import './styles.css'
 

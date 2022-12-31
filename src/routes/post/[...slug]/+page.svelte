@@ -1,7 +1,7 @@
-<script> // post 1
+<script>
 	import _ from "lodash"
-	import { site } from '$lib/site.js'
-	import {timeSince} from '$lib/utils/utils.js'
+	import { site } from '$lib/stores.js'
+	import {timeSince} from '$lib/utils.js'
   export let data
 
 	$: [directory,filename] = data.slug.split('/') //.replaceAll('_',' ').replace('.md','').split('/')

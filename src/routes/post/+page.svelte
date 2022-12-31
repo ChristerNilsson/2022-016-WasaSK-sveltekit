@@ -1,7 +1,7 @@
 <script> // post *
 	import _ from "lodash"
-	import { site } from '$lib/site.js'
-	import {timeSince} from '$lib/utils/utils.js'
+	import { site } from '$lib/stores.js'
+	import { timeSince } from '$lib/utils.js'
 
 	const posts = _.map(_.keys($site.posts), (key) => {
 		const arr = key.split('/')

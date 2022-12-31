@@ -1,10 +1,10 @@
-<script> // post *
+<script>
 
 	import { browser } from "$app/environment"
 	import { goto } from "$app/navigation"
 
 	import Search from "$lib/Search.svelte"
-	import { query} from '$lib/query.js'
+	import { query} from '$lib/stores.js'
 	import QUERY from '$lib/QUERY.svelte'
 
 	let sokruta = $query

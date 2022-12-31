@@ -1,7 +1,7 @@
 <script>
 	export let sokruta
 
-	import { query,innerwidth } from '$lib/query.js'
+	import { query,innerwidth } from '$lib/stores.js'
 
 	$: query.set(sokruta)
 

@@ -3,7 +3,7 @@
 	import {browser} from "$app/environment"
 	import {goto}    from "$app/navigation"
 
-	import {query}   from '$lib/query.js'
+	import {query}   from '$lib/stores.js'
 	import Search    from "$lib/Search.svelte"
 	import QUERY     from '$lib/QUERY.svelte'
 
