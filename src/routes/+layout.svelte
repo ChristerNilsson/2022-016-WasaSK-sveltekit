@@ -71,13 +71,13 @@
 <div class="menu">
 	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/query")} on:keydown={noop}>
 
-	<Selector label='ålder' chars=1 bind:result={$a} values={'Junior Senior _'} />
-	<Selector label='typ'   chars=1 bind:result={$b} values={'Meddelande Inbjudan Träning Program Resultat Game Diverse _'} />
-	<Selector label='lag'   chars=1 bind:result={$c} values={'Individ Lag _'} />
-	<Selector label='nivå'  chars=1 bind:result={$d} values={'KM DM SM NM EM WM _'} />
-	<Selector label='tid'   chars=1 bind:result={$e} values={'Blixt Snabb Lång _'} />
-	<Selector label='kön'   chars=1 bind:result={$f} values={'Kvinna Man _'} />
-	<Selector label='år'    chars=4 bind:result={$g} values={'2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 ____'} />
+	<Selector label='ålder' chars=1 bind:result={$a} values={'_ Junior Senior'} />
+	<Selector label='typ'   chars=1 bind:result={$b} values={'_ Resultat Notis Inbjudan Träning Program Game Diverse'} />
+	<Selector label='lag'   chars=1 bind:result={$c} values={'_ Individ Lag'} />
+	<Selector label='nivå'  chars=1 bind:result={$d} values={'_ KM DM SM NM EM WM'} />
+	<Selector label='tid'   chars=1 bind:result={$e} values={'_ Blixt Snabb Lång'} />
+	<Selector label='kön'   chars=1 bind:result={$f} values={'_ Kvinna Man'} />
+	<Selector label='år'    chars=4 bind:result={$g} values={'____ 2023 2022 2021 2020 2019 2018 2017 2016 2015 2014 2013 2012 2011 2010'} />
 
 	<NavigationVertical {keys} {push} {WIDTH} />
 </div>

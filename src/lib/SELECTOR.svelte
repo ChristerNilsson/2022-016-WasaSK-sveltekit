@@ -6,64 +6,43 @@
 	export let result
 
 	let value = '____'.slice(0,chars)
+	let i = 3
+	let state = 'off'
 
 	const STATES = {on:'off',off:'on'}
 
 	$: empty = '____'.slice(0,chars)
-	$: values = values.split(' ')
-	$: newvalues = [""].concat(values).concat("")
-	$: i = _.findIndex(newvalues, (v) => v.slice(0,chars) == value)
-	$: if (i==-1) i=1
-	
-	let state = 'off'
-	$: result = state=='off' ? "nix" : values[i-1].slice(0,chars)
+	$: values1 = values.split(' ')
+	$: values2 = [" "," "].concat(values1).concat([" "," "])
+	$: result = state=='off' ? "nix" : values2[i].slice(0,chars)
+
 	const toggle = () => state = STATES[state]
-	const prev = () => {if (i > 1) i -= 1}
-	const next = () => {if (i < newvalues.length-2) i += 1}
+	const move = (delta) => {if (1 < i+delta && i+delta < values2.length-2) i += delta}
 </script>
 
 <table>
 	<tr>
 		{#if state=="off"}
 			<td></td>
+			<td></td>
 			<td class="prevent-select" style="color:black" on:click={toggle} on:keyup={toggle} >{label}</td>
 			<td></td>
+			<td></td>
 		{:else}
-			<td class="prevent-select"         on:click={prev}   on:keyup={prev}   >{newvalues[i-1]}</td>
-			<td class="prevent-select {state}" on:click={toggle} on:keyup={toggle} >{newvalues[i]}</td>
-			<td class="prevent-select"         on:click={next}   on:keyup={next}   >{newvalues[i+1]}</td>
+			<td on:keyup={toggle} class="prevent-select"         on:click={()=> move(-2)}   >{values2[i-2]}</td>
+			<td on:keyup={toggle} class="prevent-select"         on:click={()=> move(-1)}   >{values2[i-1]}</td>
+			<td on:keyup={toggle} class="prevent-select {state}" on:click={toggle}          >{values2[i]}</td>
+			<td on:keyup={toggle} class="prevent-select"         on:click={()=> move(1)}    >{values2[i+1]}</td>
+			<td on:keyup={toggle} class="prevent-select"         on:click={()=> move(2)}    >{values2[i+2]}</td>
 		{/if}
 	</tr>	
 </table>
 
 <style>
-	table {
-		width:397px;
-		font-size:18px;
-		margin:0
-	}
-	td {
-		width:100px;
-		text-align:center;
-		background:gray;
-		color:white;
-	}
-	.prevent-select {
- 		-webkit-user-select: none; /* Safari */
-	  -ms-user-select: none; /* IE 10 and IE 11 */
-	  user-select: none; /* Standard syntax */
-	}
-	.lbl {
-		text-align:right;
-		background:white;
-		color:black;
-	}
-	.on {
-		background:black;
-		color:yellow
-	}
-	.off {
-		color:white
-	}
-
+	table {width:397px; font-size:16px; margin:0 }
+	td { width:60px; text-align:center; background:gray; color:white; }
+	.prevent-select { -webkit-user-select: none;  -ms-user-select: none;  user-select: none; }
+	.lbl { text-align:right; background:white; color:black; }
+	.on { background:black; color:yellow }
+	.off { color:white }
 </style>
