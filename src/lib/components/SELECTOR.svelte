@@ -41,7 +41,6 @@
 <style>
 	table {width:397px; font-size:16px; margin:0 }
 	td { width:60px; text-align:center; background:gray; color:white; }
-	.prevent-select { -webkit-user-select: none;  -ms-user-select: none;  user-select: none; }
 	.lbl { text-align:right; background:white; color:black; }
 	.on { background:black; color:yellow }
 	.off { color:white }

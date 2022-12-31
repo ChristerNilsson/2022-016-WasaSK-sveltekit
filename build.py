@@ -327,8 +327,9 @@ def readDimensions():
 dimensions = readDimensions()
 # invDim = invertDimensions(dimensions)
 
-with open('stoppord.txt', 'r', encoding="utf-8") as f:
-	STOPWORDS = ' '+ f.read().replace("\n"," ")
+#with open('stoppord.txt', 'r', encoding="utf-8") as f:
+#	STOPWORDS = ' '+ f.read().replace("\n"," ")
+STOPWORDS = ""
 
 start = time.time()
 

@@ -82,7 +82,7 @@
 	<Selector label='tid'   chars=1 bind:result={$e} values={$dimensions.tid} />
 	<Selector label='kön'   chars=1 bind:result={$f} values={$dimensions.kön} />
 	<Selector label='år'    chars=4 bind:result={$g} values={$dimensions.år} />
-	<Selector label='filer' chars=1 bind:result={$h} values={$dimensions.filer} />
+	<Selector label='ext'   chars=1 bind:result={$h} values={$dimensions.ext} />
 
 	<NavigationVertical {keys} {push} {WIDTH} />
 </div>

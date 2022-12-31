@@ -39,7 +39,6 @@
 
 	function selected(a,b,c,d,e,f,g,h,post) {
 		const {attr,date,katalog} = post[2]
-		// log(katalog,h,katalog != h)
 		const year = date.slice(0,4)
 		if (a != "nix" && attr[0] != a) return false
 		if (b != "nix" && attr[1] != b) return false
