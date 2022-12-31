@@ -1,4 +1,4 @@
-<script> // query 1
+<script> 
 
 	import {browser} from "$app/environment"
 	import {goto}    from "$app/navigation"
@@ -7,9 +7,9 @@
 	import Search    from "$lib/Search.svelte"
 	import QUERY     from '$lib/QUERY.svelte'
 
-	$: sokruta = $query
+	export let data
+	let sokruta = data.slug 
 	$: query.set(sokruta)
-	// $: if (browser) goto('/query/' + $query)
 
 </script>
 
