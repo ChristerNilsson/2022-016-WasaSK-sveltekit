@@ -5,6 +5,7 @@ from os import scandir
 from urllib.parse import unquote
 import re
 from urllib import request
+import html2text
 
 UPDATE = True
 
@@ -27,7 +28,7 @@ stats = {
 	'files': 0,
 
 	'ålder': {'Junior':0,'Senior':0,'_':0,},
-	'typ'  : {'Träning':0,'Resultat':0,'Program':0,'Inbjudan':0,'Meddelande':0,'Game':0,'Diverse':0,'_':0},
+	'typ'  : {'Träning':0,'Resultat':0,'Program':0,'Inbjudan':0,'Notis':0,'Game':0,'Diverse':0,'_':0},
 	'lag'  : {'Individ':0,'Lag':0,'_':0},
 	'nivå' : {'KM':0,'DM':0,'SM':0,'NM':0,'EM':0,'WM':0,'_':0},
 	'tid'  : {'Blixt':0,'Snabb':0,'Lång':0,'_':0},
@@ -181,11 +182,11 @@ def handle(attr,value):
 	stats[attr][value] += 1
 
 MONTH = {'01':'Jan','02':'Feb','03':'Mar','04':'Apr','05':'Maj','06':'Jun','07':'Jul','08':'Aug','09':'Sep','10':'Okt','11':'Nov','12':'Dec'}
-AGE   = {'K':'Knatte','M':'Minior','J':'Junior','S':'Senior','_':'_'}
-TYP   = {'T':'Träning','D':'Diverse','R':'Resultat','P':'Program','I':'Inbjudan','M':'Meddelande','G':'Game','_':'_'}
+AGE   = {'J':'Junior','S':'Senior','_':'_'}
+TYP   = {'T':'Träning','D':'Diverse','R':'Resultat','P':'Program','I':'Inbjudan','N':'Notis','G':'Game','_':'_'}
 TEAM  = {'L':'Lag','I':'Individ','_':'_'}
 LEVEL = {'K':'KM','D':'DM','S':'SM','N':'NM','E':'EM','W':'WM','_':'_'}
-TIME  =  {'B':'Blixt','S':'Snabb','H':'Halv','L':'Lång','_':'_'}
+TIME  =  {'B':'Blixt','S':'Snabb','L':'Lång','_':'_'}
 SEX   =  {'K':'Kvinna','M':'Man','_':'_'}
 
 def makeStats(year,month,age,typ,team,level,time,sex):
@@ -198,34 +199,42 @@ def makeStats(year,month,age,typ,team,level,time,sex):
 	handle('tid',TIME[time])
 	handle('kön',SEX[sex])
 
-def getAttr(s):
+def getAttr(keys,s):
+	keys = keys.split(' ')
 	arr = s.split('\n')
+	res = {}
 	for row in arr:
-		if row.startswith('meta'):
-			pair = row.split(':')
-			return pair[1].strip()
-	return "______"
+		for key in keys:
+			if row.startswith(key):
+				pair = row.split(':')
+				res[pair[0].strip()] = pair[1].strip()
+				if len(res) == len(keys): return res
+	return {}
 
 def processMD(filenames):
 	for filename in filenames:
 		path = filename
 		with open(path, 'r', encoding='utf-8') as f:
 			s = f.read()
-			attr = getAttr(s)
-			date = filename[7:17]
-			year = date[0:4]
-			month = date[5:7]
-			age = attr[0]
-			typ = attr[1]
-			team = attr[2]
-			level = attr[3]
-			time = attr[4]
-			sex = attr[5]
-			makeStats(year,month,age,typ,team,level,time,sex)
-			words = extractWords(filename + ' ' + s)
-			posts.append([{'date':date,'attr':attr,'size':len(s)}, filename.replace('src/',''), words])
-			stats['mdPosts'] += 1
-			stats['mdBytes'] += len(s)
+		hash = getAttr('date meta',s)
+		if len(hash) != 2:
+			print('missing meta data in',filename)
+			continue
+		date = hash['date']
+		attr = hash['meta']
+		year = date[0:4]
+		month = date[5:7]
+		age = attr[0]
+		typ = attr[1]
+		team = attr[2]
+		level = attr[3]
+		time = attr[4]
+		sex = attr[5]
+		makeStats(year,month,age,typ,team,level,time,sex)
+		words = extractWords(filename + ' ' + s)
+		posts.append([{'date':date,'attr':attr,'size':len(s)}, filename.replace('src/',''), words])
+		stats['mdPosts'] += 1
+		stats['mdBytes'] += len(s)
 
 def fetch(key): return list(map(lambda word: word[0], dimensions[key].split(' ')))
 
@@ -243,10 +252,6 @@ def processPHP():
 	# nr = 0
 	with open('php.txt', 'r', encoding="utf-8") as f:
 		for row in f.read().split("\n"):
-			# nr += 1
-
-			# if nr==200: break
-
 			if len(row) == 0: continue
 			if "#" in row: continue
 			row = row.split(' ')
@@ -254,16 +259,10 @@ def processPHP():
 			attr = row[1]
 			filename = row[2]
 
-			# auto = autoClassify(filename)
-			# if auto[0] != attr[0]:
-			# 	print(nr,'Assert failed for',filename)
-			# 	print('   Är:',auto)
-			# 	print('  Bör:',attr)
-			# 	print("")
-
 			[age,typ,team,level,time,sex] = attr
 			year = date[0:4]
 			month = date[5:7]
+			print(filename)
 			makeStats(year,month,age,typ,team,level,time,sex)
 
 			key = row[1]
@@ -282,16 +281,13 @@ def processPHP():
 			path = 'php/' + filename
 			with open(path, 'r', encoding='utf-8') as g:
 				s = g.read()
-				words = extractWords(filename + ' ' + date+ ' ' + s)
+
+				text = html2text.html2text(s)
+
+				words = extractWords(filename + ' ' + date+ ' ' + text)
 				posts.append([{'date':date,'attr':attr,'size':len(s)}, path, words])
 				stats['phpPosts'] += 1
 				stats['phpBytes'] += len(s)
-
-		#print('Sällsynta attribut-kombinationer:')
-		#for key in attrComb:
-			#if len(attrComb[key]) <= 10:
-				#print(key,attrComb[key])
-		#print('')
 
 def readPhpFiles():
 	with open('php.txt', 'r', encoding="utf-8") as f:
@@ -318,7 +314,7 @@ def readPhpFiles():
 
 
 def readDimensions():
-	with open('src/lib/dimensions.json', 'r', encoding="utf-8") as f:
+	with open('src/lib/data/dimensions.json', 'r', encoding="utf-8") as f:
 		return json.load(f)
 
 
@@ -364,7 +360,7 @@ for [datum,key,words] in posts:
 
 total = {'posts':hash, 'stats':stats, 'menu':menu}
 
-with open("src/lib/site.json", "w", encoding="utf8") as f:
+with open("src/lib/data/site.json", "w", encoding="utf8") as f:
 	if UPDATE: dumpjson(total,f)
 
 print('Körtid:',round(time.time()-start,3),'s')

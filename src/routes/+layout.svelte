@@ -3,7 +3,7 @@
 	import Selector from '$lib/components/SELECTOR.svelte'
 	import NavigationVertical from "$lib/components/NavigationVertical.svelte"
 	import { browser } from "$app/environment"
-	import { site,query,innerwidth,a,b,c,d,e,f,g } from '$lib/stores.js'
+	import { site,dimensions,query,innerwidth,a,b,c,d,e,f,g,h } from '$lib/stores.js'
 	import { goto } from '$app/navigation'
 	import './styles.css'
 
@@ -69,14 +69,15 @@
 
 <div class="menu">
 	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={()=> goto("/query")} on:keydown={noop}>
-
-	<Selector label='ålder' chars=1 bind:result={$a} values={'_ Junior Senior'} />
-	<Selector label='typ'   chars=1 bind:result={$b} values={'_ Resultat Notis Inbjudan Träning Program Game Diverse'} />
-	<Selector label='lag'   chars=1 bind:result={$c} values={'_ Individ Lag'} />
-	<Selector label='nivå'  chars=1 bind:result={$d} values={'_ KM DM SM NM EM WM'} />
-	<Selector label='tid'   chars=1 bind:result={$e} values={'_ Blixt Snabb Lång'} />
-	<Selector label='kön'   chars=1 bind:result={$f} values={'_ Kvinna Man'} />
-	<Selector label='år'    chars=4 bind:result={$g} values={'____ 2023 2022 2021 2020 2019 2018 2017 2016 2015 2014 2013 2012 2011 2010'} />
+	<!-- '_ Junior Senior' -->
+	<Selector label='ålder' chars=1 bind:result={$a} values={$dimensions.ålder} />
+	<Selector label='typ'   chars=1 bind:result={$b} values={$dimensions.typ} />
+	<Selector label='lag'   chars=1 bind:result={$c} values={$dimensions.lag} />
+	<Selector label='nivå'  chars=1 bind:result={$d} values={$dimensions.nivå} />
+	<Selector label='tid'   chars=1 bind:result={$e} values={$dimensions.tid} />
+	<Selector label='kön'   chars=1 bind:result={$f} values={$dimensions.kön} />
+	<Selector label='år'    chars=4 bind:result={$g} values={$dimensions.år} />
+	<Selector label='filer' chars=1 bind:result={$h} values={$dimensions.filer} />
 
 	<NavigationVertical {keys} {push} {WIDTH} />
 </div>
