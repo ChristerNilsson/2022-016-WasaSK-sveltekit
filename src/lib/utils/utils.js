@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 const arr = []
 const DAY = 86400*1000 // ms
 arr.push([365*DAY, " år"])
@@ -19,4 +21,19 @@ export const timeSince = (date1) => {
 		if (interval > 1) return interval + text
 	}
 }
+
+export function spaceShip (a,b) {
+	if (a < b) return -1
+	else if (a == b) return 0
+	return 1 
+}
+
+export function multiSort (a,b,indexes) {
+	for (const i in _.range(indexes.length)) {
+		const index = Math.abs(indexes[i])-1 // 0..
+		let res = spaceShip(a[index],b[index])
+		if (res != 0) return indexes[i] < 0 ? -res : res
+	}
+}
+
 

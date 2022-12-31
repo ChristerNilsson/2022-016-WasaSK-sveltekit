@@ -4,7 +4,7 @@
 	import NavigationVertical from "$lib/NavigationVertical.svelte"
 	import { browser } from "$app/environment"
 	import { site } from '$lib/site.js'
-	import { query,innerwidth,a,b,c,d,e,f,g } from '$lib/query.js' // multiselect
+	import { query,innerwidth,a,b,c,d,e,f,g } from '$lib/query.js'
 	import { goto } from '$app/navigation'
 	import './styles.css'
 

@@ -29,9 +29,9 @@
 			<td class="prevent-select" style="color:black" on:click={toggle} on:keyup={toggle} >{label}</td>
 			<td></td>
 		{:else}
-			<td class="prevent-select" on:click={prev}   on:keyup={prev}           >{newvalues[i-1]}</td>
+			<td class="prevent-select"         on:click={prev}   on:keyup={prev}   >{newvalues[i-1]}</td>
 			<td class="prevent-select {state}" on:click={toggle} on:keyup={toggle} >{newvalues[i]}</td>
-			<td class="prevent-select" on:click={next}   on:keyup={next}           >{newvalues[i+1]}</td>
+			<td class="prevent-select"         on:click={next}   on:keyup={next}   >{newvalues[i+1]}</td>
 		{/if}
 	</tr>	
 </table>
@@ -67,4 +67,3 @@
 	}
 
 </style>
-

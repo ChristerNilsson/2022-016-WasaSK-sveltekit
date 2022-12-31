@@ -366,7 +366,6 @@
 2018-12-01 SRIKB_ km_blixtschack_2018.php
 2018-12-01 SPLDL_ lag_speldatum_ht2018.ulenkar.php
 2018-12-27 SRISL_ Rilton_Cup_2019.php
-
 2019-01-01 JM_K__ Treningsgrupper.VT2019.php
 2019-01-01 JP_K__ Prog.juniorer.vt2019.php
 2019-01-12 JRIDSK Tjejtreffen_2019.php
@@ -379,10 +378,8 @@
 2019-05-18 JRIDS_ JDMsnabb_klassDE_2019.php
 2019-07-01 JP_K__ Prog.juniorer.ht2019.php
 2019-12-01 SPLDL_ lag_speldatum_ht2019-vt2020.ulenkar.php
-
 2021-01-01 _I____ 2021_inbjudningar.php
 2021-07-01 SPLDL_ lag_speldatum_ht2021-vt2022.ulenkar.php
-
 2022-01-01 _I____ VT-2022_inbjudningar.php
 2022-01-01 SP_KL_ Prog.seniorer.vt2022.php
 2022-03-10 SRIDS_ SnabbschacksGP_VT2022.php
