@@ -27,7 +27,10 @@
 				const katalog = arr[0]
 				const subdir = arr.length==3 ? arr[1] + '/' : ""
 				const filnamn = _.last(arr)
-				const href = katalog == 'php' ? "https://wasask.se/" + subdir + filnamn : "/post/" + key
+				const href = {
+					'php': "https://wasask.se/" + subdir + filnamn,
+					'md': "/post/" + key,
+					'blog': key.replace('blog/', 'https://www.wasask.se/aaawasa/wordpress/wp-content/') }[katalog]
 				const {date,attr,size} = post[0]
 				const hash = {key, href, katalog, filnamn, hitWords, date, attr, size}
 				posts.push([letters.length, letters.join(""), hash])

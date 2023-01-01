@@ -6,6 +6,7 @@ from urllib.parse import unquote
 import re
 from urllib import request
 import html2text
+import requests
 
 UPDATE = True
 
@@ -13,7 +14,7 @@ datum = re.compile(r'(\d\d\d\d-\d\d-\d\d)$')
 
 allWords = set()
 
-freq = {}
+# freq = {}
 letters = {}
 
 stats = {
@@ -23,6 +24,8 @@ stats = {
 	'mdBytes': 0,
 	'phpPosts':0,
 	'phpBytes':0,
+	'blogPosts':0,
+	'blogBytes':0,
 	'uniqWords':0,
 	'wordBytes':0,
 	'files': 0,
@@ -121,6 +124,7 @@ def extraWord(word):
 # Tillåter inte siffror, förutom i datum
 def extractWords(s):
 	global allWords
+
 	s = unquote(s).lower()
 
 	for ch in "`'&<>()[]{}+*/|:;!?,._#$@%=\t\n\r" + '"”½’…´·‘“—šó¨' :
@@ -136,7 +140,7 @@ def extractWords(s):
 		temp += extraWord(word)
 	words = temp
 
-	words = [word for word in words if word!='' and " " + word + " " not in STOPWORDS]
+	# words = [word for word in words if word!='' and " " + word + " " not in STOPWORDS]
 	words = [word for word in words if accepted(word)]
 
 	allWords = allWords.union(words)
@@ -151,13 +155,14 @@ def extractWords(s):
 			hash[word] = 1
 	words = next
 
-	for word in words:
-		if word not in freq: freq[word] = 0
-		freq[word] += 1
+	# for word in words:
+	# 	if word not in freq: freq[word] = 0
+	# 	freq[word] += 1
 
-	words = ' '.join(words)
+	words.sort()
+	words = " ".join(words)
 
-	words = words.replace('type text css ','').replace('link rel stylesheet ','').replace('strong ','')
+	# words = words.replace('type text css ','').replace('link rel stylesheet ','').replace('strong ','')
 	stats['wordBytes'] += len(words)
 	for ch in words:
 		letters[ch] = 1
@@ -240,6 +245,10 @@ def fetch(key): return list(map(lambda word: word[0], dimensions[key].split(' ')
 
 def processPHP():
 
+	h = html2text.HTML2Text()
+	h.ignore_links = True
+	h.ignore_images = True
+
 	letters = {}
 	letters["ålder"] = fetch('ålder')
 	letters["typ"]   = fetch('typ')
@@ -278,15 +287,122 @@ def processPHP():
 			if sex != '_'   and sex   not in letters['kön']:   print('missing sex',sex,filename)
 
 			path = 'php/' + filename
+			if filename == 'test.php':
+				z=99
 			with open(path, 'r', encoding='utf-8') as g:
 				s = g.read()
 
-				text = html2text.html2text(s)
+				text = h.handle(s)
 
 				words = extractWords(filename + ' ' + date+ ' ' + text)
 				posts.append([{'date':date,'attr':attr,'size':len(s)}, path, words])
 				stats['phpPosts'] += 1
 				stats['phpBytes'] += len(s)
+
+urls = []
+def extractURL(buffer):
+	prefix = "https://www.wasask.se/aaawasa/wordpress/wp-content"
+	starter = '<h2 class="entry-title" itemprop="headline"><a href="'
+	ender = '" rel="bookmark">'
+	url = ""
+	for line in buffer:
+		if starter in line:
+			p = line.index(starter)+len(starter)
+			q = line.index(ender)
+			url = line[p:q-1]
+			# if "https://www.wasask.se/aaawasa/wordpress/wp-content" in url:
+			# 	urls.append(url)
+		if 'datetime' in line and url != "":
+			p = line.index('datetime')
+			date = line[p+10:p+29].replace('T',' ')
+			if prefix in url:
+				urls.append(date + " ______ " + url)
+			url = ''
+
+def getWasaBlog_1():
+	### Reads 24 pages in Wasa blog and writes 24 files
+	url = "https://www.wasask.se/aaawasa/wordpress/page/"
+	for i in range(1,24):
+		print(i)
+		req = requests.get(url=url+str(i))
+		with open('wasa/' + str(i) + ".txt", 'w', encoding='utf-8') as g:
+			g.write(req.text)
+
+def getWasaBlog_2():
+	### Reads 24 files and extract all relevant URL:S to ONE file, wasa.txt witd date, time, attr and full url
+	url = "https://www.wasask.se/aaawasa/wordpress/page/"
+	for i in range(1,24):
+		with open('wasa/' + str(i) + ".txt", 'r', encoding='utf-8') as g:
+			s = g.read()
+			arr = s.split('\n')
+			buffer = []
+			state = 0
+			for line in arr:
+				if '<article' in line:
+					state = 1
+				if state == 1:
+					buffer.append(line)
+				if '</article' in line:
+					state = 2
+				if state == 2:
+					#print(buffer)
+					extractURL(buffer)
+					state = 0
+					buffer = []
+	urls.sort()
+	urls.reverse()
+	with open('wasa.txt', 'w', encoding='utf-8') as h:
+		h.write("\n".join(urls))
+
+	print(len(urls))
+
+def getWasaBlog_3():
+	### reads 223 urls, fetches their content and saves full html content in wasa/files
+	with open('wasa.txt', 'r', encoding='utf-8') as g:
+		s = g.read()
+		files = s.split('\n')
+		for file in files:
+			[date,time,attr,url] = file.split(' ')
+			req = requests.get(url=url)
+			p = file.rindex('/')
+			filename = "wasa/files/" + file[p+1:] + '.html'
+			print(filename)
+			with open(filename, 'w', encoding='utf-8') as f:
+				f.write(req.text)
+
+def getWasaBlog_4():
+	### read 223 html files, extract text and words, store in json file together with markdown files
+	prefix = 'https://www.wasask.se/aaawasa/wordpress/wp-content/'
+
+	h = html2text.HTML2Text()
+	h.ignore_links = True
+	h.ignore_images = True
+
+	with open('wasa.txt', 'r', encoding='utf-8') as g:
+		s = g.read()
+		files = s.split('\n')
+		for file in files:
+			[date,time,attr,url] = file.split(' ')
+			year = date[0:4]
+			month = date[5:7]
+			[age, typ, team, level, time, sex] = attr
+			makeStats(year, month, age, typ, team, level, time, sex)
+
+			p = file.rindex('/')
+			filename = "wasa/files/" + file[p+1:] + '.html'
+			with open(filename, 'r', encoding='utf-8') as f:
+				html = f.read()
+			size = len(html)
+			text = h.handle(html)
+			words = extractWords(date + ' ' + text)
+			filename = filename.replace('/files/','/words/').replace('.html','.txt')
+			print(filename)
+
+			# with open(filename, 'w', encoding='utf-8') as f:
+			# 	f.write(words)
+			posts.append([{'date': date, 'attr': attr, 'size': size}, url.replace(prefix,'blog/'), words])
+			stats['blogPosts'] += 1
+			stats['blogBytes'] += size
 
 def readPhpFiles():
 	with open('php.txt', 'r', encoding="utf-8") as f:
@@ -316,6 +432,13 @@ def readDimensions():
 	with open('src/lib/data/dimensions.json', 'r', encoding="utf-8") as f:
 		return json.load(f)
 
+start = time.time()
+posts = []
+
+# getWasaBlog_1()
+# getWasaBlog_2()
+# getWasaBlog_3()
+getWasaBlog_4()
 
 # def invertDimensions(dimensions):
 # 	res = {}
@@ -330,10 +453,6 @@ dimensions = readDimensions()
 #with open('stoppord.txt', 'r', encoding="utf-8") as f:
 #	STOPWORDS = ' '+ f.read().replace("\n"," ")
 STOPWORDS = ""
-
-start = time.time()
-
-posts = []
 
 #readPhpFiles() # OBS! Kör över manuella ändringar!
 

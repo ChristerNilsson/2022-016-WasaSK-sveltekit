@@ -1,10 +1,13 @@
 .DS_Store
 node_modules
+images
+files
 /build
 /.svelte-kit
 /package
 /php
 .php
+.idea
 .env
 .env.*
 !.env.example

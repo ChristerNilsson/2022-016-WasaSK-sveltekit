@@ -75,14 +75,14 @@
 <div class="menu">
 	<img class="logo" src="/images/WASA_SK_LOGO_v2.png" title="Wasa SK" alt="" on:click={home} on:keydown={noop}>
 	<!-- '_ Junior Senior' -->
-	<Selector label='ålder' chars=1 bind:result={$a} values={$dimensions.ålder} />
-	<Selector label='typ'   chars=1 bind:result={$b} values={$dimensions.typ} />
-	<Selector label='lag'   chars=1 bind:result={$c} values={$dimensions.lag} />
-	<Selector label='nivå'  chars=1 bind:result={$d} values={$dimensions.nivå} />
-	<Selector label='tid'   chars=1 bind:result={$e} values={$dimensions.tid} />
-	<Selector label='kön'   chars=1 bind:result={$f} values={$dimensions.kön} />
-	<Selector label='år'    chars=4 bind:result={$g} values={$dimensions.år} />
-	<Selector label='ext'   chars=1 bind:result={$h} values={$dimensions.ext} />
+	<Selector label='ålder'   chars=1 bind:result={$a} values={$dimensions.ålder} />
+	<Selector label='typ'     chars=1 bind:result={$b} values={$dimensions.typ} />
+	<Selector label='lag'     chars=1 bind:result={$c} values={$dimensions.lag} />
+	<Selector label='nivå'    chars=1 bind:result={$d} values={$dimensions.nivå} />
+	<Selector label='tid'     chars=1 bind:result={$e} values={$dimensions.tid} />
+	<Selector label='kön'     chars=1 bind:result={$f} values={$dimensions.kön} />
+	<Selector label='år'      chars=4 bind:result={$g} values={$dimensions.år} />
+	<Selector label='posttyp' chars=1 bind:result={$h} values={$dimensions.posttyp} />
 
 	<NavigationVertical {keys} {push} {WIDTH} />
 </div>

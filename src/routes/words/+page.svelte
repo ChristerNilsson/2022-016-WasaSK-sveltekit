@@ -8,7 +8,7 @@
 
 </script>
 	
-	<h1>Unika ord</h1>
+	<h1>Unika datum och ord</h1>
 	{#each words as word}
 		<a href={`/query/${word}`}>{word}</a> •&nbsp;
 	{/each}
