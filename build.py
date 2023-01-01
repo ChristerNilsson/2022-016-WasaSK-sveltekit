@@ -12,9 +12,6 @@ UPDATE = True
 
 datum = re.compile(r'(\d\d\d\d-\d\d-\d\d)$')
 
-allWords = set()
-
-# freq = {}
 letters = {}
 
 stats = {
@@ -27,7 +24,9 @@ stats = {
 	'blogPosts':0,
 	'blogBytes':0,
 	'uniqWords':0,
-	'wordBytes':0,
+	'uniqBytes':0,
+	'totalWords':0,
+	'totalBytes':0,
 	'files': 0,
 
 	'ålder': {'Junior':0,'Senior':0,'_':0,},
@@ -120,10 +119,8 @@ def extraWord(word):
 	else:
 		return word.split('-')
 
-# Behåller ordningen, men tar bort senare förekomster.
 # Tillåter inte siffror, förutom i datum
 def extractWords(s):
-	global allWords
 
 	s = unquote(s).lower()
 
@@ -140,30 +137,12 @@ def extractWords(s):
 		temp += extraWord(word)
 	words = temp
 
-	# words = [word for word in words if word!='' and " " + word + " " not in STOPWORDS]
+	words = [word for word in words if word!='' and " " + word + " " not in STOPWORDS]
 	words = [word for word in words if accepted(word)]
-
-	allWords = allWords.union(words)
-	stats['uniqWords'] += len(words)
-
-	# Skippa ord andra gången de förekommer
-	hash = {}
-	next = []
-	for word in words:
-		if word not in hash:
-			next.append(word)
-			hash[word] = 1
-	words = next
-
-	# for word in words:
-	# 	if word not in freq: freq[word] = 0
-	# 	freq[word] += 1
-
+	words = list(set(words))
 	words.sort()
 	words = " ".join(words)
 
-	# words = words.replace('type text css ','').replace('link rel stylesheet ','').replace('strong ','')
-	stats['wordBytes'] += len(words)
 	for ch in words:
 		letters[ch] = 1
 	return words
@@ -217,6 +196,7 @@ def getAttr(keys,s):
 	return {}
 
 def processMD(filenames):
+
 	for filename in filenames:
 		path = filename
 		with open(path, 'r', encoding='utf-8') as f:
@@ -236,7 +216,9 @@ def processMD(filenames):
 		time = attr[4]
 		sex = attr[5]
 		makeStats(year,month,age,typ,team,level,time,sex)
+
 		words = extractWords(filename + ' ' + s)
+
 		posts.append([{'date':date,'attr':attr,'size':len(s)}, filename.replace('src/',''), words])
 		stats['mdPosts'] += 1
 		stats['mdBytes'] += len(s)
@@ -270,7 +252,6 @@ def processPHP():
 			[age,typ,team,level,time,sex] = attr
 			year = date[0:4]
 			month = date[5:7]
-			# print(filename)
 			makeStats(year,month,age,typ,team,level,time,sex)
 
 			key = row[1]
@@ -310,8 +291,6 @@ def extractURL(buffer):
 			p = line.index(starter)+len(starter)
 			q = line.index(ender)
 			url = line[p:q-1]
-			# if "https://www.wasask.se/aaawasa/wordpress/wp-content" in url:
-			# 	urls.append(url)
 		if 'datetime' in line and url != "":
 			p = line.index('datetime')
 			date = line[p+10:p+29].replace('T',' ')
@@ -427,12 +406,15 @@ def readPhpFiles():
 			with open('php/' + filename, 'w', encoding='utf-8') as g:
 				g.write(t)
 
-
 def readDimensions():
 	with open('src/lib/data/dimensions.json', 'r', encoding="utf-8") as f:
 		return json.load(f)
 
 start = time.time()
+
+with open('stoppord.txt', 'r', encoding="utf-8") as f:
+	STOPWORDS = ' ' + f.read().replace("\n", " ")
+
 posts = []
 
 # getWasaBlog_1()
@@ -440,19 +422,23 @@ posts = []
 # getWasaBlog_3()
 getWasaBlog_4()
 
-# def invertDimensions(dimensions):
-# 	res = {}
-# 	for key in dimensions:
-# 		for key2 in dimensions[key].split(' '):
-# 			res[key2] = key
-# 	return res
+def calcStats(stats):
+	uniqWords = set()
+	totalWords = 0
+	totalBytes = 0
+	for post in posts:
+		words = post[2]
+		totalBytes += len(words)
+		arr = words.split(' ')
+		totalWords += len(arr)
+		uniqWords = uniqWords.union(arr)
+	s = ' '.join(uniqWords)
+	stats['uniqWords'] = len(uniqWords)
+	stats['uniqBytes'] = len(s)
+	stats['totalWords'] = totalWords
+	stats['totalBytes'] = totalBytes
 
 dimensions = readDimensions()
-# invDim = invertDimensions(dimensions)
-
-#with open('stoppord.txt', 'r', encoding="utf-8") as f:
-#	STOPWORDS = ' '+ f.read().replace("\n"," ")
-STOPWORDS = ""
 
 #readPhpFiles() # OBS! Kör över manuella ändringar!
 
@@ -468,7 +454,8 @@ menu = readMenuTree()
 
 stats['files'] = len(files_files)
 #stats['mdPosts'] = len(files_md)
-stats['uniqWords'] = len(allWords)
+
+calcStats(stats)
 
 posts = sorted(posts, key=lambda item: item[0]['date'])
 posts.reverse()
@@ -484,10 +471,3 @@ with open("src/lib/data/site.json", "w", encoding="utf8") as f:
 
 print('Körtid:',round(time.time()-start,3),'s')
 print(stats)
-# print(letters)
-
-# arr = []
-# for word in freq:
-# 	arr.append([freq[word],word])
-# arr.sort()
-# print(arr)
