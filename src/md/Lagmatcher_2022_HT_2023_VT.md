@@ -63,5 +63,5 @@ Stockholmsserien:
 [Tävlingsbestämmelser]({W}/Tavlingsbestammelser_Lag_DM_2022_2023.pdf)
 
 <script>
-  import TABLE from "$lib/TABLE.svelte"
+  import TABLE from "$lib/components/TABLE.svelte"
 </script>

@@ -3,6 +3,7 @@
 	import Selector from '$lib/components/SELECTOR.svelte'
 	import NavigationVertical from "$lib/components/NavigationVertical.svelte"
 	import { browser } from "$app/environment"
+	import { log } from '$lib/utils.js'
 	import { site,dimensions,query,innerwidth,a,b,c,d,e,f,g,h } from '$lib/stores.js'
 	import { goto } from '$app/navigation'
 	import './styles.css'
@@ -37,14 +38,19 @@
 		} else {
 			const url = _.last(path)[key]
 			if (_.startsWith(url,'http')) {
+				log('A',url)
 				window.open(url)
 			} else if (_.startsWith(url,'/')) {
+				log('B',url)
 				goto(url)
 			} else if (_.endsWith(url,'.md')) {
+				log('C',url)
 				goto('/post/' + url)
 			} else if (_.endsWith(url,'.html')) {
+				log('D',url)
 				goto('/post/' + url)
 			} else if (_.startsWith(url,'files')) { 
+				log('E',url)
 				window.open('../src/lib/' + url)
 			}
 		}

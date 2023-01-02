@@ -8,7 +8,7 @@ export async function load({ params }){
 
 		const name = params.slug.replace('.md','')
 		const splitName = name.split('/')
-		console.log('common', splitName)
+		console.log('Fetching Markdown', splitName)
 
 		// https://github.com/vitejs/vite/issues/4945#issuecomment-951770052 Troligen orsakad av kodanalys
 		if (splitName.length === 1) post = await import(`../../../../src/${splitName[0]}.md`)

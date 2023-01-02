@@ -73,7 +73,7 @@ januari:
 <TABLE data={februari} {macros} ></TABLE>
 
 <script>
-  import TABLE from "$lib/TABLE.svelte"
+  import TABLE from "$lib/components/TABLE.svelte"
 </script>
 ```
 

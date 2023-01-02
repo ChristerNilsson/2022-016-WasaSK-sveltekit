@@ -299,7 +299,6 @@ def extractURL(buffer):
 			url = ''
 
 def getWasaBlog_1():
-	### Reads 24 pages in Wasa blog and writes 24 files
 	url = "https://www.wasask.se/aaawasa/wordpress/page/"
 	for i in range(1,24):
 		print(i)
@@ -308,7 +307,6 @@ def getWasaBlog_1():
 			g.write(req.text)
 
 def getWasaBlog_2():
-	### Reads 24 files and extract all relevant URL:S to ONE file, wasa.txt witd date, time, attr and full url
 	url = "https://www.wasask.se/aaawasa/wordpress/page/"
 	for i in range(1,24):
 		with open('wasa/' + str(i) + ".txt", 'r', encoding='utf-8') as g:
@@ -336,7 +334,6 @@ def getWasaBlog_2():
 	print(len(urls))
 
 def getWasaBlog_3():
-	### reads 223 urls, fetches their content and saves full html content in wasa/files
 	with open('wasa.txt', 'r', encoding='utf-8') as g:
 		s = g.read()
 		files = s.split('\n')
@@ -350,7 +347,6 @@ def getWasaBlog_3():
 				f.write(req.text)
 
 def getWasaBlog_4():
-	### read 223 html files, extract text and words, store in json file together with markdown files
 	prefix = 'https://www.wasask.se/aaawasa/wordpress/wp-content/'
 
 	h = html2text.HTML2Text()
@@ -417,10 +413,11 @@ with open('stoppord.txt', 'r', encoding="utf-8") as f:
 
 posts = []
 
-# getWasaBlog_1()
-# getWasaBlog_2()
-# getWasaBlog_3()
-getWasaBlog_4()
+# getWasaBlog_1() # Reads 24 pages in Wasa blog and writes 24 files to wasa directory
+# getWasaBlog_2() # Reads 24 files and extract all relevant URL:S => wasa.txt with date, time, attr and full url
+# getWasaBlog_3() # reads 223 urls, fetches their content and saves full html content in wasa/files
+getWasaBlog_4() # read 223 html files, extract text and words, store in json file together with markdown files
+
 
 def calcStats(stats):
 	uniqWords = set()

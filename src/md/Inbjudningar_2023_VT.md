@@ -87,5 +87,5 @@ Klicka på tävlingens namn för att se Inbjudan.
 <TABLE data={maj} {macros} ></TABLE>
 
 <script>
- import TABLE from "$lib/TABLE.svelte"
+ import TABLE from "$lib/components/TABLE.svelte"
 </script>
